@@ -1,0 +1,121 @@
+20221226
+
+CTH98 
+테이블
+
+<MEMBER> 회원테이블
+_ID : 회원번호 기본키
+_PASS : 패스워드
+_NAME : 이름
+_REGNO1 : 주민등록번호 앞자리 6자리 CHAR(고정길이)
+_REGNO2 : 주민등록번호 뒷자리 성별 7자리 CHAR
+_BIR : 년월일
+_ZIP : 우편번호
+_ADD1 : 기본주소
+_ADD2 : 상세주소
+_HOMETEL : 집번호
+_COMTEL : 회사번호
+_HP : 휴대폰번호
+_MAIL : 메일
+_JOB : 직업
+_LIKE : 취미
+_MEMORIAL : 기념일 종류
+_MEMORIALDAY : 기념일
+_MILEAGE : 마일리지 o
+_DELETE : Y/N 회원활동상태
+
+<BUYPROD (매입 테이블)>
+BUY_DATE : 매입날짜
+BUY_PROD : 매입상품코드 PROD_ID
+BUY_QTY : 매입수량
+BUY_COST : 매입단가 PROD_COST 중복
+매입가격 : 수량 * 단가
+
+<CART> 매출,판매,테이블, 장바구니
+CART_MEMBER : 구매회원번호
+CART_NO : 장바구니 번호 (8자리 날짜 +  5자리 순번(로그인한 순서)) 기본키
+CART_PROD :  매출상품코드 {외래키(PROD_ID) 기본키}
+CART_QTY : 매출수량
+단가 X  - PROD 테이블에 있음. -> JOIN 해야함.
+조인 외래키 관계를 맺고있어야 조인
+
+<PROD> 상품테이블
+_ID :  상품코드 o
+_NAME : 상품명 o
+_LGU : 분류코드 o
+_BUYER : 거래처코드 o
+_COST : 매입단가 o
+_PRICE : 매출, 판매단가 (%로 정하는 경우 多) o
+_SALE : 할인판매단가 (할인율)
+_OUTLINE : 상품의 정보
+_DETAIL : 상품의 자세한 정보
+_IMG : 상품 이미지
+_TOTALSTOCK : 전체 재고량 
+_INSDATE : 
+_PROPERSTOCK : 적정 재고량 o
+_SIZE : 사이즈
+_COLOR : 색상
+_DELIVERY : 배송
+_UNIT : 묶음
+_QTYIN : 입고 되어지는 수량
+_QTYSALE : 판매 되어지는 수량
+_MILEAGE : 상품별 마일리지
+
+<LPROD> (분류 테이블 가장 상위에 있음)
+LPROD_ID : 
+LPROD_GU : 분류코드
+LPROD_NM : 분류명
+
+LPROD_GU 기본키
+외래키를 쓸 때는 부모테이블에 사용되어진 그대로 써라 바꾸지 말고
+
+<BUYER> 거래처
+BUYER_ID : 거래처 코드 ㅇ
+BUYER_NAME : 거래처명 ㅇ 
+BUYER_LGU : 분류코드 (LPROD_GU 참조하는 외래키) ㅇ
+BUYER_BANK : 은행
+BUYER_BANKNO : 계좌번호
+BUYER_BANKNAME : 예금주
+BUYER_ZIP : 우편번호
+BUYER_ADD1 : 기본주소
+BUYER_ADD2 : 상세주소
+BUYER_COMTEL : 회사전화번호
+BUYER_FAX : 팩스
+BUYER_MAIL : 메일
+BUYER_CHARGER : 담당자
+BUYER_TELEXT
+
+
+HR계정
+EMPLOYEES 사원번호, 사원명, 부서 코드, 직무코드
+DEPARTMENT 부서명
+LOCATIONS 주소 부서 아이디 부서 이름 위치코드
+JOBS 
+
+REMAIN테이블 (부모 : PROD)
+REMAIN_YEAR : 기본키(PK)
+PROD_ID : 기본키 & 외래키
+REMAIN_J_00   -- 기초 재고
+REMAIN_I -- 입고
+REMAIN_O  -- 출고
+REMAIN_J_99  -- 현재고 (입고 + 재고 - 출고)
+REMAIN_DATE  -- 데이터 변동이 되어진 날짜
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
