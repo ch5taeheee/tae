@@ -1,0 +1,12 @@
+package chapter08;
+
+public class StudentExample {
+	public static void main(String[] args) {
+		StudentExample[] students = new StudentExample[16];
+		students[0] = new Student("조태희", 98);
+		
+		for(Student student : students) {
+			System.out.println(student);
+		}
+	}
+}

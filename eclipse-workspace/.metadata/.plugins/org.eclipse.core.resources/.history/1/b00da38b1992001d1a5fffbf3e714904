@@ -1,0 +1,8 @@
+package chapter08;
+
+public class StudentExample {
+	public static void main(String[] args) {
+		StudentExample[] students = new StudentExample[16];
+		students[0] = new StudentExample("조태희", 98);
+	}
+}

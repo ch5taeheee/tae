@@ -1,0 +1,14 @@
+package chapter07_;
+
+public class SavingsAccount extends BankAccount {
+	private double interstRate;
+
+	public SavingsAccount(int balance, double interstRate) {
+		super(balance);
+		this.interstRate = interstRate; // 이자율
+	}
+
+	public void updateBalance(int period) {
+		balance = balance * interstRate * period + balance;
+	}
+}

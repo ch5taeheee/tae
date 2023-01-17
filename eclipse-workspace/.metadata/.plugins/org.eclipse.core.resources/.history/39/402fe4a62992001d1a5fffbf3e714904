@@ -1,0 +1,24 @@
+package chapter08_;
+
+import chapter08.Student;
+
+public abstract class Shape implements Comparable<Student> {
+	public double area;
+	public double perimeter;
+
+	public Shape(double area, double perimeter) {
+		this.area = area;
+		this.perimeter = perimeter;
+
+	}
+
+	public abstract double area();
+
+	public abstract double perimeter();
+
+	@Override
+	public int compareTo(Shape o) {
+		Shape o =(shape)o;
+		return ;
+	}
+}
