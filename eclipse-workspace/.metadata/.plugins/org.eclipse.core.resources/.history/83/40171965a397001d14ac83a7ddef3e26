@@ -1,0 +1,13 @@
+package chapter11;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
+public class dddd {
+
+	@Override
+	public String toString() {
+		ToStringBuilder builder = new ToStringBuilder(this);
+		return builder.toString();
+	}
+
+}

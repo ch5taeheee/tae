@@ -1,8 +1,0 @@
-package chapter08_;
-
-public class Snippet {
-	public static void main(String[] args) {
-		Arrays.sort(students);
-	}
-}
-

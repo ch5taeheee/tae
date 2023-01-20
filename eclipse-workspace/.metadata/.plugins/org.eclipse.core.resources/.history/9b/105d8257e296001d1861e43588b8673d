@@ -1,0 +1,29 @@
+package chapter11;
+
+import java.util.Objects;
+
+public class Key11 {
+	public int number;
+
+	public Key11(int number) {
+		this.number = number;
+	}
+
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(number);
+//	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof Key11)) {
+			return false;
+		}
+		Key11 other = (Key11) obj;
+		return number == other.number;
+	}
+
+}

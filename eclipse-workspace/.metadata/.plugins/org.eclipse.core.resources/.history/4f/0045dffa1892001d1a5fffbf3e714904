@@ -1,8 +1,0 @@
-package chapter08;
-
-public class Student {
-	public static void main(String[] args) {
-		Student[] students = new Student[16];
-		students[0] = new Student("조태희", 98);
-	}
-}
