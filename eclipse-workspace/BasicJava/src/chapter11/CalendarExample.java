@@ -1,0 +1,18 @@
+package chapter11;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+
+public class CalendarExample {
+	public static void main(String[] args) {
+		System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY년 MM월 dd일")));
+		System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("E요일 a")));
+		System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH시 mm분 ss초")));
+		
+		Calendar instance = Calendar.getInstance();
+		int year= instance.get(Calendar.YEAR);
+		
+		
+	}
+}

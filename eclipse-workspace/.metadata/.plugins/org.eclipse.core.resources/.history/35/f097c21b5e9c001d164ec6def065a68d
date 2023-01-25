@@ -1,0 +1,10 @@
+package chapter11;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class CalendarExample {
+public static void main(String[] args) {
+	System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY년 MM월 dd일")));
+}
+}

@@ -1,0 +1,15 @@
+package chapter11;
+
+public class Member01 {
+	private String id;
+	private String name;
+	
+	public Member01(String id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	@Override
+	public String toString() {
+		return id + " : " + name;
+	}
+}

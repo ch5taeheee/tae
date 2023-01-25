@@ -1,9 +1,0 @@
-package chapter11;
-
-public class Key1 {
-	
-	@Override
-	public int hashCode() {
-		return number;
-	}
-}

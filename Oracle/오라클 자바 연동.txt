@@ -1,0 +1,87 @@
+오라클과 자바를 연동하는 방법
+
+1. 드라이버 로드
+   드라이버 파일 => 오라클 설치 폴더(ojdbc6.jar)
+
+2. DB연결
+  1) 드라이브 클래스를 로딩하여 객체생성
+      Class.forName("driver")
+      driver = "oracle.jdbc.driver.OracleDriver"
+
+  2) connection 객체 생성
+      드라이버 매니져 클래스의 getConnect()을 이용하여 생성
+      DriberManager.getConnection(url, id, password); -> 매개변수가 3개 있어야 함.
+      url = "jdbc:oracle:thin:@localhost:1521:xe" ->url은 문자열로 고정되어 있음. 나중에 localhost 변경 가능
+      id = "CTH98"
+      pw = "java"
+
+3. 명령어 객체 생성
+   Statement, PreparedStatement, CallableStatement 를 query를 정의하여 생성
+
+4. 결과 객체 생성
+   ResultSet 객체 사용
+
+--------------------------------------------------------------------
+package dbtest01;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Example01 {
+	public static void main(String[] args) {
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+//		PreparedStatement pstmt = null;
+
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String id = "CTH98";
+		String pw = "java";
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+
+			con = DriverManager.getConnection(url, id, pw);
+			String sql = "select * from lprod";
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				int lno = rs.getInt("lprod_id");
+				String lgu = rs.getString("lprod_gu");
+				String lname = rs.getString(3);
+
+				System.out.println(lno + "\t" + lgu + "\t" + lname);
+
+			}
+		} catch (Exception e) {
+			System.out.println("DB접속실패");
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (con != null) {
+					con.close();
+				}
+			} catch (Exception e) {
+
+			}
+
+		}
+	}
+}
+
+
+
+
+
+

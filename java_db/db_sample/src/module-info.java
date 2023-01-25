@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+/**
+ * @author PC-15
+ *
+ */
+module db_sample {
+	requires java.sql;
+}
