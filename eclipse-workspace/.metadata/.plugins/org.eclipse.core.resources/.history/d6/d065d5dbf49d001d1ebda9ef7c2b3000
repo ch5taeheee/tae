@@ -1,0 +1,18 @@
+package chapter13;
+
+import java.util.List;
+import java.util.Map;
+
+public class Users {
+	public static void main(String[] args) {
+		// JSON(JavaScript Object Notation)
+		/*
+		 *  기호  : '{}','[]',':',','
+		 *  {} -> 객체
+		 *  [] -> 배열
+		 *  : -> Key와 Value를 구분하기 위한 기호
+		 *  , -> entry를 구분하기 위한 기호
+		 */
+		private List<Map<String, Object>> users;
+	}
+}

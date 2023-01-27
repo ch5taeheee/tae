@@ -1,0 +1,20 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import dto.MemberDTO;
+import util.DBConnect;
+
+public class MemberDAO {
+	public boolean insert(MemberDTO dto) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int flag = 0;
+		try { 
+			conn = DBConnect.getConnection(); 
+			String sql = "INSERT INTO MEMBER(mem_id, mem_name, mem_regno1, mem_regno2, mem_hp, mem_mail)"
+							+ "VALUES (?,?,?,?,?,?)";
+		}
+	}
+}

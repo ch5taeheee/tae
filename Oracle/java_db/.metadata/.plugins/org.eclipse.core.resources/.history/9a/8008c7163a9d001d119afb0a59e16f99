@@ -1,0 +1,13 @@
+package dto;
+
+public class MemberDTO {
+	private String mem_id;
+	private String mem_name;
+	private String mem_regno1;
+	private String mem_regno2;
+	private String mem_hp;
+	private String mem_mail; 
+	
+	
+
+}

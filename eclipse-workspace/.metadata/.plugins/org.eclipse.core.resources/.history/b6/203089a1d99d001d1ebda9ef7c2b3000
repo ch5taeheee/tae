@@ -1,0 +1,12 @@
+package chapter13;
+
+public class Member {
+	public static void main(String[] args) {
+		private String name;
+		private int age;
+		public Member(String name, int age) {
+			this.name = name;
+			this.age = age;
+		}
+	}
+}
