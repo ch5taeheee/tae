@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        /* 자식 요소 선택 - ('>')닫힘꺽쇠기호 활용 */
+        #parent>div {/* div 4개 p 1개 / 기준이 되는 선택자의 자식요소만 적용, 후손 적용 X*/
+            border: blue inset 3px;
+        }
+        /* 후손 요소 선택 - (' ')공백기호 활용*/
+        #parent div{/* 자기자식과 후손까지 */
+            border: pink dotted 1px;
+        }
+
+        /* 형제 요소 선택 - ('+, ~')기호 활용*/
+        /* + : 기준요소의 바로 다음 형제만을 찾음 */
+        /* ~ : 기준요소의 다음 모든 형제들 */
+        #seconds~div {
+            text-shadow: 4px 4px 4px gray;/* x축, y축, blur 상태 색상 */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ★들여쓰기★를 통해 상하 계층구조(부모자식간의 관계)를 한눈에 볼 수 있음 -->
+    <div id="parent">
+        <div id="first"> 자식1 </div>
+        <div id="seconds"> 자식2
+            <div> 후손1 </div>
+            <div> 후손2 </div>
+            <div> 후손3 </div>
+        </div>
+        <div>자식3</div>
+
+        <p>자식4</p>
+        
+        <div>자식5</div>
+    </div>
+</body>
+
+</html>

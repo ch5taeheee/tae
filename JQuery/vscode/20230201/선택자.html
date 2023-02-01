@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        #goblin {
+            font-weight: bold;
+            color: red; /* div 컬러랑 중복 , 바뀌게 된다. id는 우선순위가 가장 높기 때문에 가장 우선순위로 적용 */
+        }
+        /* 요소(tag) 선택자 */
+        div {
+            color: rgb(89, 18, 221); /* : 10진수 / 10진수, 16진수로 색 표현 가능 */
+            background-color: red;
+        }
+        /* id 선택자 */
+        #hong { /* 지정하지 않은 항목은 가지고 있는 색으로 표현? (border-color 없다면 오렌지로 표현)*/
+            color: orange;
+            /* border-style: double;
+            border-width: 5px;
+            border-color: red; */
+
+            border: 10px ridge plum; /* 축약으로 작성, 순서는 상관없음 */
+        }
+        /* class 선택자 */
+        .kes {
+            color: blue;
+            background-color: aqua;
+        }
+        /* 전체 선택자 */
+        * {
+            border: 1px solid hotpink;
+
+        }
+        /* 다중 선택자 */
+        div,p {
+            font-style: italic;
+            
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- id는 페이지 내 유일값으로, class는 중복 적용 가능 -->
+    <div class="kes">더 글로리</div>
+    <div class="kes">미스터 선샤인</div>
+    <div id="goblin">도깨비</div>
+    <p id="hong">환혼</p> <!-- p는 앞 뒤로 공백 줄을 가지고 있어서 스타일 적용 X -->
+    <div class="kes">시크릿 가든</div>
+    <div class="kes">파리의 연인</div>
+
+
+</body>
+
+</html>

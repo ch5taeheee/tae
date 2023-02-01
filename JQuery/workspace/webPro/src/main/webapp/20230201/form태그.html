@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- <form>
+ 		서버로 값을 전송할 때 사용하는 태그
+ 		name 속성으로 값을 전달한다(ajax 사용시는 제외)
+ 		한 페이지 내에 여러번 작성해도 무방하나 <form> 태그 안에 <form> 태그는 넣지 않는다(자주하는 실수, 주의)
+ 		
+ 		action에 아무것도 지정되지 않을 경우 자기 자신의 페이지로 되돌아옴
+		실제 action 은 보통 서버 사이드 프로그래밍 페이지(=서버페이지)로 지정한다.		
+ 		
+ 		method는 데이터의 전송 방식을 정의한다.
+ 		form에서는 2가지 방식을 사용(get, post)
+ 		
+ 		GET
+ 			- 요청정보를 보낼 떄 길이제한이 있으며 브라우저마다 다르다
+ 			- 정보가 노출되는 형태 (url + ?queryString)이므로 보안을 위해 중요한 정보는 전송하지 않는다.
+ 			
+ 		POST
+ 			- 길이제한이 없고 용량이 큰 데이터를 보낼 떄 사용된다.
+ 			- 데이터가 외부로(주소표시줄에 표시되지 않음) 노출되지 않음으로 보안이 필요한 부분에 사용한다.
+ 			- HTTP 메시지의 BODY 부분에 담아 서버로 보내므로 상대적으로 (GET 방식보다는) 보안상 유리하다.
+ 			* 암호화 하지 않을 경우 body 부분에서 데이터를 확인할 수 있음..
+		
+		작성된 내용은 아주 중요하고 앞으로 필요한 내용이므로 반드시 숙지해야 함.
+			
+  -->
+	<!-- get 방법  -->
+
+	<!-- <form action="formTest.jsp" method="get">
+		이름 <input type="text" name="erum"> 별명 <input name="alias">
+		<input type="submit">
+	</form>  -->
+
+	<!-- post 방법 -->
+	<form action="formTest.jsp" method="POST">
+		이름 <input type="text" name="erum" value="둘리" readonly="readonly"> <!-- 둘리, 호이 기본값 지정 / readonly 값 변경x -->	
+		별명 <input name="alias" value="호이"> <br> 
+		<!-- 자체적인 전송기능을 가진 submit 버튼 -->
+		<input type="submit"><br> 
+		<input type="reset"><br>
+		<input type="button" onclick="f_send()" value = "나는 순수한 버튼">
+		<input type="image" src = "noImg.jpg"><br>
+		
+		
+	</form>
+	<!-- form안과 밖의 역할이 달라짐(form안에서는 submit의 역할을 함 / 밖에서는 순수한 버튼 -->
+		<button> button </button> 
+
+	<script>
+		function f_send() {
+			alert("잘 연결되니?");
+			//자바스크립트의 특징은 "한 놈만 패" - 정확한 요소를 선택하고 메소드나 속성을 지정해야 함.  
+			document.getElementsByTagName('form')[0].submit(); 
+		}
+	</script>
+</body>
+</html>

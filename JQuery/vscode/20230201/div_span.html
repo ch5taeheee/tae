@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../css/externalStyleSheet.css"> <!-- 상대경로 위치   --> <!-- 스타일은 우선순위가 인라인이 더 높지만 내부 외부로 작성해야 하는데 후순위로 하는 것이 우선순위가 더 높다.  -->
+    <style>
+        div { /* div는 여백을 자유롭게 활용 가능하다. */
+            border: 5px solid orange;
+            width: 50%;
+            padding: 10px; /* 안쪽여백 */
+            margin: 10px; /* 바깥쪽 여백 */
+        }
+        span { /* 여백 사용에 대해 자유롭지 못 함. 패딩은 자유롭게 활용 가능 (좌, 우), 바깥쪽은 안 됨.(위, 아래) ((display 있을 때는 가능))*/
+            border : 5px solid purple;
+            width: 500px; /* 인라인형태의 요소이기 때문에 사이즈의 적용을 받지 못 함. 적용하고 싶으면 디스플레이 속성을 바꿔라 */
+            /* display: inline-block;   */
+            padding: 10px;
+            margin: 10px;
+        }
+
+    </style>
+<!-- 블럭요소는 사이즈 조절이 가능하다 -->
+</head>
+<body>
+    <!-- 인라인 스타일 시트로 스타일 작성 -->
+    <div style="border: 3px solid blue;"> <!-- 한 줄 꽉 채워서 100%너비를 가짐 -->
+        div 요소는 순수한 컨테이너로 보통 활용되며 특별한 기능은 없다 <br>
+        대신 다른 <span>요소들을 묶어 그룹화</span>시킨 후 class나 id 속성으로 접근하여 꾸미기를 돕는 역할을 함
+    </div>
+
+    <!-- 내부 스타일 시트로 스타일 적용하기 -->
+    <div>
+        span 요소도 마찬가지로 특별한 기능은 없으면 주로 요소의 일부분을 꾸미는 역할을 함
+    </div>
+
+    <!-- 외부 스타일 시트로 스타일 적용하기 --> <!-- 파일 하나 만들어서 , .css파일 -->
+    <div id = "d3">
+        냉무
+    </div>
+</body>
+</html>

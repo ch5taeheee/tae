@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- 브라우저마다 지원되는 파일형식이 다르기 때문에 여러 소스파일을 등록해야 함. -->
+    <audio src="../multi/Notre dame de Paris.ogg" controls></audio>
+
+    <audio controls> <!-- 댜양한 확장자 적용 가능 -->
+        <source src="../multi/임윤찬_리스트_초절기교.ogg">
+        <source src="../multi/임윤찬_리스트_초절기교.mp3">
+        <source src="../multi/임윤찬_리스트_초절기교.wav">
+    </audio>
+
+    <!-- 오토플레이(자동재생)는 뮤트기능까지 포함해야 적용할 수 있다. -->
+    <!-- 자동재생 설정 시 muted도 함께 적용해야 함. -->
+    <!-- 자막이 1개 이상일 떄 디폴트 값 정의 가능 -->
+
+    <video src="../multi/브레드이발소.mp4" controls></video>
+    <video controls autoplay muted>
+        <source src="../multi/브레드이발소.mp4">
+        <source src="../multi/브레드이발소.ogv">
+        <source src="../multi/브레드이발소.mkg">
+        <track src="../multi/sample-ko.vtt" kind="subtitles" srclang="ko" label="한국어" default />
+        <track src="../multi/sampleNO-ko.vtt" kind="subtitles" srclang="ko" label="영어" /> 
+    </video>
+
+
+
+</body>
+
+</html>

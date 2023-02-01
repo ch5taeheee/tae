@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        a:link {
+            color: lime; /* 링크 색상 변경됨.  */
+        }
+        a:visited {
+            color: lightpink; /* 링크 선택 후의 색상 */
+        }
+        a:hover {
+            color: red;
+        }
+        a:active {
+            color: black; /* 누르고 있는 상태 */
+        }
+        tr:first-child { 
+            background-color: black;
+        }
+        
+        tr:last-child{
+            background-color: pink;
+        }
+        tr:nth-child(2) { /* child관련 index는 1부터 시작 / even : 짝수 / odd : 홀수*/
+            background-color: lightseagreen;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <!-- 가상클래스 - pseudo class : 상태 또는 구조에 의한 선택 방법을 제공 -->
+    <table border="">
+        <tr>
+            <td><a href="https://www.w3schools.com/css/css_pseudo_classes.asp">w3chools.com</a></td>
+        </tr>
+        <tr>
+            <td>냉무</td>
+        </tr>
+        <tr>
+            <td>냉무</td>
+        </tr>
+        <tr>
+            <td>냉무</td>
+        </tr>
+        <tr>
+            <td>냉무</td>
+        </tr>
+
+    </table>
+
+
+
+</body>
+
+</html>
