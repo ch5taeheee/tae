@@ -8,7 +8,7 @@ public class T01ArrayListTest {
 		
 	
 
-	// 기본 용량값  : 10;
+			// 기본 용량값  : 10;
 			List list1 = new ArrayList<>(); // new LinkedList<>();
 			
 			//add()를 이용해서 데이터를 추가한다.
@@ -29,7 +29,7 @@ public class T01ArrayListTest {
 			list1.add(0,"zzz");
 			System.out.println("list1 => " + list1);
 			
-			//데이터 변경하기
+			//데이터 변경하기 -> SET
 			String temp = (String) list1.set(0, "YYY");
 			System.out.println("temp => " + temp);
 			System.out.println("list1 => "+ list1);
@@ -72,7 +72,7 @@ public class T01ArrayListTest {
 			System.out.println("ZZZ의 index값 : " + list2.indexOf("ZZZ"));
 			System.out.println("----------------------------------");
 			
-			//ArrayList 삭제처리하기. // 거꾸로 삭제..
+			//ArrayList 삭제처리하기. // 거꾸로 삭제.. 거꾸로 지워라 / removeall, clear
 			for(int i =0; i<list2.size(); i++){
 				list2.remove(i);
 			}

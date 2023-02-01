@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    iframe {
+        width: 500px;
+        height: 450px;
+    }
+    </style>
+</head>
+<body>
+    <iframe width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/ETSPY08bkYk?autoplay=1&mute=1" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+    </iframe>
+
+    <hr>
+
+    <!-- autoplay=1 &mute=1 : 무음상태여야지만 동영상 자동 재생 //-->
+    
+    
+    <h3> 페이지 안에 페이지 넣기 - iframe </h3>
+
+    <iframe src="//naver.com" frameborder  ="0" title = "네이버화면표시"></iframe> <!-- 네이버 거부, 익스플로어 -->
+    <iframe src="//daum.net" frameborder  ="0" title = "다음화면표시"></iframe> <!-- 다음 가능 -->
+
+
+    <iframe src="Example.html"  name = "ifr" frameborder="1"></iframe> <br> <!-- 문서 연결 // border = 1 경계선 --> 
+
+    <a href = "//naver.com" >target : default(_self)</a> <br> <!-- 현재 창으로 -->
+    <a href="//google.com" target = "_blank" > target : _blank</a> <br> <!-- 새로운 창으로 -->
+
+    <!-- iframe의 name 속성을 target 영역으로 이용가능 -->
+    <a href="//ddit.or.kr" target = "ifr">대덕인재개발원</a> <!--   Example 창에서 대덕홈페이지 연결-->
+
+    
+
+
+
+    
+</body>
+</html>
