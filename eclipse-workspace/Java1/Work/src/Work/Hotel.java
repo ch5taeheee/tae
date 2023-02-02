@@ -1,4 +1,4 @@
-package work;
+package Work;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -48,7 +48,7 @@ public class Hotel {
 		System.out.println("이름 입력: ");
 		String name = Scanner.nextLine();
 	}
-}
+
 
 class hotelC {
 	private String name;

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 선택상자 또는 콤보박스 -->
+    <!-- 모바일에서는 multiple 속성을 사용해 확장시켜 다중선택이 가능한 구조로 많이 사용 (스크롤_) -->
+    <select  id="id_sel" multiple size = "4" onchange="f_select(this)"> 
+        <option value="0">선택</option>
+        <option value="DAEJEON">대전</option>
+        <option value="SEJONG">세종</option>
+        <option value="NEWYORK">뉴욕</option>
+        <option value="AFRICA">아프리카</option>
+    </select>
+
+    <script>
+        function f_select(p_arg) { // p_arg : this 가 담고 있는 요소의 정보를 담아냄
+           // 단일 선택 값 출력
+           // alert(id_sel.value); // 단일 선택한 값은 value속성 만을 이용해서 쉽게 접근
+           // alert(p_arg.value) ; // 'this' 키워드(예약어)를 통해 넘어온 데이터(대상요소)로 value 정보를 얻음
+        
+           // 다중 선택 값 출력
+           console.log(p_arg.options);
+            var v_opts = p_arg.options;
+            var v_place = [];
+            for(var i =0; i<v_opts.length; i++) {
+             //if문을 통해 검열하는 항목만 selectde로 바꿔서 작성하세요
+            if (v_opts[i].selected) {
+                v_place.push(v_opts[i].value);
+            }     
+            } alert("당신이 선택한 곳은 " + v_place + " 이군요");
+           
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <!-- name 속성 값을 동일하게 지정하여 그룹핑하고 하난의 값만 체크되도록 함-->
+        남자 <input type="radio" name="gender" value="male">
+        여자 <input type="radio" name="gender" value="female" checked> <!-- 기본값 : checked -->
+        <input type="button" value="선택" onclick="f_choice1()">
+    </div>
+
+    <script>
+        function f_choice1() {
+
+            var v_radios = document.getElementsByName("gender"); // 배열의 정보가 변수에 담김.
+            console.log(v_radios);
+
+            for (var i = 0; i < v_radios.length; i++) {
+                if (v_radios[i].checked) {
+                    alert("당신은" + v_radios[i].value + "입니다!!");
+                }
+            }
+
+
+        }
+
+    </script>
+
+    <hr>
+
+    <div>
+        당신의 취미는
+        <input type="button" value="선택" onclick="f_choice2()"> <br>
+        <input type="checkbox" name="hobby" value="java" checked>JAVA
+        <input type="checkbox" name="hobby" value="javascript" checked>JAVASCRIPT
+        <input type="checkbox" name="hobby" value="css" checked>CSS
+        <input type="checkbox" name="hobby" value="html">HTML
+        <input type="checkbox" name="hobby" value="server">서버
+    </div>
+
+    <script>
+
+        function f_choice2() {
+            var v_chks = document.getElementsByName("hobby"); //배열정보반환
+            var hobbys = []; //빈 배열공간
+
+            for (var i = 0; i < v_chks.length; i++) {
+                if (v_chks[i].checked) {
+                    hobbys.push(v_chks[i].value);
+
+                }
+
+
+            }
+            alert("당신의 취미는 " + hobbys + "이군요");
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

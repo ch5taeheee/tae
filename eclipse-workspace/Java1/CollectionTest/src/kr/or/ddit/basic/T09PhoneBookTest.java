@@ -125,14 +125,6 @@ public class T09PhoneBookTest {
 		} // while문
 	}
 
-	private void displayAll() {
-
-	}
-
-	private void search() {
-
-	}
-
 	/**
 	 * 새로운 전화번호 정보를 등록하는 메서드 (이미 등록된 사람은 등록되지 않는다.)
 	 */
@@ -194,21 +186,83 @@ public class T09PhoneBookTest {
 
 		System.out.println(name + "님 정보 수정 완료");
 	}
-	
+
 	/**
-	 * 전화번호 정보를 삭제처리 하기 위한 메서드 
+	 * 전화번호 정보를 삭제처리 하기 위한 메서드
 	 */
 	private void delete() {
+		System.out.println();
+		System.out.println("삭제할 전화번호 정보를 입력하세요");
+		System.out.print("이름 >> ");
+		String name = scan.next();
 
+		// remove(key) => 삭제 성공하면 삭제된 value값이 반환, 실패하면 null 반환함.
+
+		if (phoneBook.remove(name) == null) {
+			System.out.println(name + "님은 등록된 사람이 아닙니다.");
+
+		} else {
+			System.out.println(name + "님은 정보를 삭제했습니다.");
+
+		}
+		System.out.println("삭제 작업 완료");
 	}
 
+	/**
+	 * 이름을 이용한 전화번호 정보 검색하는 메서드
+	 */
+
+	private void search() {
+		System.out.println();
+		System.out.println("검색할 전화번호 정보를 입력하세요");
+		System.out.print("이름 >> ");
+		String name = scan.next();
+
+		Phone p = phoneBook.get(name);
+
+		if (p == null) {
+			System.out.println(name + "님의 전화번호 정보가 없습니다.");
+		} else {
+			System.out.println(name + " 님의 전화번호 정보");
+			System.out.println(" 이   름 : " + p.getName());
+			System.out.println(" 전화번호 : " + p.getTel());
+			System.out.println(" 주   소 : " + p.getAddr());
+		}
+		System.out.println(" 검색 작업 완료");
+	}
+
+	/**
+	 * 전체 전화번호 정보를 출력하는 메서드
+	 */
+	private void displayAll() {
+		System.out.println("=================================");
+		System.out.println("번호\t이 름\t전화번호\t주 소");
+		System.out.println("=================================");
+
+		Set<String> keySet = phoneBook.keySet();
+
+		if (keySet.size() == 0) {
+			System.out.println("등록된 전화번호 정보가 존재하지 않습니다. ");
+		} else {
+			Iterator<String> it = keySet.iterator();
+			int cnt = 0;
+			while (it.hasNext()) {
+				cnt++;
+				String name = it.next();
+				Phone p = phoneBook.get(name);
+				System.out.println(" " + cnt + "\t" + p.getName() + "\t" + p.getTel() + "\t" + p.getAddr());
+				
+			}
+		}
+		System.out.println("=================================");
+		System.out.println("출력 완료");
+	}
 
 	public static void main(String[] args) {
 		new T09PhoneBookTest().phoneBookStart();
 	}
 
 }
-
 
 /**
  * 전화번호 정보를 지정할 수 있는 VO 클래스

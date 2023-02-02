@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <STYle>
+        #container {
+            height: 100vh; /* 화면비율에 따른 100% -> vh */
+
+        }
+        #content {
+            height: 100%; /* 높이에서 % 사용시 반드시 부모대상이 존재해야함.  */
+            width: 100%;
+            padding: 40px;
+            border: 10px dashed rgb(218, 50, 78);
+            box-sizing: border-box;
+
+            /* background: color image repeat position / size ...; */
+            /* position 과 size 속성은 사용되는 단위가 중복될 수 있으므로 /로 구분하고 함께 써준다. ( position/size 반드시 쌍으로..!)  */
+            /* background: color image repeat position/size;  */
+            background: pink url(../jun2.jpg) no-repeat left center/30%;
+            
+            
+            /* 다중 이미지 삽입하기 */
+            background: pink url(../jun2.jpg) no-repeat left center/30%,
+            url(../image/lee.jpg) no-repeat left center/30%;
+
+
+            
+/*
+            background-color: pink;
+            background-image: url(../jun2.jpg);
+            background-repeat: no-repeat;
+            background-size: 25%;
+            background-position: center center;
+            background-clip: border-box; /* color 속성 대상으로 시작 지점 설정 - end 범위까지 */
+            /* background-origin: content-box;  */
+            
+            /* image 속성 대상으로 시작 지점 설정 - infinty */
+
+            
+        }
+    </STYle>
+</head>
+
+<body> 
+    <!-- 바깥쪽, 가장 부모의 대상은 아이디는 wrapper나 container -->
+    <div id="container">
+        <div id="content">
+            너와 함께 하고 싶은 일들을 상상하는 게
+            요즘 내 일상이 되고
+            너의 즐거워하는 모습을 보고 있으면
+            자연스레 따라 웃고 있는 걸
+            너의 행동에 설레어하고 뒤척이다가
+            지새운 밤이 많아지는데
+            이건 누가 봐도 사랑일 텐데
+            종일 함께면 질릴 텐데
+            나 돌아서도 온통 너인 건
+            아무래도 사랑인가 봐
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

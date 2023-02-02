@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" id="id_html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        div {
+            /* border: 2px solid black; */
+            border-style: solid;
+            /* 두께와 색상(black)은 default로 적용됨 */
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="button" id="id_btn" value="클릭" onclick="f_click()">
+
+    <p id="id_p">
+        <a href="//naver.com">네이버</a>
+        <a href="//daum.net">다음</a>
+    </p>
+
+    <div id="id_div" onclick="f_divClick()">
+        여기를 눌러서 innerHTML을 이용해 요소 사이 컨텐츠 정보를 읽기<br>
+        innterHTML : 여느 태그와 닫는 태그 사이 내용을 읽어(get)오거나 설정(set)할 수 있다.
+
+    </div>
+
+
+    <script>
+
+        function f_divClick() {
+            alert("div를 눌렀어요");
+            console.log(id_div.innerHTML); //GET
+            // id.div.innerHTML = "div의 내용이 변경되었습니다."; //set
+            id_div.innerHTML += "<br> div의 내용이 변경되었습니다."; // 기존 컨텐츠에 내용 덧붙이기
+
+        }
+
+
+        function f_click() {
+
+            //요소가 가진 속성 정보를 출력해보자
+            console.log("id속성에 지정된 값을 통해 해당 요소 자체를 얻음>> ", id_btn);
+            console.log(id_btn.type);
+            console.log(id_btn.id);
+            console.log(id_btn.value); //get
+            console.log(id_btn.onclick);
+            id_btn.value = "클릭버튼";//set
+        }
+    </script>
+
+
+    <br><br>
+    <!-- 
+        문서내 => <html> 하위 모든 요소 대상  => html에 id 속성 부여하고 접근 후 innerHTML 사용
+
+    -->
+
+    <input type="button" value="문제) 문서 내 모든 소스를 콘솔로 출력하기" onclick="f_all()">
+
+
+    <script>
+        function f_all() {
+            console.log(id_html.innerHTML);
+        }
+    </script>
+</body>
+
+</html>

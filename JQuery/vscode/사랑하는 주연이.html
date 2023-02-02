@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
@@ -8,19 +9,83 @@
             color: pink;
             font-family: fantasy;
         }
+
         p {
             font-family: cursive;
         }
+
+        tr {
+            color: blue;
+            background-color: black;
+        }
+
+        td {
+            color: yellow;
+            background-color: black;
+        }
     </style>
 </head>
+
 <body>
     <h1> 사랑하는 주연아 생일축하해♡</h1>
     <p>난 이미 너에게 반헀단다</p>
     <p>이 정도면 증명되었니?</p>
     <p>수업시간에 몰래 하고 있어 ㅎ</p>
+    <p>사진이 안 열려... 어떻게 하는지 몰ㄹ라...
+    <p>
+
+    <table border="">
+        <tr>
+            <td>내 사랑 <input></td>
+            <td>
+                나 조태희 <input>
+            </td>
+            <td>영원토록 <input></td>
+        </tr>
+        <tr>
+            <td>주연아 <input></td>
+            <td>이미 너에게 <input></td>
+            <td>널 <input></td>
+        </tr>
+        <tr>
+            <td>생일축하해♡ <input></td>
+            <td>반해버렸어<input></td>
+            <td>사랑하곘어<input></td>
+        </tr>
+    </table>
+
+    <input type="button" id="id_btn" value="사랑해" onclick="f_jj()"> <br>
+    <br>
+    <br>
+    <a href="https://youtu.be/L60dSVqk-1E" target = "_blank">사랑노래</a> 
+    <br>
+    <br>
+
+    주연이를 사랑한다 <input type="radio" name="gender" value="male"><br>
+    안사랑한다 <input type="radio" name="gender" value="female" checked>
+
+    <script>
+
+        function f_jj() {
+            alert("내 사랑 박주연");
+            console.log(id_div.innerHTML); //GET
+
+            id_div.innerHTML += "너만을 사랑해";
+
+        }
+    </script>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+
     <div>
         <img src="../../../j.webp" alt="우리의 추억">
     </div>
-    
+
 </body>
+
 </html>

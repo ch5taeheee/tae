@@ -13,7 +13,7 @@ public class T08HashMapTest {
 		/*
 		 * Map => key값과 value값을 한 쌍으로 관리하는 객체 => key값은 중복을 허용하지 않고 순서가 없다. (Set의 특징) =>
 		 * value 값은 중복을 허용한다.
-		 * 
+		 * Key, value => entry
 		 */
 
 		Map<String, String> map = new HashMap<>();
@@ -30,20 +30,20 @@ public class T08HashMapTest {
 		map.put("addr", "서울");
 		System.out.println("map => " + map);
 
-		// 자료 삭제 => remove(삭제할 값);
+		// 자료 삭제 => remove(삭제할 키 값);
 		map.remove("name");
 		System.out.println("map => " + map);
 
-		// 자료 읽기 => get(key값);
+		// 자료 읽기 => get(key값); value 값 출력//list는 인덱스 값//
 		System.out.println("addr : " + map.get("addr"));
 		System.out.println("========================================================");
 
 		////////////////////////////////////////////////////////////////////////////////
 
-		// key 값들을 읽어오 자료를 출력하는 방법
+		// key 값들을 읽어와 자료를 출력하는 방법
 
 		// 방법 1 => keySet() 메서드 이용하기
-		// Map의 key값들을 담은 Set 타입의 객체를 반환한다.
+		// Map의 key값들을 담은 Set 타입의 객체를 반환한다. // 
 		Set<String> keySet = map.keySet();
 
 		System.out.println("Iterator를 이용한 방법");
@@ -86,7 +86,7 @@ public class T08HashMapTest {
 			System.out.println();
 		}
 		
-		//향상된 FOR문 가능
+		//향상된 FOR문 가능 ? 배열, 
 
 	}
 }

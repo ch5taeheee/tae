@@ -32,6 +32,9 @@ public class T07EqualsHashcodeTest {
 		 * 객체가 같지 않더라도 hashCode가 같을 수 있다.
 		 * 
 		 */
+		
+		System.out.println("Aa : " + "Aa".hashCode()); // 충돌 가능성이 있으니 해쉬코드도 오버라이딩 해라.
+		System.out.println("BB : " + "BB".hashCode());
 
 		Person p1 = new Person(1, "홍길동");
 		Person p2 = new Person(1, "홍길동");
