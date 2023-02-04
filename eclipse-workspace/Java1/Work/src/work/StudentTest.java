@@ -1,4 +1,4 @@
-package Work;
+package work;
 
 import java.util.ArrayList;
 import java.util.Collections;

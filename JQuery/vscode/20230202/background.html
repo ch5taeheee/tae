@@ -24,12 +24,14 @@
             
             
             /* 다중 이미지 삽입하기 */
-            background: pink url(../jun2.jpg) no-repeat left center/30%,
-            url(../image/lee.jpg) no-repeat left center/30%;
+            background:   url(../jun2.jpg) no-repeat left center/30%, /* 컬러속성은 가장 마지막 레이어로 삽입해라 */
+            url(../image/lee.jpg)  no-repeat right center/30%
+            ,pink ;
+            /* 투명처리 */
+            opacity: 0.3;
+            /* 콘텐츠는 선명하게 배경은 투명하게 -> 파일을 하나 더 만들어라 */
+/*          
 
-
-            
-/*
             background-color: pink;
             background-image: url(../jun2.jpg);
             background-repeat: no-repeat;

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        #container{
+            border: 10px ridge pink;
+            height : 50vh;
+            /* absolute의 부모자격은 static하지 않은 상태이어야 함. */
+            position: relative;
+            top: 100px;
+            left : 100px;
+
+        }
+        .child {/*  공통스타일 */
+            width: 50px;
+            height: 50px;
+            border : 4px solid brown;
+            border-radius : 25px;
+            text-align: center;
+            /* static- default - 방향속성의 영향을 받지 않음 */ 
+            /* position: static; /* default - 방향속성의 영향을 받지 않음 */
+
+            /* relative - static한 위치부터 방향속성의 영향을 받은 위치 */
+            /* position: relative; */
+
+
+            /* absolute - 컨테이너(=윈도우, 브라우저)의 좌측상단을 기점으로 방향속성 영향받음. */
+            /* 또는 static 하지 않은 상태의 부모를 기점으로 방향속성 영향 받음 */
+            position: absolute;
+         }
+
+        .m {
+            background-color:  red;
+            left: 0px;
+            top: 0px;
+            z-index: -1; /* 숫자가 가장큰애가 앞으로 튀어나온다!! 음수,양수,0사용가능 0이 디폴트값임!! */
+
+        }
+        .d {
+            background-color:  pink;
+            left: 0px;
+            top: 0px;
+            z-index: -2;
+        }
+        .s {
+            background-color:  blue;
+            left: 0px;
+            top: 0px;
+            z-index: -2;
+        }
+        .g {
+            background-color:  yellow;
+            left: 0px;
+            top: 0px;
+            z-index: -2;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="child m">마지</div>
+        <div class="child d">두리</div>
+        <div class="child s">세찌</div>
+        <div class="child g">꽁지</div>
+    </div>
+
+    <input type="button" value="무브" onclick="f_move()">
+    <script>
+        function f_move() {
+            // 스크립트에서 스타일 정보 가져오기 >> 인라인스타일로 설정되어 있어야 가능
+            // 스크립트상에서 인랑니 스타일로 초기화시키기
+           var v_chd =  document.getElementsByClassName('child'); // 배열정보를 변수에 저장
+           console.log(v_chd[2].style.left); //세찌요소의 left 속성 값 찍어보기
+
+           //자바스크립트는 자동형변환이 많이 자주 이루어지는 편..
+           // if(문자열) 일 때 boolean 형태로 자동형변환 시킴 >> true / if() 값이 없으면 false
+
+           if(!v_chd[2].style.left) { // false >> true 
+            v_chd[2].style.left = "0px";
+           } 
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>

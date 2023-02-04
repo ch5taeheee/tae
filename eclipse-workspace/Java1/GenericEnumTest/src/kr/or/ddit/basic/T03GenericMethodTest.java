@@ -88,7 +88,7 @@ public class T03GenericMethodTest {
 			System.out.println("논리(의미)적으로 동일한 객체가 아님.");
 		}
 		
-//		p1.displayALL(100, "홍길동");
+		p1.displayALL(100, "홍길동");
 		p1.displayALL("홍길동", "홍길동"); //p1.<String, Integer> displayAll("홍길동",100);
 		
 		

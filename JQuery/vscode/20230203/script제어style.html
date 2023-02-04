@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        #id_disp {
+            background-color: pink;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="id_disp" style="background-Color : pink; color : white; display:inline-block;">
+        <h1>Shining Road</h1>
+    </div>
+        <input type="button" value="속성정보 GETSET" onclick="f_attr()">
+        <input type="button" value="보이기/숨기기" onclick="f_display()">
+        <input type="button" value="랜덤색 적용" onclick="f_ranColor()">
+
+
+    
+
+    <script>
+        //요소 하나만이기 때문에 getelement 다른 건 getelements
+        var v_disp = document.getElementById('id_disp'); //전역화
+        var v_colors = ['orange' , 'red' , 'hotpink','salmon' , 'skyblue','lightgray'];
+
+        function f_ranColor() {
+            //Math.random() >> 지정된 범위안에서 난수를 발생시키는 메소드
+            //Math.floor() >> 소수점내림을 이용해서 0 ~ 발생범위까지의 난수 생성을 도움
+            console.log (Math.floor(Math.random()*v_colors.length) );
+
+            var v_idx = Math.floor(Math.random()*v_colors.length);
+            console.log(v_idx);
+            // v_disp.style.color = v_colors[v_idx];
+            v_disp.style.backgroundColor=v_colors[v_idx];
+
+        }
+
+
+        function f_attr() {
+            // 버튼 눌렀을 떄 id = id_disp 의 스타일 정보 출력하기
+            // get | 스크립트를 통해서 요소의 스타일 정보를 조회할 때는 인라인으로 등록된 속성만 가능
+            alert("배경색 [" + id_disp.style.backgroundColor + "]"); // id값을 통한 요소접근은 테스트할때만
+            alert("폰트색 [" + v_disp.style.color + "]"); // 보통 요소선택 메소드를 이용해 변수에 담아 사용
+            
+            //set 
+            v_disp.style.color = "yellow";  // 속성에 접근할 때 (.)을 이용한다. 하지만, .을 통해 접근하지 못할 때
+            v_disp.style["backgroundColor"] ="navy"; //배열식 접근법을 이용해 속성에 접근하기도 함.
+
+        }
+
+        function f_display() {
+           // alert("디스플레이 정보[" + v_disp.style.display+ "]");
+            if(v_disp.style.display == 'none'){
+                v_disp.style.display = 'inline-block';
+                return;
+            }
+            v_disp.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        #container {
+            height: 500px;
+        }
+
+        #content {
+            height: 100%;
+            border: 4px dashed red;
+            color: deeppink;
+            position: relative;
+            
+        }
+
+        #content ::after{
+            content : "";
+            position: absolute;
+            top :100px;
+            bottom : 100px;
+            left : 100px;
+            right : 100px;
+            background-image: url(../cho1.jpg);
+            opacity : .9;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="content">
+           <span>컨텐츠는 선명하게, 배경은 투명하게..</span> 
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

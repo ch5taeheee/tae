@@ -1,4 +1,4 @@
-package Work;
+package work;
 
 import java.util.HashMap;
 import java.util.InputMismatchException;
@@ -91,8 +91,9 @@ public class Hotel1 {
 		System.out.println();
 		System.out.println("어느 방을 체크아웃 하시겠습니까?");
 		System.out.print("방 번호 입력 => ");
-		System.out.println();
+		
 		String roomNum = scan.next();
+		System.out.println();
 
 		// remove(key) 성공하면 value 값이 반환 b, 실패하면 null 이 반환
 		if (hotelInfo.remove(roomNum) == null) {

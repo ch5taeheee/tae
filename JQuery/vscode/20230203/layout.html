@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/resetCss.css">
+    <style>
+        #container {
+            width: 800px;
+            border : 3px solid blue;
+
+            /* 편법  -> 요소 안에 있는 컨텐츠가 사라짐. (ABCD) 그러면 ? */
+            /* font-size: 0;  -> 디스플레이도 주석처리 */
+            height: 300px;
+        }
+
+        .e_div { /* 공통 속성? */
+            width: 200px; /* 부모 속성에 맞게 하려고 800 했는데 안 맞음 -? border값도 가지기 때문에 맞게 하려면 박스 사이징을 이용해라 */
+            height: 300px;
+            border: 1px dashed red;
+            /* display: inline-block;  */
+            box-sizing: border-box; /* 200 *4 =800 */
+            float: LEFT; /* 컨텐츠가 들어가긴 했으나 바깥 부모 영역이 FLAT 한 형태로 표현됨. 그러면? 안쪽데이터처럼 부모 높이를 300 으로 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- div#container>dib.e_div*4 -->
+    <div id="container"> <!-- 공백 제거 시 요소 끼리 공백을 줄여라 / 편법존재  공백을 나타내는 폰트?사이즈를 0으로 만들어라-->
+        <div class="e_div">A</div>
+        <div class="e_div">B</div>
+        <div class="e_div">C</div>
+        <div class="e_div">D</div>
+    </div>
+
+</body>
+
+</html>
