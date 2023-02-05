@@ -21,7 +21,7 @@ public class T05WildCardTest {
 
 		FruitBox<Fruit> fruitBox = new FruitBox<>(); // 과일상자
 		FruitBox<Apple> appleBox = new FruitBox<>(); // 사과상자
-		FruitBox<Garbage> garbageBox = new FruitBox<>(); // 사과상자
+//		FruitBox<Garbage> garbageBox = new FruitBox<>(); // 사과상자
 
 		fruitBox.add(new Apple()); // 사과 담기 fruit 타입이라 가능
 		fruitBox.add(new Grape()); // 포도 담기
@@ -30,7 +30,7 @@ public class T05WildCardTest {
 		appleBox.add(new Apple()); //
 		// appleBox.add(new Grape()); // 타입x
 		
-		garbageBox.add(new Garbage());
+//		garbageBox.add(new Garbage());
 		
 		Juicer.makeJuice(fruitBox);
 		Juicer.makeJuice(appleBox); // 에러 이유 >  fruit 타입이 아니라서 > 해결 방법 ? 쥬서 클래스의 타입을 와일드로..

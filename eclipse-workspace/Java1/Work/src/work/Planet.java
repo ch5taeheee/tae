@@ -13,13 +13,12 @@ public enum Planet {
 	public String getRadius() {
 		return radius;
 	}
-
-//	@Override
-//	public String toString() {
-//		return name() + getRadius();
-//	}
-
 }
+
+//		@Override
+//		public String toString() {
+//			return name() + getRadius();
+//		}
 
 class PlanetExample {
 	public static void main(String[] args) {
@@ -30,4 +29,5 @@ class PlanetExample {
 
 		}
 	}
+
 }
