@@ -14,7 +14,7 @@ public class T02ThreadTest {
 		//start -> 동시에 실행 
 		
 
-		// 방법2 : Runnable 인터페이스를 구현한 클래스의 인스턴스를 생성한 후
+		// 방법2 : Runnable 인터페이스를 구현한 클래스의 인스턴스를 생성한 후 /Runnable : void run 추상메서드를 가지고 있음/
 		// 이 인스턴스를 Thread객체를 생성할 때의 생성자의 파라미터로 넘겨준다.
 		// 이 때 생성된 Thread객체의 start() 메서드를 호출한다..
 

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #d1 {
+            border: 3px inset green;
+            padding: 10px;
+        }
+
+        #disp {
+            border: 3px inset yellow;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        let v_div = ""; //최초선언
+        let v_disp = ""
+        window.onload = function () {
+            //재할당
+             //v_div = document.getElementById('d1'); //전역화
+             v_div =document.querySelector('#d1'); //위에보다 아래를 더 쓴다.
+             //v_disp = document.getElementById('disp');
+             v_disp = document.querySelector('#disp');
+        }
+        function f_proc1() {
+
+            // 콘솔로 출력
+            console.log(v_div.innerHTML); //get
+            //출력div(id = disp)에 출력
+            v_disp.innerHTML = v_div.innerHTML; //set
+        }
+
+        function f_proc2() {
+            console.log(v_div.innerText);
+            v_disp.innerText = v_div.innerText;
+        }
+
+        function f_proc3() {
+            console.log(v_div.textContent);
+            v_disp.textContent = v_div.textContent;
+        }
+        function f_proc4() {/* value 는 div 대상으로 입력되지 않는다. button값으로 하자. */
+            //let v_btn = document.getElementsByTagName ('input')[3];
+            let v_btn = document.querySelectorAll ('input')[3]; /* 배열정보는 queryAll로 할 수 있따.  */
+
+            console.log(v_btn.value); //get
+            v_btn.value = "버튼 이름을 바꿔"; //set
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="d1">
+        <span style="color: orange;">안녕? ㅎ</span>만나서 방가
+        <span style="display: none;">숨겨진 텍스트</span>
+    </div>
+    <input type="button" value="innerHTML" onclick="f_proc1()">
+    <input type="button" value="innerTEXT" onclick="f_proc2()">
+    <input type="button" value="testContent" onclick="f_proc3()">
+    <input type="button" value="value" onclick="f_proc4()">
+
+    <div id="disp">출력공간</div>
+
+</body>
+
+</html>
+
+<!-- 
+    요소의 값 반환/설정 속성
+    
+    innerHTML
+        읽어오는 값에 태그를 포함 >> 보안에 취약한 단점
+        (대표적으로 xss공격에 취약)
+        HTML5에서는 innerHTML로 삽입된 코드 중 <script> 존재 시 실행되지 않도록 설정
+        보안점검을 거치는 프로젝트의 경우 innerHTML이 사용된 코드는 거부될 가능성이 높음.
+        특별한 경우를 제외하고 사용을 권장하지 않음
+        대안 >> insertAduacentHTML()
+
+
+    innerText
+        element의 속성
+        사용자에게 보여지는 텍스트 값을 읽음
+        연속되는 공백은 무시(=하나의 공백으로 처리)
+        원시 텍스트의 랜더링된 상태를 보여줌(=스타일 적용 후의 상태)
+
+            
+    innerContent
+        node의 속성
+        해당 노드의 텍스트 값(= 원시 텍스트)를 ㅇ릭음
+        표현된 공백 및 숨겨진 텍스트 모두 표시해 줌.
+        
+
+    value
+        입력 요소의 초기 값 명시에 활용
+        입력 요소의 type에 따라 용도가 다르게 사용됨.
+        - text, password, hidden 등 : 입력 필드의 초기 값 정의
+        - button, reset, submin : 버튼 내 텍스트 정의 
+        - checkbox, image, radio : 필드 선택 시 서버로 제출되는 값 정의 
+
+
+ -->

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="덮" onclick="f_write()">
+<script>
+    function f_write() { /* 내용이 없어짐? */
+        document.write("<h1> 기존 문서를 지우고 새 내용이 덮여 씌워짐</h1>");
+        // 따옴표 안에 따옴표 사용시 주의
+        // escape 문자 사용(특수문자임을 알리는 백슬래시'\')
+        document.write("<img src = \"../image/한소희.jpg\" alt = '한소희'>"); /* 안과 밖이 서로 다른 형태의 따옴표를 사용해야 한다.  */
+   }
+
+   document.write("<div style = 'text-align : center;'>");
+   for(let i = 1; i <=6; i++) {
+    document.write("<h" +  i + "> document 객체의 write 메소드 </h" + i + ">")
+   }
+
+   for(let i = 5; i >0; i--) {
+    document.write("<h" +  i + "> document 객체의 write 메소드 </h" + i + ">")
+   }
+   document.write("</div>")
+</script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+    <h4>숫자 2개와 연산자 1개를 입력 후 결과 출력</h4>
+    <input type="button" value="계산" onclick="calc()">
+
+    <div></div>
+    <div></div>
+    <div></div>
+
+
+    <script>
+
+
+        function calc() { /* 두번째 인자 생략 가능 */ /* const 는 대문자로 적기 약속 */ /* 리턴타입 : string */
+
+
+            let v_divs = document.querySelectorAll('div');
+
+            for(let i = 0; i<v_divs.length; i++) {
+                v_divs[i].innerText = "";
+            }
+
+
+            //prompt로 반환되는 값의 타입은 string
+            // + 연산시 문자열 결합이 이뤄지므로 받아오는 string 타입을 number로 바꿔주기
+            const x = parseInt(window.prompt("첫 번째 숫자를 입력하세요.", "숫자입력"));
+            const y = parseInt(window.prompt("두 번째 숫자를 입력하세요.", "숫자입력"));
+            const z = window.prompt("연산자를 입력하세요. ", " +, -, *, / 중 입력");
+
+            let sum = 0;
+
+            console.log(typeof x, y, z);
+
+            if (z == '+') {
+                sum = x + y;
+            } else if (z == '-') {
+                sum = x - y;
+            }
+            else if (z == '*') {
+                sum = x * y;
+            }
+            else {
+                sum = x / y;
+
+            }
+//출력
+            v_divs[0].innerText+= "첫번째 숫자 : " + x;
+            v_divs[1].innerText += "두번째 숫자 : " +y;
+            v_divs[2].innerText += "연산 결과 : " +sum;
+
+        }
+
+    </script>
+</body>
+
+</html>

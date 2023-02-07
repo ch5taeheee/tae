@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+
+<script>
+    //복사 (call by value)
+    var v_coffee = "커피";
+    var v_tea = v_coffee;
+    console.log(v_tea); // 커피
+
+    v_coffee = "얼죽아";
+    console.log(v_tea,v_coffee); // 커피, 얼죽아
+
+
+    //참조 (call by reference)
+    var v_arr = ["로제","크림","오일","페스토"];
+    var v_arr2 = v_arr;
+    v_arr2[2] = '51';
+
+    console.log(v_arr2[2]);
+</script>
