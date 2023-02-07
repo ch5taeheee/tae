@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+            float: left;
+            /* 하거나 폰트사이즈 0 하면 공간없어짐 */
+        }
+
+        #parent {
+            border: 4px double gray;
+            width: 100px;
+            height: 100px;
+            position: relative;
+            top: 50px; /* 부모 고정 자식 따라옴 */
+            left: 50px;
+            overflow: hidden;
+        }
+
+        .child {
+            width: 600px;
+            /* border-style: solid; */
+            position: absolute;
+            /* font-size: 0; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <div class="child">
+            <img src="../image/짱구.jpg" alt="">
+            <img src="../image/철수.jpg" alt="">
+            <img src="../image/유리.jpg" alt="">
+            <img src="../image/맹구.jpg" alt="">
+            <img src="../image/훈.jpg" alt="">
+            <img src="../image/흰둥이.jpg" alt="">
+        </div>
+
+        <div class="child">
+            <img src="../cho1.jpg" alt="">
+            <img src="../jun2.jpg" alt="">
+            <img src="../image/kim1.jpg" alt="">
+            <img src="../image/lee.jpg" alt="">
+            <img src="../image/한소희.jpg" alt="">
+            <img src=" ../image/한소희2.jpg" alt="">
+        </div>
+    </div>
+
+    <script>
+        var v_chd1 = document.querySelector('.child:first-child');
+        var v_chd2 = document.querySelector('.child:last-child');
+
+        //    console.log(v_chd1,v_chd2);
+
+        // 초기 위치값을 스크립트를 통해 초기화
+        if (!v_chd1.style.left) {
+            v_chd1.style.left = "0px";
+            v_chd2.style.left = "600px";
+        }
+        function f_move() {
+
+            //반복되는 위치 초기화
+                if(parseInt(v_chd1.style.left)==-600) v_chd1.style.left="600px";
+                if(parseInt(v_chd2.style.left)==-600) v_chd2.style.left="600px";
+            // v_chd1.style.left = 대입할 값 지정
+            v_chd1.style.left = parseInt(v_chd1.style.left) - 1 + "px";
+            v_chd2.style.left = parseInt(v_chd2.style.left) - 1 + "px";
+            setTimeout(f_move,10);
+        }
+        f_move();
+    </script>
+</body>
+
+</html>

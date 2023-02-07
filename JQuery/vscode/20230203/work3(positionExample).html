@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+       #child {
+        position: absolute; 
+        top: 0;
+        left: 0;
+       }
+
+    #container {
+    position: relative; /* 자식요소의 부모 자격을 위해 static 아닌 속성 적용 */   
+    
+    }
+
+    #img {
+        position: .5;
+        width: 100%;
+        height: 100vh;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>이미지 텍스트</h1>
+    <!-- 1. 상단에 다른 요소가 추가되어도 동일한 위치 고정
+    2. 브라우저 크기에 따라 이미지 크기 변경
+    3. 이미지 투명도 변경 -->
+
+    <div id = "container"> 
+        <img src="../image/kim1.jpg"" alt="준이">
+        <div id = "child"> 창 크기가 변해도 텍스트 위치가 변하지 않음</div>
+    </div>
+
+
+
+
+</body>
+
+</html>

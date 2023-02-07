@@ -48,7 +48,7 @@ public class T07EnumTest {
 		public static void main(String[] args) {
 
 		/*
-		  *	열거형에서 사용되는 메서드
+		  *	열거형에서 사용되는 메서드 (이유나 목적을 알아라)
 		  *	
 		  * 1. name() => 열거형 상수의 이름을 문자열로 반환한다.
 		  * 2. ordinal() => 열거형 상수가 정의된 순서값을 반환한다. (기본적으로 0부터 시작함)

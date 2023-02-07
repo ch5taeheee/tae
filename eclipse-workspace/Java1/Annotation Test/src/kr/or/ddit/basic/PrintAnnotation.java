@@ -17,7 +17,7 @@ import java.lang.annotation.Target;
  * 
  * annotation  타입 정하기
  * @ interface annotation 이름 {
- * 		요소타입 타입요소이름(); // 반환값이 있고 매개변수는 없는 추상메서드의 형태
+ * 		요소타입 타입요소이름(); // 반환값이 있고 매개변수는 없는 추상메서드의 형태 ()가 비어있어야 한다. 
  * 		...
  *  }
  * 
@@ -38,8 +38,8 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME) //annotation이 유지되는 기간 / source, class, runtime
 
-public @interface PrintAnnotation {
-	int id = 100; // 상수 선언 가능
+public @interface PrintAnnotation { 
+	 int id = 100; // 상수 선언 가능(Stratic 생략 가능)
 	String value() default "-"; //기본값을 "-"로 지정
 	int count() default 20; // 기본값을 20 으로 지정
 	
