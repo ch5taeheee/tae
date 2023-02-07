@@ -42,18 +42,46 @@
 
             console.log(typeof x, y, z);
 
-            if (z == '+') {
-                sum = x + y;
-            } else if (z == '-') {
-                sum = x - y;
-            }
-            else if (z == '*') {
-                sum = x * y;
-            }
-            else {
-                sum = x / y;
+            // if (z == '+') {
+            //     sum = x + y;
+            // } else if (z == '-') {
+            //     sum = x - y;
+            // }
+            // else if (z == '*') {
+            //     sum = x * y;
+            // }
+            // else {
+            //     sum = x / y;
 
+            // }
+
+            switch(z){
+                case '+' :
+                    sum = x+y;
+                    break;
+                case '-' :
+                    sum = x-y;
+                    break;
+                case '*' :
+                    sum = x*y;
+                    break;
+                case '/' :
+                    sum=x / y;
+                    break;
+                    
             }
+
+
+
+
+
+
+
+
+
+
+
+
 //출력
             v_divs[0].innerText+= "첫번째 숫자 : " + x;
             v_divs[1].innerText += "두번째 숫자 : " +y;
