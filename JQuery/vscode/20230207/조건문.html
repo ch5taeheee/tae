@@ -27,7 +27,7 @@
 
             let v_divs = document.querySelectorAll('div');
 
-            for(let i = 0; i<v_divs.length; i++) {
+            for (let i = 0; i < v_divs.length; i++) {
                 v_divs[i].innerText = "";
             }
 
@@ -40,37 +40,49 @@
 
             let sum = 0;
 
-            console.log(typeof x, y, z);
+            //숫자 아닌 값이 들어왔을 때 처리
+            console.log(parseInt(x));
 
-            // if (z == '+') {
-            //     sum = x + y;
-            // } else if (z == '-') {
-            //     sum = x - y;
-            // }
-            // else if (z == '*') {
-            //     sum = x * y;
-            // }
-            // else {
-            //     sum = x / y;
-
-            // }
-
-            switch(z){
-                case '+' :
-                    sum = x+y;
-                    break;
-                case '-' :
-                    sum = x-y;
-                    break;
-                case '*' :
-                    sum = x*y;
-                    break;
-                case '/' :
-                    sum=x / y;
-                    break;
-                    
+            if (isNaN(x) || isNaN(y)) {
+                alert("정수를 입력하세요");
+                return calc();
             }
 
+                //console.log(typeof x, y, z);
+
+                if (z == '+') {
+                    sum = x + y;
+                } else if (z == '-') {
+                    sum = x - y;
+                }
+                else if (z == '*') {
+                    sum = x * y;
+                }
+                else if (z == '/') {
+                    sum = x / y;
+
+                } else {
+                    alert("올바른 연산자를 입력하세요.");
+                    calc();
+                }
+
+            // switch (z) {
+            //     case '+':
+            //         sum = x + y;
+            //         break;
+            //     case '-':
+            //         sum = x - y;
+            //         break;
+            //     case '*':
+            //         sum = x * y;
+            //         break;
+            //     case '/':
+            //         sum = x / y;
+            //         break;
+            //     default:
+            //         alert("다시 입력해주세요");
+            //         calc();
+            // }
 
 
 
@@ -82,10 +94,11 @@
 
 
 
-//출력
-            v_divs[0].innerText+= "첫번째 숫자 : " + x;
-            v_divs[1].innerText += "두번째 숫자 : " +y;
-            v_divs[2].innerText += "연산 결과 : " +sum;
+
+            //출력
+            v_divs[0].innerText = "첫번째 숫자 : " + x;
+            v_divs[1].innerText = "두번째 숫자 : " + y;
+            v_divs[2].innerText = "연산 결과 : " + sum;
 
         }
 

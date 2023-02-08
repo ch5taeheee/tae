@@ -1,9 +1,11 @@
 package kr.or.ddit.basic;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
-public class T11ThreadDisplayCharacterTest {
+public class T11ThreadDisplayCharacterTest  {
 	/*
 	 * 3개(명)의 스레드가 각각 알파벳 대문자를 출력하는데 출력을 끝낸 순서대로 결과를 나타내는 프로그램을 작성하시오.
 	 */
@@ -28,6 +30,20 @@ public class T11ThreadDisplayCharacterTest {
 		}
 		
 		System.out.println("경기 끝");
+		
+		Collections.sort(disCharList);
+		
+		System.out.println("\t경기 끝");
+		System.out.println("--------------------------------------------");
+		System.out.println("\t\t경기결과");
+		System.out.println();
+		System.out.println("\t순위\t:\t이름");
+		
+		for(DisplayCharacter dc : disCharList) {
+			System.out.println("\t" + dc.getRank() + "\t:\t"+dc.getName());
+		}
+		
+		
 
 	}
 }
@@ -35,7 +51,7 @@ public class T11ThreadDisplayCharacterTest {
 /**
  * 알파벳 대문자 출력을 하는 스레드 클래스
  */
-class DisplayCharacter extends Thread {
+class DisplayCharacter extends Thread implements Comparable<DisplayCharacter> {
 	private String name;
 	private int rank;
 
@@ -60,7 +76,7 @@ class DisplayCharacter extends Thread {
 
 			try {
 				// 200 ~ 500 ms 사이의 정지상태가 일어남
-				Thread.sleep((int) (Math.random() * 301 + 200));
+				Thread.sleep((int) (Math.random() * 301 + 200)); //텀을 준다. 
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -69,5 +85,10 @@ class DisplayCharacter extends Thread {
 
 		setRank(T11ThreadDisplayCharacterTest.currRank++); // 현재 순위정보 설정
 
+	}
+
+	@Override
+	public int compareTo(DisplayCharacter dc) {
+		return new Integer(this.getRank()).compareTo(dc.getRank());//인티저 객체로 바뀜
 	}
 }
