@@ -1,11 +1,16 @@
 package work;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class HorseGame {
 	public static void main(String[] args) {
+		String rrank = " ";
+
 		List<Horse> horselist = new ArrayList<>();
+
 		horselist.add(new Horse("1번말"));
 		horselist.add(new Horse("2번말"));
 		horselist.add(new Horse("3번말"));
@@ -17,26 +22,43 @@ public class HorseGame {
 		horselist.add(new Horse("9번말"));
 		horselist.add(new Horse("10번말"));
 
-		for (Thread th : horselist) {
+		for (Horse th : horselist) {
 			th.start();
 			System.out.println();
 		}
-		for (Thread th2 : horselist) {
+		for (Horse th2 : horselist) {
 			try {
 				th2.join();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
+	for(Horse th3 : horselist) {
+		th3.start();
+	}
+
+		Collections.sort(horselist);
+
 		System.out.println("경기 끝");
+		System.out.println("==============================");
+		System.out.println("경기 결과");
+		System.out.println("순위 : " + rrank);
 
 	}
 }
 
-class Horse extends Thread {
+class Horse extends Thread implements Comparable<Horse> {
 	private String horsename;
 	private int rank;
-	
+	private int currentposition;
+
+	public int getCurrentposition() {
+		return currentposition;
+	}
+
+	public void setCurrentposition(int currentposition) {
+		this.currentposition = currentposition;
+	}
 
 	public Horse(String horsename) {
 		super(horsename);
@@ -51,39 +73,73 @@ class Horse extends Thread {
 		this.horsename = horsename;
 	}
 
-	@Override
-	public void run() {
-		System.out.print(horsename + " : ");
-
-		for (int i = 1; i <= 50; i++) {
-				System.out.print(">");
-		}
-
-			try {
-				Thread.sleep((int) Math.random() * 800);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-
+	public int getRank() {
+		return rank;
 	}
-class AutoSaveThread extends Thread {
-	public void save() {
-		System.out.println("작업 내용을 저장합니다..");
+
+	public void setRank(int rank) {
+		this.rank = rank;
 	}
 
 	@Override
 	public void run() {
-		while (true) {
-			try {
-				Thread.sleep(500);
+		System.out.println(gethorsename() + " : ");
+		for (int i = 0; i <= 50; i++) {
+			currentposition = i;
 
+			try {
+				Thread.sleep((int) Math.random() * 700);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
-			}
 
-			save(); // 저장기능호출
+			}
 		}
 	}
+
+	@Override
+	public int compareTo(Horse hs) {
+
+		return Integer.compare(this.getRank(), hs.getRank());
+	}
+
+	@Override
+	public String toString() {
+		return String.format("%d등", horsename, rank);
+	}
+
 }
 
+class Road extends Thread {
+	private Horse hhh;
+
+	public Road(Horse hhh) {
+		super();
+		this.hhh = hhh;
+	}
+
+	public Horse getHhh() {
+		return hhh;
+	}
+
+	public void setHhh(Horse hhh) {
+		this.hhh = hhh;
+	}
+
+	@Override
+	public void run() {
+		for (int i = 1; i <= 50; i++) {
+			if (hhh.getCurrentposition() == i) {
+				System.out.print(">");
+			} else {
+				System.out.println("-");
+			}
+
+		}
+		try {
+			Thread.sleep(400);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
