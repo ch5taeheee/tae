@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    // return 활용해서 else문 없애기
+
+    let v_rtn = "";
+
+    function f_if(p_arg) {
+        if (p_arg == "올슨") {
+            v_rtn = "완다";
+            return; //return을 써서 else이하를 지워줄 수 있다.
+        }
+        // else {
+        v_rtn = "캡틴아메리카";
+        // }
+
+    }
+
+    f_if("올슨");
+    alert(v_rtn);
+    f_if("크리스에반스");
+    alert(v_rtn);
+
+</script>

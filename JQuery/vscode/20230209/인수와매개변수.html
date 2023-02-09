@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+    <script>
+        function f_fnc(p_arg){
+            // alert(p_arg);
+            alert(p_arg[1]); //배열정보는 index로 일부 추출
+        }
+       // f_fnc("바질","페스토"); //매개변수가 하나이기 때문에 뒤따라 오는 인자값은 무시.
+       // f_fnc(["바질","페스토"]);//배열정보 -> 배열이기 때문에 모두 출력
+    
+        function f_fnc1(p_arg){
+            alert(p_arg.연말);
+           // alert(p_arg.1222); //숫자로는 .으로 접근해서 속성을 알아낼 수가 없다. 
+            //숫자는 .이아닌 배열식 접근법으로 가져와야 한다.
+            alert(p_arg["1222"]); 
+            alert(p_arg[1225]);
+            // 숫자로 된 key는 그대로 적용
+            //문자로 된 key는 반드시 ""로 접근
+            alert(p_arg["크리스마스"]); 
+            // alert(p_arg[크리스마스]);// error.
+        }
+        f_fnc1({"연말":"시상식","1222":"동지","크리스마스":"x-mas"});
+        // 객체의 형태로 넘겨주고 있음. 
+
+        function f_fnc2(p_arg1,p_arg2) {
+            alert(p_arg1 + "두번째로 넘어오는 값이 없을 때 parameter는 " + p_arg2 + " 를 나타냄");
+        }
+        f_fnc2("첫번째 arguments..."); //p_arg, undifined
+
+        function f_fnc3(p_arg){
+            
+            // alert(p_arg); //함수자체를 그대로 알림창에 출력
+            alert(p_arg()); // 함수를 호출하고 실행함 // 결론은 이 alert가 undefined를 실행하는 거임.
+                            // 괄호를 넣어줬기 때문에 넘어오고 있는 함수를 실행해라 -> 함수 실행구문이 출력됨
+        }
+        f_fnc3(function(){alert("1함수가 전달됨.")}); //alert 뒤로 생략된 return undefined 존재하여 undefined 도 출력됨
+    </script>

@@ -31,11 +31,23 @@
     //넘어오는 인자가 1개인 경우 소괄호 생략 가능.
     // let f_arrow = param => {}
 
-    let f_arrow = param => {
-        alert("화살표 함수 >> " + param);
+    let f_arrow = () => {
+        alert("매개변수 없이 작성한 화살표 함수");
     }
 
-    f_arrow("수업 끝");
+     f_arrow = param => {
+        alert("매개변수 하나일 때의 화살표 함수 >> " + param);
+    }
+    f_arrow = (a,b,c,d) => {
+        alert(a+b+c+d); // 넘겨주는 인자보다 매개변수가 많을 때 undefined
+    }
+
+    f_arrow("수업 끝","다시","시작");
+
+    //즉시실행함수
+    (function() {
+        alert("즉시실행함수 IIFE")
+    })()
 
 
 

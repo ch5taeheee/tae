@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+
+<body>
+    <div>
+        취미를 Max 3개까지 체크하기 <br>
+        4개째 선택 시 '3개가 초과되었다' 는 메시지를 출력하고 체크 해제시키기<br>
+
+    </div>
+    <br>
+
+    <input type="checkbox" name="hobby" value="java" onclick="f_hobby(this)">자바
+    <input type="checkbox" name="hobby" value="js" onclick="f_hobby(this)">자바스크립트
+    <input type="checkbox" name="hobby" value="html" onclick="f_hobby(this)">HTML
+    <input type="checkbox" name="hobby" value="css" onclick="f_hobby(this)">CSS
+    <input type="checkbox" name="hobby" value="server" onclick="f_hobby(this)">서버
+
+
+
+    <script>
+
+        let v_chkCount = 0;
+        function f_hobby(p_this) {
+            alert(p_this.value + "/" + p_this.checked); //체크 되었는지 되지 않았는지 체크여부 확인
+            if (p_this.checked) {
+                //체크되었을 때 카운트 증가
+                v_chkCount++;
+            } else {
+                // 체크 해제되었을 때 카운트 감소
+                v_chkCount--;
+            }
+            console.log(v_chkCount);
+
+            if(v_chkCount >3) {
+                alert("3개까지만 선택해요");
+                v_chkCount--;
+                p_this.checked =false; //체크 강제 해제
+                
+            }
+            console.log(v_chkCount);
+            
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    for (let i = 1; i < 5; i++) {
+        alert("Hi!! " + i);
+
+    } for (let i = 5; i < 10; i++) {
+        alert("Hello~~ " + i);
+    }
+
+    // 코드의 패턴이 반복될 때 함수를 사용
+    // DRY(Do not Repeat Yourself)원칙, 중복코드를 사용하지 말자
+
+    function f_dry(p_start, p_end, p_str) {
+        for (let i = p_start; i < p_end; i++) {
+            alert(p_str + i);
+        }
+    }
+    f_dry(1,5,"하이 ");
+    f_dry(5,10,"헬로 ");
+
+</script>

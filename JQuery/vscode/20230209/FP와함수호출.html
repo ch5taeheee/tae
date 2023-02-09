@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    /* 함수 자체와 함수 호출 */
+
+    function f_fnc() {
+        alert("함수 자체를 가리키는 FP");
+        //return 문이 생략되어 있어 undefined을 반환
+        // 함수 자체를 가리키는 FP -> undefined
+        return "나를 호출하는 위치로 값을 반환하고 함수를 종료";
+        // retunr문 존재하면 return문 출력
+    }
+    // f_fnc();
+    alert(f_fnc); //fp 괄호를 제거하면 함수자체의 값을 호출
+    alert(f_fnc());
+</script>

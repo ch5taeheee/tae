@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        td { 
+            width: 100px;
+            height: 30px;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h4>데이터를 테이블에 출력하자</h4>
+    <div id="disp"></div>
+
+    <script>
+        let grades = {
+            "ys001": "사장",
+            "ys002": "전무",
+            
+            "ys003": "수석개발자",
+            "ys004": "천재개발자",
+            "ys000": "미확인"
+        }
+
+        let sawons = [
+            {//index = 0
+                name: "이슬",
+                grade: "ys001"
+            },
+            {
+                name: "전아현",
+                grade: "ys002"
+            },
+            {
+                name: "정지은",
+                grade: "ys003"
+            },
+            {
+                name: "조태희",
+                grade: "ys004"
+            },
+            {
+                name: "이주연",
+                grade: "ys003"
+            },
+            {
+                name: "김도희",
+                grade: "ys002"
+            },
+            {
+                name: "이경민",
+                grade: "ys004"
+            },
+            {
+                name: "도우너",
+                grade: "ys000"
+            }
+        ]
+
+        let v_disp = document.querySelector('#disp'); // 출력공간 요소를 변수에 담아놈
+
+//테이블 요소를 문자열로 생성하고 변수에 담아놈
+        let v_tbl = "<table border =1>";
+        v_tbl += "<tr><td>순번</td><td>이름</td><td>직책</td></tr>";
+
+
+        //현재 라인이 반복되어야 함.
+        for(let i = 0; i<sawons.length; i++){
+        v_tbl += "<tr><td>" + (i+1) + "</td>"; /* 순번정보반복 */
+        v_tbl += `<td>${sawons[i].name}</td>`; /* 이름정보반복 */
+        v_tbl += "<td>" + grades[sawons[i].grade] + "</td></tr>"; /* 직책정보반복 */ //객체에 key로 접근해 value가져오기
+    }
+        //현재 라인이 반복되어야 함.
+    
+        v_tbl += "</table>";
+
+        v_disp.innerHTML = v_tbl;
+
+
+
+    </script>
+</body>
+
+</html>
