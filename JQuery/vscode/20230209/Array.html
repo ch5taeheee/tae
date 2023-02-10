@@ -5,11 +5,60 @@
 
     //indexOf(value, start) : 해당 요소를 시작범위부터 검색하고 index반환
 
-    alert(arr.indexOf("김찬수")); //index 2 반환
-    alert(arr.indexOf("김찬수",4)); //index 5 반환
+  //  alert(arr.indexOf("김찬수")); //index 2 반환
+  //  alert(arr.indexOf("김찬수",4)); //index 5 반환
+
+  alert(arr.indexof("유재석")); // 없는 데이터에 대해서는 -1 을 반환 // 
+
+
 
     //lastIndexOf(value, end) : 해당 요소를 끝 범위까지 검식하고 index반환
-    alert(arr.lastIndexOf("김찬수")); //index 5 반환
-    alert(arr.lastIndexOf("김찬수",4)); //index 2 반환
+  // alert(arr.lastIndexOf("김찬수")); //index 5 반환
+  //  alert(arr.lastIndexOf("김찬수",4)); //index 2 반환
+
+
+ /* // push() - 배열 끝에 요소 추가, unshift() - 배열의 시작에 요소 추가
+  arr.push("둘리");
+  arr.unshift("희동이");
+  console.log(arr);
+
+  //pop() - 배열의 끝 요소를 삭제하고 그 삭제된 값을 반환
+  let rtn = arr.pop();
+  console.log(arr, "반환하는 데이터 >>", rtn);
+  
+  //shift() - 배열의 처음 요소를 삭제하고 그 삭제된 값을 반환
+  rtn = arr.shift();
+  console.log(arr, "반환하는 데이터 >>", rtn); */arr
+  
+ // reverse() - 배열 순서 뒤집기
+ // alert(arr.reverse());
+  
+
+ // 인수 생략 시 사전순으로 정렬
+  console.log(arr.sort());
+
+  //slice(start,end-1) - 지정된 범위의 새로운 배열 생성
+  let new1 = arr.slice(3,6); // new는 예약어라 쓰면 안된다. 
+  console.log(new1);
+
+  //splice(idx,delCnt,a,b,c,...) - 배열을 수정(요소추가) 또는 삭제, 삭제된 값 반환
+  //splice(대상위치,삭제될 갯수,추가 a,추가 b,추가 c,...) - 배열을 수정(요소추가) 또는 삭제할 때 
+  console.log("삭제전",arr);
+  //
+  arr.splice(3,3,"둘리","하니","원더키디");
+  console.log("삭제후",arr);
+
+    let arr1 = [1,2,3];
+    let arr2 = [true, false];
+    let arr3 = ["1교시","2교시"];
+    let newArr = arr1.concat(arr2,arr3);
+    console.log(newArr); // 배열들을 하난의 배열로 합침
+    console.log(newArr[4]);
+
+    //join(deli) - 배열 값을 하나의 문자열로 만듦 (구분자 생략시 콤마로 항목 구분)
+     console.log(arr.join("~")); //default : ,
+     console.log(arr.join()[4]);
+
+     
 
 </script>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h4>경과시간 구하기 - getTime() 활용해서 D-DAY, D+DAY 계산</h4>
+
+    <h5> <a href="javascript:f_birth()"> D+DAY 살아온 날짜 </a></h5>
+
+
+
+
+
+    <script>
+        function f_birth() {
+            let today = new Date();
+            let myBir = new Date("1998.02.10");
+
+            let todayMs = today.getTime();
+            let birMs = myBir.getTime();
+
+            let ms = todayMs - birMs;
+            let sec = ms / 1000;
+            let min = sec / 60;
+            let hh = min / 60;
+            let dd = hh / 24;
+            let yy = dd / 365;
+
+            let str = "생년월일 : " + myBir.toLocaleDateString() + "<br>";
+            str += "오늘 날짜 : " + today.toLocaleDateString() + "<br>";
+            str += "태어난 지 " + yy + "년 경과 <br>";
+            str += "태어난 지 " + dd+ "일 경과 <br>";
+            str += "태어난 지 " + hh + "시 경과 <br>";
+            str += "태어난 지 " + min + "분 경과 <br>";
+            str += "태어난 지 " + sec.toFixed(2) + "초 경과";
+
+            document.querySelector('body').insertAdjacentHTML('beforeend', str);
+
+            console.log();
+        }
+
+    </script>
+</body>
+
+</html>

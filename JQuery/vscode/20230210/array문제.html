@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+
+</head>
+<script>
+    function f_input() {
+        let arr = new Array(); //비어있는 배열 생성
+        for (; ;) {
+            let name = prompt("이름을 입력하세요");
+            if (name == " " || name == null) break;
+            arr.push(name);
+        }
+        document.querySelectorAll('div')[0].textContent = arr;
+    }
+
+    function f_output() {
+        let arr = []; //비어있는 배열 생성
+        while (1) {
+            let num = prompt("정수를 입력하세요");
+            console.log(isNaN(num));
+
+            if (num == " " || num == null) {
+                break;
+            } else if (isNaN(num)) {
+                return f_output(); //되돌려 보내서 5개까지 다시 입력해야..........
+            }
+
+            //중복 수 검증 필요
+            let idx = arr.indexOf(num); //-1일때 중복아님
+            if (idx != -1) {
+                //중복입니다
+                alert("중복입니다");
+            } else {
+                // push
+                arr.push(num);
+            }
+            //갯수 체크
+            if (arr.length >= 5) break;
+        }
+        document.querySelectorAll('div')[1].textContent = arr;
+    }
+
+</script>
+
+
+<body>
+    <h4>이름을 계속 입력받아 출력(종료 시 공백문자 입력 또는 취소(null) 버튼 누르기)</h4>
+    <input type="button" value="입력" onclick="f_input()">
+    <div></div>
+
+    <h4>중복되지 않는 정수 5개를 출력</h4>
+    <input type="button" value="출력" onclick="f_output()">
+    <div></div>
+</body>
+
+</html>

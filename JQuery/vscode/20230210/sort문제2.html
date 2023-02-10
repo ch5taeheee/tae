@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <table border="1">
+        <tbody id = "tbody"> 
+            <tr>
+                <th><a href="javascript:f_sortTr(0)">제목</a></th>
+                <th><a href="javascript:f_sortTr(1)">글쓴이</a></th>
+                <th><a href="javascript:f_sortTr(2)">내용</a></th>
+                <th><a href="javascript:f_sortTr(3)">날짜</a></th>
+            </tr>
+            <tr>
+                <td>달러구트 꿈 백화점</td>
+                <td>이미예</td>
+                <td>주문하신 꿈은 매진입니다</td>
+                <td>2020-07-08</td>
+            </tr>
+            <tr>
+                <td>주린이가 알고싶은 최다질문 77</td>
+                <td>염승환</td>
+                <td>염블리와 함께라면 주식이 쉽고 재밌다</td>
+                <td>2021-07-26</td>
+            </tr>
+            <tr>
+                <td>미드나잇 라이브러리</td>
+                <td>매트 헤이그</td>
+                <td>1주년 스페셜 에디션</td>
+                <td>2021-04-28</td>
+            </tr>
+            <tr>
+                <td>공정하다는 착각</td>
+                <td>마이클 샌델</td>
+                <td>능력주의는 모두에게 같은 기회를 제공하는가</td>
+                <td>2020-12-01</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script>
+//노드를 sort를 이용하기 위해서 배열을 만든다. 각자 tr의 정보를 trs 에서 arr로 옯겨 완전한 배열로 만ㄷ르어서 sort를 진행할 수 있게 된다.
+        let v_tbody = document.querySelector('#id_tbody');
+        let v_trs = document.querySelectorAll('tr');
+        let v_arrTr =[]; // 'v_trs'가 가진 정보를 담아낼 실제 배열 공간
+
+        // console.log(v_trs.length,typeof v_trs,v_trs); // nodeList
+         console.log(typeof v_arrTr, v_arrTr);         //array
+
+        // nodelist는 array 메소드를 사용할 수 없음(적용대상이 아님)
+        // nodelist가 가진 정보를 array로 옮겨주기
+
+        // 헤더정보는 포함하지 않고 옮겨주기 위해 초기 index=1로 설정
+        for(let i = 1; i<v_trs.length; i++){
+            v_arrTr.push(v_trs[i]);
+        }
+        console.log(v_arrTr.length);
+
+        function f_sortTr(p_idx) { //0제목 1글쓴이 2내용 3날짜
+            //alert("오니?" +p_idx);
+
+            v_arrTr.sort(function(a,b){ //가장 처음에 비교되는 요소와 요소인데 a는 달라구트, b 는 주린이 
+                console.log(a,"|",b);
+                console.log(a.children[p_idx]); //인덱스에 접근하기 위해서 이 코드를 사용한다. 
+
+                if(a.children[p_idx].innerText >b.children[p_idx].innerText) {
+                    return 1;
+                } return -1;
+            });
+
+            // 정렬된 결과를 테이블에 출력하기
+            // appendChild() - 기본적인 기능은 내용을 추가하는 것
+            //               - 특별한 기능은 이미 존재하고 있는 대상 요소에 대한 이동을 처리
+            for(let i = 0; i<v_arrTr.length; i++){
+                v_tbody.appendChild(v_arrTr[i]); 
+
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

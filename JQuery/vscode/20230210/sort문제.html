@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    let v_njs = [
+        {
+            "name": "민지",
+            "birth": "2004-05-07",
+            "position": "리더/메인댄서/리드래퍼"
+        },
+        {
+            "name": "하니",
+            "birth": "2004-10-06",
+            "position": "리드보컬/리드댄서"
+        },
+        {
+            "name": "다니엘",
+            "birth": "2005-04-11",
+            "position": "메인보컬"
+        },
+        {
+            "name": "해린",
+            "birth": "2006-05-15",
+            "position": "서브보컬"
+        },
+        {
+            "name": "혜인",
+            "birth": "2008-04-21",
+            "position": "서브보컬/메인래퍼"
+        }
+    ]; 
+
+    // name으로 정렬
+    v_njs.sort(function(a,b){
+        console.log(a.name, "|", b.name);
+       /* if(a>=b){
+            return 1;
+        }
+        return -1; //자리변경 */
+       
+        return a.name.charCodeAt()-b.name.charCodeAt();
+
+    });
+
+    
+
+    // birth로 정렬
+
+    v_njs.sort(function(a,b){
+        return a.birth.replaceAll("-","")-b.birth.replaceAll("-","");
+
+    });
+    
+
+    // position으로 정렬 >> 나중에 작성하고 결과 확인해보기
+
+    console.log(v_njs);
+</script>
