@@ -12,19 +12,96 @@
     <h4>경과시간 구하기 - getTime() 활용해서 D-DAY, D+DAY 계산</h4>
 
     <h5> <a href="javascript:f_birth()"> D+DAY 살아온 날짜 </a></h5>
+    <h5><a href="javascript:f_suryo()">D-DAY 수료일</a></h5>
+
+    <h5>
+        <input type="date" id="refund">
+        <a href="javascript:f_refund()">환불가능날짜 계산</a>
+    </h5>
 
 
 
 
 
     <script>
-        function f_birth() {
-            let today = new Date();
-            let myBir = new Date("1998.02.10");
+        let today = new Date(); //전역
 
+        function f_refund(){
+            let rfdVal = document.querySelector('#refund').value;
+           // alert(rfdVal);
+
+           //값이 있을 때 아래 코드 실행하도록...
+           if(rfdVal == ""){
+            //값 없을 때 되돌아가게..
+            alert("날짜를 선택하세요")
+            return;
+           }
+           //else {
+
+               let ref = new Date(rfdVal); // 날짜객체 
+               let todayMs = today.getTime(); // todayMs
+               let refMs = ref.getTime(); // refund ms
+    
+               let ms = todayMs - refMs;
+               let dd = ms/1000/60/60/24;
+    
+               console.log(">>>>>>>>>",dd);
+    
+               if(dd>=7) {
+               alert("환불불가");
+           } else if(dd<0){
+            alert("오늘 이전의 날짜를 선택하세요.");
+           } else{
+               alert("환불가능");
+           }
+           document.querySelector('#refund').value = "";
+          // }
+
+    }
+            
+
+        
+
+        function f_suryo(){
+            let suryo = new Date("2023.08.03");
+            let todayMs = today.getTime(); // 오늘까지의 ms
+            let srMs = suryo.getTime(); // 수료일까지의 ms
+
+            let ms = srMs - todayMs;
+            let dd = ms/1000/60/60/24;
+
+            let str = '수료일: ${suryo.toLocaleDateString()} <br>';
+            str += '오늘 날짜: ${today.toLocaleDateString()} <br>';
+            str += `D-${dd.toFixed(1)}일`;
+            str += `D-${Math.round(dd)}일`; //반올림
+            str += `D-${Math.ceil(dd)}일`; //올림
+            str += `D-${Math.floor(dd)}일`; ; //내림
+            
+            document.querySelector('body').insertAdjacentHTML('beforeend',str);
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        function f_birth() {
+            let myBir = new Date("1998.02.10");
+            
             let todayMs = today.getTime();
             let birMs = myBir.getTime();
-
+            
             let ms = todayMs - birMs;
             let sec = ms / 1000;
             let min = sec / 60;
@@ -34,10 +111,10 @@
 
             let str = "생년월일 : " + myBir.toLocaleDateString() + "<br>";
             str += "오늘 날짜 : " + today.toLocaleDateString() + "<br>";
-            str += "태어난 지 " + yy + "년 경과 <br>";
-            str += "태어난 지 " + dd+ "일 경과 <br>";
-            str += "태어난 지 " + hh + "시 경과 <br>";
-            str += "태어난 지 " + min + "분 경과 <br>";
+            str += "태어난 지 " + yy.toFixed(2) + "년 경과 <br>";
+            str += "태어난 지 " + dd.toFixed(2)+ "일 경과 <br>";
+            str += "태어난 지 " + hh.toFixed(2) + "시 경과 <br>";
+            str += "태어난 지 " + min.toFixed(2) + "분 경과 <br>";
             str += "태어난 지 " + sec.toFixed(2) + "초 경과";
 
             document.querySelector('body').insertAdjacentHTML('beforeend', str);

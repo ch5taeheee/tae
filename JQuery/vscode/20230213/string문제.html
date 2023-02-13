@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid red;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="생일, 성별, 나이 출력" onclick="f_info()">
+    <input type="button" value="주민번호 유효성 검사" onclick="f_vaild()">
+    <div></div>
+
+    <script>
+
+        let f_vaild = function () {
+            document.querySelector('div').textContent="";
+            let jumin = prompt("주민등록번호를 입력하세요", "110325-4432618");
+
+            //1. repalce() 이용해서 하이픈 제거
+            let jm = jumin.replace('-', '');
+
+            //2. split('-')제거하고 concat으로 끊어진 배열 연결하기
+            //let jm = jummin.split("-");
+            // jm[0].concat(jm[1]);
+
+            //공식 1 - 마지막 자릿수를 제외하고 순차적으로 2~9까지 곱한 총 합을 구하기
+            let arr = [2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5];
+            let sum = 0;
+            for (let i = 0; i < jm.length - 1; i++) {
+                // console.log(jm.charAt(i));
+                // sum += jm.charAt(i) * arr[i];
+                // idx0-> 0%8+2=2 / idx1-> 1%8+2=3 / idx7-> 7%8+2=9 / idx8-> 8%8+2=2
+                sum += jm.charAt(i) * (i % 8 + 2);
+            }
+            //공식 2 - 공식1의 합을 11로 나눈 나머지 구하기
+            //공식3 - 11에서 공식2번의 결과를 빼기
+
+            let result = 11 - (sum % 11);
+
+            //공식4 - 결과가 10이전일때 그대로, 10일때 0 , 11일때 1...
+            result = result % 10;
+            console.log(result);
+
+            //공식 5 - 마지막 자릿수와 결과가 일치하면 주민등록번호 유효
+             let last = jumin.charAt(jm.length);
+            //console.log(jumin.charAt(jumin.length - 1));
+
+            let str = "";
+            
+            if (last == result) str += `유효한 주민등록번호`;
+            else str += `유효하지 않은 주민등록번호`;
+
+            document.querySelector('div').insertAdjacentHTML('beforeend', str);
+
+
+
+
+        }
+
+
+        function f_info() {
+            document.querySelector('div').textContent = "";
+            let jumin = prompt("주민등록번호를 입력하세요", "110325-4432618");
+            console.log(jumin);
+
+            // 정보추출(index 0,1 => 년도 / 2,3 => 월 / 4,5 => 일 7 => 성별, 출생년도)
+            // 생일
+            let jm_y = jumin.substring(0, 2); // 년도
+            let jm_m = jumin.slice(2, 4);
+            let jm_d = jumin.substr(4, 2);
+            let jm_g = jumin.substr(7, 1);
+
+            //출생년도
+            let yy = "";
+            if (jm_g == "1" || jm_g == "2") yy = "19";
+            else if (jm_g == "3" || jm_g == "4") yy = "20";
+
+            //생일
+            let bir = yy.concat(jm_y) + "년" + jm_m + "월" + jm_d + "일";
+
+
+            //성별
+            let gd = "";
+            if (jm_g == "1" || jm_g == "3") gd = "남자";
+            else if (jm_g == "2" || jm_g == "4") gd = "여자";
+
+            //나이
+            let today = new Date();
+            let fully = today.getFullYear(); //4자리 연도 반환
+            let age = fully - yy.concat(jm_y);
+
+            //출력
+            let str = `주민등록번호 : ${jumin.substring(0, 8)}-****** <br>`;
+            str += `생년월일: ${bir}  <br>`;
+            str += `성별: ${gd}  <br>`;
+            str += `나이: ${age}  <br>`;
+
+            document.querySelector('div').insertAdjacentHTML('beforeend', str);
+
+        }
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

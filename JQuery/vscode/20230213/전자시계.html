@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #id_clock {
+            background-color: black;
+            color: yellow;
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="id_clock" class="cls_clock">00:00:00</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // id속성의 값을 통한 요소 접근 방식은 샘플코드 수준에서만 사용 
+        // 실제 요소에 접근할 때는 요소선택 메소드를 이용함이 바람직하다
+        // console.log(id_clock);
+
+        //구버전 >> getElement(종류가 많음, id는 Element 나머지는 Elements~)
+
+        let v_idClock = document.getElementById('id_clock');
+        let v_clsClock = document.getElementsByClassName('cls_clock')[0];
+        let v_tagClock = document.getElementsByTagName('div')[0]; // 복수개로 지정할 수 있기 때문에 
+
+
+        //뉴버전 >> querySelector, querySelectorAll
+
+        let v_qsId = document.querySelector('#id_clock');
+        let v_qs = document.querySelector('div'); // 가장 첫번째 요소만 선택하여 반환
+        let v_qsa = document.querySelectorAll('div')[0];//모든 요소반환하지만 인덱스번호 붙여라
+
+        console.log(v_idClock, v_clsClock, v_tagClock, v_qsId, v_qs, v_qsa);
+
+        function autoClock() {
+
+            let today = new Date();
+            let v_year = today.getFullYear(); // 4자리 년도
+            let v_month = today.getMonth() + 1;// 월 정보 0=>1월
+            let v_date = today.getDate();//일 정보
+            let v_day = today.getDate(); // 요일 정보
+            let v_hour = today.getHours(); // 시 정보
+            let v_min = today.getMinutes(); // 분 정보
+            let v_sec = today.getSeconds(); // 초 정보
+
+
+
+            console.log(v_year, v_month, v_date, v_day, v_hour, v_min, v_sec);
+
+
+            //1자리 수 데이터에 '0'을 붙여주기
+            // console.log(typeof v_sec.toString().length);
+            if (v_sec < 10) {
+                v_sec = "0" + v_sec;
+            }
+            if (v_min < 10) {
+                v_min = "0" + v_min;
+            }
+            if (v_hour < 10) {
+                v_hour = "0" + v_hour;
+            }
+
+            v_qs.textContent = `${v_hour}:${v_min}:${v_sec}`;
+            setTimeout(autoClock, 1000);
+        }
+        // setInterval(outoClock, 1000); // 1초 후 함수 실행 ,단타로 진행(settimeout)-> 인터벌로 변경(1초마다 실행)
+        autoClock();
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

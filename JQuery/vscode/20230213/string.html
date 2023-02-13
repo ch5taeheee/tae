@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+    <meta charset="UTF-8">
+    <script>
+        // 문자열 String
+        // String 기본타입(primitibe type) - 속성과 메소드가 존재하지 않는 데이터
+        // 자바스크립트에는 null, undefined을 제외한 5가지 기본타입을 래핑하는 래퍼객체가 있다. 
+        // >> 기본타입은 속성과 메소드를 정의할 수 없다. 
+        // >> 기본타입에 '.'을 찍어 래퍼객체로 변환 후 제공해주는 속성과 메소드에 한해 적용할 수 있다. 
+        // >> 임시로 기본타입을 참조객체로 만들어 값을 처리하고 메모리에서 삭제되는 구조
+        
+        let v_str = "String객체는 /원시 타입인 문자열을 다룰 때 /유용한 프로퍼티와 메소드를 제공하는/ 래퍼 String객체"
+        console.log(v_str.length); // 기본타입 => 참조타입으로 임시변환되어서 length속성을 적용한 요소 값을 출력
+        console.log(v_str.charAt(3)); //인덱스를 넣을 수 있다. i 반환
+        console.log(v_str.charCodeAt(3)); // 해당문자를 unicode(ascii code)로 변환
+        
+        console.log(v_str.indexOf("String")); // 문자가 시작되는 위치의 인덱스를 반환 => 0을 반환
+        console.log(v_str.indexOf("String",10)); // 범위 내 없는 문자 찾을 때 -1을 반환함.
+
+        let a = "A";
+        let b = "app";
+        let c = "e";
+        let abc = a.concat(b,c); //여러 문자열 연결, '+' 연산자와 동일 기능
+        console.log(abc,abc[2]);
+
+        let data = "            짱                   구                 ";
+        console.log(data.length);
+        data = data.trim();
+        console.log(data.length); // 앞 뒤 공간만 제거, 실 데이터 안쪽 공백은 유지
+        //회원가입시 사용자 모르게 입력된 공백부분에 대해 개발자 측에서 처리하는 용도로 많이 사용됨.
+        
+        //첫번째 인자를 검색하여 두번째 인자로 치환
+        //새로운 문자열을 만들어 반환하므로 원본은 변경되지 않음.
+        //replace(oldStr,newStr), replaceAll(oldStr,newStr)
+
+        let v_str2 =  v_str.replace('String','스트링'); 
+        console.log("원본>>>",v_str); 
+        console.log("새로 생성된 문자열>>",v_str2);
+        
+       // v_str = v_str.replace('String','S t r i n g'); //원본 문자열이 존재하는 변수에 대입하여 원본 변경
+        console.log("변경된 원본>>>",v_str); 
+
+        //replace 첫번째 대상에만 적용 그 후는 변경하지 않음. 이 때 replaceALL 활용해라
+
+        console.log(v_str.substring(4,10));//시작~끝을 포함하지 않는 범위
+        console.log(v_str.slice(4,10)); // 시작~끝을 포함하지 않는 범위
+        console.log(v_str.substr(4,6)); // 시작범위 ~ 가져올 갯수
+
+        let v_spl = v_str.split("/"); // 구분자를 이용해 배열로 반환
+        console.log(v_spl);
+        console.log(v_spl[2]);
+        
+
+
+
+    
+    </script>
