@@ -25,7 +25,7 @@ public class T11BufferedIOTest {
 			bos = new BufferedOutputStream(fos,5);
 			
 			for(char ch ='1'; ch<='9';ch++) {
-				System.out.println("쓰기작업"); // 5번째까지는 버퍼에 차곡차곡 정리 꼬ㅏㄱ 차면 비운다음에 나머지 4개가 채워지고.. 비우고 .. 총 write는 2번?
+				System.out.println("쓰기작업"); // 5번째까지는 버퍼에 차곡차곡 정리 꽉 차면 비운다음에 나머지 4개가 채워지고.. 비우고 .. 총 write는 2번?
 				bos.write(ch);
 				
 			}

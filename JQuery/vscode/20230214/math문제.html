@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            border: 2px solid red;
+            height: 100px;
+            overflow: auto; /* //스크롤 */
+        }
+    </style>
+</head>
+
+<body>
+    <h4>
+        <input id="number" size="1">
+        <a href="javascript:f_guess()">1부터 100사이 Number Guess</a>
+    </h4>
+
+    <a href="javascript:f_lotto()">로또번호 생성</a>
+
+    <div></div>
+
+
+    <script>
+
+
+        function f_lotto() {
+
+            let lotto = [];
+            //1~45범위의 6개 숫자 발생
+            for (let i = 0; i < 6; i++) {
+                let rnd = Math.ceil(Math.random() * 45);
+
+                //중복제거
+                if (lotto.indexOf(rnd) == -1) { //중복 아님
+                    lotto[i] = rnd;
+                    consle.console.log("if>> ", lotto.indexof(rnd), ",", rnd);
+
+                } else { //중복
+                    i -= 1; //진행된index 복구
+                    consle.console.log("else>> ", lotto.indexof(rnd), ",", rnd);
+                }
+
+            }
+            lotto.sort(function (a, b) { a - b }); //오름차순 정렬
+            document.querySelector('div').textContent = lotto;
+            // document.querySelector('div').insertAdjacentHTML('beforeend',lotto + "<br>"); 
+
+        }
+
+        // const RND = Math.floor(Math.random()*100)+1;
+        const RND = Math.ceil(Math.random() * 100); //1~100까지
+
+
+        let str = "";
+        let cnt = 0;
+
+
+        function f_guess() {
+            document.querySelector('div').textContent = ""; // 초기화
+            let numVal = document.querySelector('#number').value;
+            let hint = "";
+
+            str += numVal + " ";
+
+            // 값이 같을 때
+            if (numVal == RND) {
+                cnt++;
+                // 결과 내용 출력 >> 지금까지 입력된 값들, 입력된 횟수
+                let result = "총 횟수 : " + cnt + "<br>";
+                result += `입력된 값들: ${str}`;
+                document.querySelector('div').insertAdjacentHTML('beforeend', result);
+
+                // 랜덤수보다 더 클 때
+            } else if (numVal > RND) {
+                cnt++;
+                //힌트 공개
+                hint += `더 작은 수를 입력하세요.`
+                document.querySelector('div').textContent = hint;
+                // 랜덤수보다 더 작을 때
+            } else {
+                cnt++;
+                //힌트 공개
+                hint += `더 큰 수를 입력하세요.`
+                document.querySelector('div').textContent = hint;
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>열어준 창</h1>
+    <textarea id="old_txt" cols="30" rows="10" >멀티라인</textarea>
+    <input type="button" value = "버튼" onclick="f_click()">
+
+
+    <input type="button" value = "새창 open" onclick="f_winOpen()">
+    <input type="button" value = "새창 close" onclick="f_winClose()">
+
+
+    <script>
+        let v_newWin;
+        function f_winOpen() {
+            //window.open(url,name or target, specs);
+            // 두번째 인자로 name 값을 지정하면 해당 창에 반복하여 url을 매칭
+            // 세번째 인자에 여러 속성을 적용하여 페이지가 분리되어 표현되게 함.
+           v_newWin =  window.open("새창.html","erum","width= 300px; height=500px; left=200px");
+        }
+
+        function f_winClose() {
+            v_newWin.close();
+        }
+
+        function f_click() {
+            let parentVal = document.querySelector('#old_txt').value;
+            // 자식창멀티라인 = 부모창 값
+           v_newWin.document.querySelector('#new_txt').value= parentVal;
+
+        
+
+        }
+        //가장 많이 사용하는 이벤트 부여 방식
+        document.querySelector('#old_txt').addEventListener('keydown',function(){
+            if(event.keycode == 13) {
+                f_click();
+            }
+
+        });
+    </script>
+
+
+
+
+</body>
+</html>

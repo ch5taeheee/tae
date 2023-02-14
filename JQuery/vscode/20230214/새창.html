@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>열린 창</h1>
+    <textarea id="new_txt" cols="30" rows="10" onkeydown="f_kd()">비어있음</textarea>
+    <input type="button" value="버튼" onclick="f_click()">
+
+    <script>
+        function f_click() {
+            let newTxtVal = document.querySelector('#new_txt').value;
+            //opener - 부모창을 지칭하는 속성
+            opener.document.querySelector('#old_txt').value = newTxtVal;
+
+        }
+        function f_kd() {
+            // alert(event.key + " | " + event.keyCode);
+            // if(event.key == 'Enter'){
+            if (event.keyCode == '13') {
+                f_click();
+            }
+        }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

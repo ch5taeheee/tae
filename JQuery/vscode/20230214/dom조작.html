@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="요소추가" id="addElem">
+    <input type="button" value="이미지추가" id="addImg">
+
+
+
+    <script src="../js/random.js"></script>
+    <script>
+        let v_addElem = document.querySelector('#addElem');
+        let v_addImg = document.querySelector('#addImg');
+        let v_count = 1;
+
+        v_addImg.addEventListener('click',function(){
+        let v_img = document.createElement('img'); //<img>
+        v_img.src = "../image/한소희11.jpg";
+        document.querySelector('body').appendChild(v_img);
+    });
+
+
+
+
+
+
+
+
+
+        v_addElem.addEventListener('click', function () {
+
+            let v_h1 = document.createElement('h1'); //<h1></h1>
+            v_h1.innerText = "요소생성" + v_count;
+            //v_h1.style.backgroundColor = "red"; 
+            v_h1.style.backgroundColor = f_rgba();//랜덤칼라
+            document.querySelector('body').append(v_h1);
+            v_count++;
+        });
+
+
+        function f_rgba() {
+            // return "rgba(" + f_random(0,255) + "," + f_random(0,255) + "," + f_random(0,255) + ")";
+            return `rgba(${f_random(0, 255)},${f_random(0, 255)},${f_random(0, 255)},0.5)`;
+        }
+
+    </script>
+</body>
+
+</html>

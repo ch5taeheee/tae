@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        #id_modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: yellow;
+            width: 100%;
+            /* position:fixed에 한해 높이속성 % 사용가능 */
+            height: 100%;
+            opacity: .7;
+        }
+
+        #id_content {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>메인화면</h4>
+    <img src="../image/한소희13.jpg" alt="한소희">
+    <input type="button" value="모달창 열기">
+
+    <!-- modal영역 -->
+    <div id="id_modal">
+        <div id="id_content">
+            <span>모달창이 띄워졌네요</span>
+            <input type="button" value="x">
+        </div>
+    </div>
+
+    <!-- modal영역 -->
+
+    <SCRIPt>
+        let v_modal = document.querySelector('#id_modal');
+
+        document.querySelector('[type=button]').addEventListener('click', function () {
+            v_modal.style.display = "block";
+        });
+
+        document.querySelector('[value="x"]').addEventListener('click', function () {
+            v_modal.style.display = "none";
+        });
+    </SCRIPt>
+
+</body>
+
+</html>
