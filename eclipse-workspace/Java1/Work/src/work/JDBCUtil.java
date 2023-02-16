@@ -1,4 +1,4 @@
-package kr.or.ddit.util;
+package work;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,7 +18,6 @@ public class JDBCUtil {
 		//	System.out.println("드라이버 로딩 완료");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			
 		}
 
 	}
