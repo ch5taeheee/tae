@@ -4,25 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        img {
+            width: 50px;
+        }
+    </style>
 </head>
 
 <body>
     <input type="button" value="요소추가" id="addElem">
     <input type="button" value="이미지추가" id="addImg">
-
+    <input type="button" value="링크 추가" id="addLink">
+    <div></div>
 
 
     <script src="../js/random.js"></script>
     <script>
         let v_addElem = document.querySelector('#addElem');
         let v_addImg = document.querySelector('#addImg');
+        let v_addLink = document.querySelector('#addLink');
         let v_count = 1;
 
-        v_addImg.addEventListener('click',function(){
-        let v_img = document.createElement('img'); //<img>
-        v_img.src = "../image/한소희11.jpg";
-        document.querySelector('body').appendChild(v_img);
+        /*  v_addImg.addEventListener('click',function(){
+          let v_img = document.createElement('img'); //<img>
+          v_img.src = "../image/한소희11.jpg";
+          document.querySelector('body').appendChild(v_img);
+      }); */
+
+
+      v_addLink.addEventListener('click',function(){
+        let v_aTag = document.createElement('a'); //<a></a>
+        v_aTag.href = "http://www.ddit.or.kr";
+        v_aTag.innerText = "대덕인재개발원";
+
+        document.querySelector('body').appendChild(v_aTag);
     });
+
+        v_addImg.addEventListener('click', function () {
+            // let v_img = document.createElement('img'); //<img>
+            // v_img.src = "../image/한소희"+ v_count +".jpg";
+            // v_img.width =200;
+            // v_img.style.height="100px"; // 스타일 속성으로 지정 시 단위까지 포함한 문자로 값 지정
+            
+            //document.querySelector('body').appendchild(v_img);
+            
+            let v_img = "<img src='../image/한소희" + v_count + ".jpg' alt='한소희' style='width:50px;'>";
+            document.querySelector('body').insertAdjacentHTML('beforeend',v_img);
+            //기존 요소는 건들지 않음. insertadjacenthtml
+            //document.querySelector('body').innerHTML;
+            //innerhtml : 기존 요소 다 바꿈.
+            v_count++;
+            if (v_count > 11) v_count = 1;
+        });
 
 
 

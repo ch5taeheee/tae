@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #disp {
+            width: 50%;
+            height: 50vh;
+            border-style: solid;
+        }
+
+        #lyj {
+            width: 50px;
+            height: 50px;
+            background-image: url(../image/한소희1.jpg);
+            background-size: 50px 50px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="disp"></div>
+    <div id="lyj">졸려..</div>
+
+    <script>
+        let v_disp = document.querySelector('#disp');
+        let v_elem = document.querySelector('#lyj');
+
+        window.addEventListener('mousemove', function () {
+            console.log(event.clientX);
+            v_elem.style.left = event.clientX + "px";
+            v_elem.style.top = event.clientY + "px";
+        });
+
+
+        v_disp.addEventListener('mousedown', function () {
+            //event.button - 0,1,2 | event.which - 1,2,3
+            // alert(event.button + '|' + event.which);
+
+            //beforebegin - 요소 외부 앞
+            //afterbegin - 요소 내부 앞
+            //beforeend - 요소 내부 뒤
+            //afterend - 요소 외부 뒤
+
+            if (event.button == 0) {
+                v_disp.insertAdjacentHTML('beforebegin', "좌클릭")
+            } else if (event.button == 1) {
+                v_disp.insertAdjacentHTML('beforeend', "중클릭")
+            } else {
+                v_disp.insertAdjacentHTML('afterend', "우클릭")
+
+            }
+        });
+
+        v_disp.addEventListener('mouseup', function () {
+            // alert("눌렀던 버튼을 놓았을때 실행")
+        });
+
+
+        //우클릭시 팝업되는 contenxtmenu 발생 중지
+        v_disp.addEventListener('contextmenu', function () {
+            // event.preventDefault();
+        });
+
+
+
+
+
+    </script>
+</body>
+
+</html>

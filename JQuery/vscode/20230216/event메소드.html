@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            border-style: solid;
+            position: relative;
+            left: 20px;
+        }
+
+        #hal {
+            width: 200px;
+            height: 200px;
+        }
+
+        #mom {
+            width: 120px;
+            height: 120px;
+        }
+
+        #na {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>
+        이벤트 메소드 2가지 기억하기
+        preventDefault(): 기본 기능 막기
+    </h4>
+    <a href="../image/한소희1.jpg" class="view">이미지보기</a>
+    <form action="./event등록.html">
+        <input type="submit">
+        <button>전송</button>
+    </form>
+
+    <h4>stopPropagation(): 이벤트 버블링 막기</h4>
+    <div id="hal">
+        할머니
+        <div id="mom">
+            엄마
+            <div id="na">
+                나
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let v_view = document.querySelector('.view');
+        let v_submit = document.querySelector('[type=submit]');
+        let v_btn = document.querySelector('form button');
+
+        let v_hal = document.querySelector('#hal');
+        let v_mom = document.querySelector('#mom');
+        let v_na = document.querySelector('#na');
+
+        v_na.addEventListener('click', function () {
+            this.style.border = "5px dotted red";
+            event.stopPropagation();
+        });
+
+        v_mom.onclick = function () {
+            this.style.border = "5px inset gold";
+            event.stopPropagation();
+        }
+
+        v_hal.onclick = function () {
+            this.style.border = "5px dashed green";
+        }
+
+
+
+
+
+        v_btn.addEventListener('click', function () {
+            event.preventDefault();
+        });
+
+        v_view.onclick = function () {
+            event.preventDefault();
+        }
+    </script>
+
+</body>
+
+</html>

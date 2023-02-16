@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="disp">
+        <img src="../image/한소희1.jpg" alt="">
+        <img src="../image/한소희2.jpg" alt="">
+        <img src="../image/한소희7.jpg" alt="">
+        <img src="../image/한소희9.jpg" alt="">
+    </div>
+    <input type="button" value="<<" id="id_left">
+    <input type="button" value="||" id="id_stop">
+    <input type="button" value=">>" id="id_right">
+
+    <script>
+        let v_left = document.querySelector('#id_left');
+        let v_right = document.querySelector('#id_right');
+        let v_stop = document.querySelector('#id_stop');
+        let v_parent = document.querySelector('#disp');
+        let v_timer;
+
+        v_left.addEventListener('click', proxyLeft);
+        f_mv_left = function () {
+            let first = v_parent.firstElementChild;
+            v_parent.insertBefore(first, null);
+            v_timer = setTimeout(f_mv_left, 400);
+
+        }
+
+        v_right.addEventListener('click', proxyRight);
+        f_mv_right = function () {
+            let last = v_parent.lastElementChild;
+            v_parent.insertBefore(last, v_parent.firstChild);
+            v_timer = setTimeout(f_mv_right, 400);
+
+        }
+
+        v_stop.addEventListener('click', proxyStop);
+        f_stop = function () {
+            clearTimeout(v_timer);
+        }
+
+
+        //proxy pattern으로 함수호출을 대리자가 대신하게 하는 방식
+        let exist = false; //flag(switch)변수 - 상태를 on/off시키는 변수
+
+        function proxyLeft() {
+            if (!exist) {
+                f_mv_left();
+                exist = true;
+            }
+        }
+        function proxyRight() {
+            if (!exist) {
+                f_mv_right();
+                exist = true;
+            }
+        }
+        function proxyStop() {
+            f_stop();
+            exist = false;
+        }
+
+    </script>
+</body>
+
+</html>

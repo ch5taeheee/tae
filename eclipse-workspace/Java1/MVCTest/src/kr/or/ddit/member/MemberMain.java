@@ -1,4 +1,4 @@
-package kr.or.ddit.basic;
+package kr.or.ddit.member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,41 +9,9 @@ import java.util.Scanner;
 
 import kr.or.ddit.util.JDBCUtil3;
 
-/*
-	회원정보를 관리하는 프로그램을 작성하는데 
-	아래의 메뉴를 모두 구현하시오. (CRUD기능 구현하기)
-	(DB의 MYMEMBER테이블을 이용하여 작업한다.)
-	
-	* 자료 삭제는 회원ID를 입력 받아서 삭제한다.
-	
-	예시메뉴)
-	----------------------
-		== 작업 선택 ==
-		1. 자료 입력			---> insert
-		2. 자료 삭제			---> delete
-		3. 자료 수정			---> update
-		4. 전체 자료 출력	---> select
-		5. 작업 끝.
-	----------------------
-	 
-	   
-// 회원관리 프로그램 테이블 생성 스크립트 
-create table mymember(
-    mem_id varchar2(8) not null,  -- 회원ID
-    mem_name varchar2(100) not null, -- 이름
-    mem_tel varchar2(50) not null, -- 전화번호
-    mem_addr varchar2(128),    -- 주소
-    reg_dt DATE DEFAULT sysdate, -- 등록일
-    CONSTRAINT MYMEMBER_PK PRIMARY KEY (mem_id)
-);
+public class MemberMain {
 
-*/
-public class T01MemberInfoTest {
 
-	private Connection conn;
-	private Statement stmt;
-	private PreparedStatement pstmt;
-	private ResultSet rs;
 
 	private Scanner scan = new Scanner(System.in);
 
@@ -356,7 +324,7 @@ public class T01MemberInfoTest {
 	}
 
 	public static void main(String[] args) {
-		T01MemberInfoTest memObj = new T01MemberInfoTest();
+		MemberMain memObj = new MemberMain();
 		memObj.start();
 	}
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 방식1. 인라인방식으로 이벤트 속성 지정 >> 보통 테스트용으로 많이 사용 -->
+
+    <button id= "btn1">버튼 이벤트 onclick </button>
+    <button id= "btn2">버튼 이벤트 addEventListener </button>
+
+ 
+
+
+
+
+
+
+<script>
+
+    let v_btn1 = document.querySelector('#btn1');
+    let v_btn2 = document.querySelector('#btn2');
+
+    // 방식2. onclick 
+    //  한 요소에 여러 이벤트를 적용하여도 덮여씌어지다 마지막 이벤트만 실행함.
+
+        v_btn1.onclick = function() {
+            alert("버튼1을 눌렀슈");
+        }
+        let v_cnt = 0;
+        v_btn1.onclick = function() {
+            
+            v_btn2.addEventListener('click',function(){
+                alert("실행 " + v_cnt);
+            });
+            v_cnt++;
+            console.log(v_cnt);
+            
+            // alert("버튼1을 눌렀슈!");
+        }
+
+    // 방식3. addEventListener
+    // 여러 이벤트를 적용해도 이벤트 큐에 순차적으로 쌓아놓고 순차적으로 실행함.
+
+        v_btn2.addEventListener('click',function(){
+            alert("버튼2를 눌렀음");
+        });
+        v_btn2.addEventListener('click',function(){
+            alert("버튼2를 눌렀음!!");
+        });
+
+
+</script>
+
+
+
+</body>
+
+</html>

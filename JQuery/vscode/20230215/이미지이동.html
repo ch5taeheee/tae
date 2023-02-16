@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="disp">
+        <img src="../image/한소희1.jpg" alt="">
+        <img src="../image/한소희2.jpg" alt="">
+        <img src="../image/한소희7.jpg" alt="">
+        <img src="../image/한소희9.jpg" alt="">
+    </div>
+    <input type="button" value="<<" id="id_left">
+    <input type="button" value="||" id="id_stop">
+    <input type="button" value=">>" id="id_right">
+
+    <script>
+        let v_left = document.querySelector('#id_left');
+        let v_right = document.querySelector('#id_right');
+        let v_stop = document.querySelector('#id_stop');
+        let v_parent = document.querySelector('#disp');
+        let v_timer;
+
+        v_left.addEventListener('click', f_mv_left = function () {
+            let first = v_parent.firstElementChild;
+            // let first = v_parent.firstChild;
+            // let first = v_parent.childNodes;
+            // console.log(first);
+            // v_parent.append(first);
+            v_parent.insertBefore(first, null); //위치 지정하지 않으면 요소 내부 뒤쪽에 붙임
+            v_timer = setTimeout(f_mv_left, 400);
+
+            v_left.setAttribute("disabled", true);
+            v_right.setAttribute("disabled", true);
+        });
+
+        v_right.addEventListener('click', f_mv_right = function () {
+            let last = v_parent.lastElementChild;
+            //뒤에 있던 요소를 앞으로 붙여야 하는데 - insertBefore(대상요소, 위치)
+            v_parent.insertBefore(last, v_parent.firstChild);
+            v_timer = setTimeout(f_mv_right, 400);
+
+            v_left.setAttribute("disabled", true);
+            v_right.setAttribute("disabled", true);
+        });
+
+        v_stop.addEventListener('click', function () {
+            clearTimeout(v_timer);
+            v_left.removeAttribute("disabled");
+            v_right.removeAttribute("disabled");
+        });
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

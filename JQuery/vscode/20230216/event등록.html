@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #wrapper {
+            border: 10px inset gray;
+        }
+
+        .nf {
+            border: 2px solid royalblue;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="nf">피지컬100</div>
+        <div class="nf">더글로리</div>
+        <div class="nf">나는솔로</div>
+        <div class="nf">웬즈데이</div>
+    </div>
+    <script>
+        //모든 class에 요소에 이벤트 부여
+        let v_nflx = document.querySelectorAll('.nf');
+        for (let i = 0; i < v_nflx.length; i++) {
+            v_nflx[i].addEventListener('click', function () {
+                alert("재밌는 - " + v_nflx[i].textContent);
+            });
+        }
+
+        //요소 추가
+        // document.querySelector('#wrapper').innerHTML += "<div class=\"nf\">오징어게임</div>";
+        document.querySelector('#wrapper').insertAdjacentHTML('beforeend', "<div class=\"nf\">오징어게임</div>");
+
+        //innerHTML로 요소를 추가시 기존 요소(정적)들도 모두 동적요소로 변경됨
+        //동적인 요소는 이벤트를 할당받을수 없으므로 '정적인 부모'에 이벤트를 부여하고 위임받아야 함 //중요함.
+        //부모에 이벤트 부여하기
+        let wrapper = document.querySelector('#wrapper');
+        wrapper.addEventListener('click', function () {
+            // console.log(event.target.textContent);
+            alert("부모가 이벤트를 부여받고 자식에게 위임 - " + event.target.textContent);
+        });
+
+
+    </script>
+</body>
+
+</html>

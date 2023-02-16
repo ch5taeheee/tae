@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        div {
+            border: 2px inset orange;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 대상 위로 마우스를 올렸을 때 길어지고, 늘어지고, 넓어지게 만들기. -->
+    <div onmouseover="f_long(this)" style="width: 100px; height: 100px;">길어져</div>
+    <div>늘어져</div> <!-- 이벤트를 밖에서 부여함. -->
+    <div>넓어져</div>
+
+
+
+
+    <script>
+        let timer;
+        function f_stop() {
+            clearTimeout(timer);
+
+        }
+
+        function f_long(p_this) {
+            //alert(p_this.style.width); //요소의 너비값 얻기
+            p_this.style.width = parseInt(p_this.style.width) + 10 + "px";
+            timer = setTimeout(f_long, 1000, p_this); // 1초마다 한 번씩 증가
+
+        }
+
+        let v_divs = document.querySelectorAll('div');
+
+        for (let i = 0; i < v_divs.length; i++) {
+            v_divs[i].addEventListener('mouseout', function () {
+                f_stop();
+            });
+        }
+
+
+        v_divs[1].onmouseover = function f_stretch() {
+            //alert("잘 뜨나요");
+            if (!v_divs[1].style.width) {
+                v_divs[1].style.width = "100px";
+            }
+            // alert(v_divs[1].style.width);
+
+            //세로로 늘어나는 코드를 작성해보세요.
+            if (!v_divs[1].style.height) {
+                v_divs[1].style.height = "100px";
+            }
+            v_divs[1].style.height = parseInt(v_divs[1].style.height) + 10 + "px";
+            timer = setTimeout(f_stretch, 1000);
+
+        }
+        v_divs[2].addEventListener('mouseover', f_wide = function () {
+            if (!v_divs[2].style.height) {
+                v_divs[2].style.width = "100px";
+                v_divs[2].style.height = "100px";
+            }
+            v_divs[2].style.width = parseInt(v_divs[2].style.width) + 10 + "px";
+            v_divs[2].style.height = parseInt(v_divs[2].style.height) + 10 + "px";
+            timer = setTimeout(f_wide, 400);
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>

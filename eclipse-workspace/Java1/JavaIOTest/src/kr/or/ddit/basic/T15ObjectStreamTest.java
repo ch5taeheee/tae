@@ -58,7 +58,7 @@ public class T15ObjectStreamTest {
 		
 		Object obj = null;
 		
-		while((obj = ois.readObject())!=null) {//역질렬화 // 직렬화되ㄴ걸 하나하나 읽어서 .. 오브젝트 단위로 읽어들인다. 
+		while((obj = ois.readObject())!=null) {//역직렬화 // 직렬화되ㄴ걸 하나하나 읽어서 .. 오브젝트 단위로 읽어들인다. 
 			//읽어온 데이터를 원래의 객체형으로 변환 후 사용한다. 기본적으로 리턴타입이 오브젝트 원하는 형으로 바꾸고 싶으면 캐스팅 해야함
 			Member mem = (Member)obj;
 			System.out.println("이름 : " + mem.getName());

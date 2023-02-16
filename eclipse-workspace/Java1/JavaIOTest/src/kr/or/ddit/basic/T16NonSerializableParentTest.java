@@ -15,7 +15,7 @@ public class T16NonSerializableParentTest {
 		 	부모 객체의 필드값 처리 방법
 		 	
 		 	1. 부모클래스가 Serializable 인터페이스를 구현하도록 한다. 
-		 	2. 자식클래스에 writeObject()와 readObject()메서드를 이용하여 부모객체의 필드값을 처리할 수 있도록 직접 구현한다. 
+		 	2. 자식클래스에 writeObject()와 readObject()메서드를 이용하여 부모객체의 필드값을 처리할 수 있도록 직접 구현한다. 꼭 private
 		 	
 		 	
 		 */

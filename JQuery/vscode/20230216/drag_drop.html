@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            border-style: solid;
+            height: 200px;
+        }
+
+        img {
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="drop"></div>
+    <img id="hsh" src="../image/한소희9.jpg" alt="ala" draggable="true">
+
+
+
+
+
+
+
+
+    <script>
+
+        /*   drag drop
+           1. drag 대상 요소에 draggable = ture 속성 적용
+           2. dragStart => dataTransfer.setData로 타겟 아이디를 지정
+           3. dragover(대상위로 드래그 되는 상태를 나타내는 이벤트)의 기능 중지
+           4. drop => dataTransfer.getData로 타겟아이디를 받아 위치로 append
+        */
+
+        let v_img = document.querySelector('img');
+        let v_drop = document.querySelector('.drop');
+
+        v_img.addEventListener('dragstart', function () {
+            console.log(event.target.id);
+            event.dataTransfer.setData('targetId', event.target.id);
+        });
+
+        v_drop.addEventListener('dragover', function () {
+            event.preventDefault();
+        });
+
+        v_drop.addEventListener('drop',function(){
+            let key = event.dataTransfer.getData('targetId');
+            // 드래그 대상을 놓을 공간.appendChild(드래그대상);
+            event.target.append(document.querySelector(key));
+        
+        });
+
+
+    </script>
+</body>
+
+</html>

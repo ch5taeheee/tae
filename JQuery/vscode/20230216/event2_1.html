@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #container {
+      border-style: solid;
+    }
+
+    #wrapper {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    a {
+      letter-spacing: 5px;
+    }
+
+    a:link {
+      color: orange;
+      font-weight: bold;
+    }
+
+    a:visited {
+      color: green;
+    }
+
+    a:hover {
+      font-size: 1.2em;
+      text-shadow: 4px 4px 4px gray;
+    }
+
+    a:active {
+      color: gold;
+      background-color: navy;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div id="container" onmouseover="f_over(this)" onmouseout="f_out(this)"> -->
+  <div id="container">
+    <div>마우스를 올려보세요</div>
+    <!-- <div id="wrapper" style="display: none;"> -->
+    <div id="wrapper" style="visibility: hidden;">
+      <a href="http://naver.com">NAVER</a>
+      <a href="http://daum.net">DAUM</a>
+      <a href="http://www.ddit.or.kr">DDIT</a>
+      <a href="http://youtube.com">UTUBE</a>
+    </div>
+  </div>
+
+  <script>
+
+
+    //addEventListener로 이벤트 지정해보기
+
+
+    let container = document.querySelector('#container');
+    let wrapper = document.querySelector('#wrapper');
+
+    container.addEventListener('mouseover', function () {
+      wrapper.style.visibility = "visible";
+    });
+    container.addEventListener('mouseout', function () {
+      wrapper.style.visibility = "hidden";
+    });
+
+
+
+
+
+
+
+
+
+
+    function f_over(p_this) {
+      // p_this.children[1].style.display = "flex";
+      p_this.children[1].style.visibility = "visible";
+    }
+
+    function f_out(p_this) {
+      // p_this.children[1].style.display = "none";
+      p_this.children[1].style.visibility = "hidden";
+
+    }
+  </script>
+</body>
+
+</html>

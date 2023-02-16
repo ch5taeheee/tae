@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .cls_tbl {
+            display: inline-block;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 문자열 더하기로 요소생성 -->
+    <input type="button" value="구구단 출력" id="id_print">
+    <select id="id_sel">
+        <option value="2">2단</option>
+        <option value="3">3단</option>
+        <option value="4">4단</option>
+        <option value="5">5단</option>
+        <option value="6">6단</option>
+        <option value="7">7단</option>
+        <option value="8">8단</option>
+        <option value="9">9단</option>
+    </select>
+    <div id="id_disp"></div>
+
+    <script>
+        let v_print = document.querySelector('#id_print');
+        let v_sel = document.querySelector('#id_sel');
+        let v_disp = document.querySelector('#id_disp');
+
+        v_sel.addEventListener('change', function () {
+
+            // alert(this.value);
+            let v_dan = this.value;
+            let v_tbl = "<table border=1 class='cls_tbl'>";
+            v_tbl += "<tr><th>" + v_dan + "단</th></tr>";
+            for (let i = 1; i <= 9; i++) {
+                v_tbl += "<tr><td>" + v_dan + " * " + i + " = " + (v_dan * i) + "</td></tr>";
+            }
+            v_tbl += "</table>";
+
+            v_disp.insertAdjacentHTML('beforeend', v_tbl);
+        });
+
+        v_print.addEventListener('click', function () {
+
+            let v_tbl = ""; //초기화 하지 않으면 자동으로 undefined을 할당하여 내용에 추가됨을 주의
+            for (let i = 2; i < 10; i++) {
+                v_tbl += "<table border=1 class='cls_tbl'>";
+                v_tbl += "<tr><th>" + i + "단</th></tr>";
+                for (let j = 1; j <= 9; j++) {
+                    v_tbl += `<tr><td>${i} * ${j} = ${(i * j)}</td></tr>`;
+                }
+                v_tbl += "</table>";
+            }
+            v_disp.insertAdjacentHTML('beforeend', v_tbl);
+        });
+
+
+    </script>
+
+</body>
+
+</html>

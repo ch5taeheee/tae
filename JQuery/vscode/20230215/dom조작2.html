@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        #target {
+            border-style: solid;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="target" onclick="addText('무궁화 꽃이 피었습니다.','오징어게임')"></div> -->
+    <div id="target">
+        <input type="hidden" id="hd1" value="무궁화1">
+        <input type="hidden" id="hd2" value="오징어1">
+        <input type="hidden" id="hd3" value="무궁화2">
+        <input type="hidden" id="hd4" value="오징어2">
+        <input type="hidden" id="hd5" value="무궁화3">
+        <input type="hidden" id="hd6" value="오징어3">
+
+    </div>
+    <script>
+
+        document.querySelector('#target').addEventListener('click', function () {
+            console.log(this.children);
+            for (let i = 0; i < this.children.length; i++) {
+                console.log(this.children[i].value);
+
+                // 일괄로 출력영역에 텍스트 append
+                // this.append(this.children[i].value); 
+
+                //요소를 생성하고 텍스트를 담아서 결과 출력
+                if (this.children[i].type == "hidden") {
+                    this.innerHTML += `<p>${this.children[i].value}</p>`;
+                }
+
+            }
+
+        });
+
+
+
+
+
+
+
+
+
+
+        function addText(t, t1) {
+            console.log(t, typeof t);
+
+            let v_pTag = document.createElement('p'); // <p> 요소 생성
+
+            let txtNode = document.createTextNode(t);
+            let txtNode1 = document.createTextNode(t1);
+
+            v_pTag.append(txtNode);
+            console.log(document.querySelector('#target').appendChild(v_pTag));
+
+            //document.querySelector('#target').appendChild(txtNode); // append, appendChild 
+            //document.querySelector('#target').append(t); //문자열 대입
+            //console.log(document.querySelector('#target').appendChild(txtNode1, txtNode));
+
+            //appendChild() - node 요소만 추가 가능/ 단일항목만 추가 / 결과반환
+
+
+            //append()는 node 요소 및 domString(text)도 추가 가능 / 여러 항목을 추가 // 결과 반환 안 함
+            //document.querySelector('#target').append(txtNode,"와 ",txtNode1);  
+        }
+    </script>
+
+
+</body>
+
+</html>

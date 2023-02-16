@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .child {
+            border: 1px solid green;
+            margin: 10px;
+        }
+
+        .꽁지 {
+            color: gold;
+            font-style: italic;
+            font-size: 3em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">엄마까투리
+        <div class="child">마지</div>
+        <div class="child">두리</div>
+        <div class="child">세찌
+            <h1 id="sonja">손자</h1>
+        </div>
+        <div class="child">꽁지</div>
+    </div>
+
+    <script>
+        let v_parent = document.querySelector('#parent');
+        let v_sonja = document.querySelector('#sonja');
+
+        let copy1 = v_parent.cloneNode();       //얕은 복사
+        let copy2 = v_parent.cloneNode(true);   //깊은 복사
+        console.log("원본>> ", v_parent);
+        console.log("복사본>> ", copy2);
+
+        //부모에서 자식 선택 - children
+        let duri = v_parent.children[1]; //두리
+
+        //자식에서 부모 선택 - parentElement
+        duri.parentElement.style.border = "10px dashed gold";
+        v_sonja.parentElement.style.border = "5px dotted red";
+
+        let child = v_parent.children;
+        child[3].class = "꽁지"; //적용x
+        child[3].setAttribute("class", "꽁지"); //예약어는 setAttribute()로 속성 변경
+
+        v_parent.removeChild(child[0]);  //마지  
+
+
+    </script>
+</body>
+
+</html>
