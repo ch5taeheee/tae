@@ -9,6 +9,8 @@ import java.util.ArrayList;
 //dao : jdbc 코딩 관련
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+
 import kr.or.ddit.member.vo.MemberVO;
 import kr.or.ddit.util.JDBCUtil3;
 
@@ -158,5 +160,79 @@ public class MemberDaoImpl implements IMemberDao {
 		}
 		return memList;
 	}
+
+	@Override
+	public List<MemberVO> searchMember(MemberVO mv) { 
+		List<MemberVO> memList = new ArrayList<>();
+		try {
+			conn = JDBCUtil3.getConnection();
+			
+			String sql = "select *from mymember where 1=1"; //다이나믹 쿼리
+			
+			if(mv.getMemId() != null && !mv.getMemId().equals("")) {
+				sql += " and mem_id = ?" ;
+			}
+			if(mv.getMemName() != null && !mv.getMemName().equals("")) {
+				sql += " and mem_name = ?" ;
+			}
+			if(mv.getMemTel() != null && !mv.getMemTel().equals("")) {
+				sql += " and mem_tel = ?" ;
+			}
+			if(mv.getMemAddr() != null && !mv.getMemAddr().equals("")) {
+				sql += " and mem_addr like '%'|| ? || '%'" ;
+			}
+			
+			pstmt = conn.prepareStatement(sql); //물음표 셋팅해야함
+			
+			//다이나믹하게 물음표 위치 지정하기 위해 인덱스 필요
+			
+			int index = 1;
+			
+			if(mv.getMemId() != null && !mv.getMemId().equals("")) {
+				pstmt.setString(index++, mv.getMemId());
+			}
+			if(mv.getMemName() != null && !mv.getMemName().equals("")) {
+				pstmt.setString(index++, mv.getMemName());
+			}
+			if(mv.getMemTel() != null && !mv.getMemTel().equals("")) {
+				pstmt.setString(index++, mv.getMemTel());
+				
+			}
+			if(mv.getMemAddr() != null && !mv.getMemAddr().equals("")) {
+				pstmt.setString(index++, mv.getMemAddr());
+				
+			}
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				String memId = rs.getString("mem_id");
+				String memName = rs.getString("mem_name");
+				String memTel = rs.getString("mem_tel");
+				String memAddr = rs.getString("mem_addr");
+				
+				MemberVO mv2 = new MemberVO();
+				mv2.setMemId(memId);
+				mv2.setMemName(memName);
+				mv2.setMemTel(memTel);
+				mv2.setMemAddr(memAddr);
+				
+				memList.add(mv2);
+
+			}
+			
+			
+			
+			
+			
+			
+		} catch (SQLException e) {
+			throw new RuntimeException("회원정보 검색 중 예외발생!",e);
+		} finally {
+			JDBCUtil3.close(conn, stmt, pstmt, rs);
+		}
+		return memList;
+	}
+	
+	
 
 }

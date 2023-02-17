@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- CDN 방식 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script>
+        window.onload = function(){
+
+            //javascript를 이용한 스타일 적용 - 하나의 요소를 대상으로
+            let v_h4s = document.querySelectorAll('h4');
+            for(let i = 0; i<v_h4s.length; i++){
+                v_h4s[i].style.backgroundColor = "lightblue";
+            }
+        }
+            
+        //jquary를 이용한 스타일 적용 - 전체 요소 대상으로
+        $(document).ready(function(){ //$(function()) -- 이걸 더 많이 사용함.
+           
+            // $('h4').css('속성명','속성값');
+            $('h4').css('color','red');
+
+            //element queue : 요소 행렬    
+            $('h4').eq(1).css('color','white').css('backgroundColor','black');
+           
+        });
+
+
+    </script>
+</head>
+
+<body>
+    <h4>jquery1</h4>
+    <h4>jquery2</h4>
+    <h4>jquery3</h4>
+    <h4>jquery4</h4>
+</body>
+
+</html>

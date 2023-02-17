@@ -58,7 +58,7 @@ public class T00JDBCTest {
 			
 			/*
 			 * select 일 경우 => executeQuery() 이용. (resultset타입)
-			 * insert, update,delete 일 경우  => executeUpdate() 이용.(int타입이기 때문에)
+			 * insert, update, delete 일 경우  => executeUpdate() 이용.(int타입이기 때문에)
 			 */
 			
 			rs = stmt.executeQuery(sql); // resultset으로 반환

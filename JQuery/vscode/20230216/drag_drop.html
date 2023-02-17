@@ -18,6 +18,8 @@
 
 <body>
     <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
     <img id="hsh" src="../image/한소희9.jpg" alt="ala" draggable="true">
 
 
@@ -37,24 +39,25 @@
         */
 
         let v_img = document.querySelector('img');
-        let v_drop = document.querySelector('.drop');
+        let v_drops = document.querySelectorAll('.drop');
 
         v_img.addEventListener('dragstart', function () {
             console.log(event.target.id);
             event.dataTransfer.setData('targetId', event.target.id);
         });
 
-        v_drop.addEventListener('dragover', function () {
-            event.preventDefault();
-        });
+        for (let i = 0; i < v_drops.length; i++) {
 
-        v_drop.addEventListener('drop',function(){
-            let key = event.dataTransfer.getData('targetId');
-            // 드래그 대상을 놓을 공간.appendChild(드래그대상);
-            event.target.append(document.querySelector(key));
-        
-        });
-
+            v_drops[i].addEventListener('dragover', function () {
+                event.preventDefault();
+            });
+            v_drops[i].addEventListener('drop', function () {
+                let key = event.dataTransfer.getData('targetId');
+                // 드래그대상을 놓을 공간.appendChild(드래그대상);
+                // event.target.append(document.getElementById(key));
+                event.target.append(document.querySelector("#" + key));
+            });
+        }
 
     </script>
 </body>

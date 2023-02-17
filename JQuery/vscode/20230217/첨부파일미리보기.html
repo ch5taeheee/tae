@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #disp {
+        border: 3px solid yellow;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" id="id_file" accept=".jpg, .png, .jfif">
+    <div id="disp">첨부파일 미리보기..</div>
+
+    <script>
+        let v_fBtn = document.querySelector('#id_file');
+        let v_disp = document.querySelector('#disp');
+
+        v_fBtn.addEventListener('change', function () {
+            let v_file = this.files[0]; //1개의 파일정보만 가져옴
+
+            let rd = new FileReader();
+
+            rd.onload = function () {
+
+                let v_img = document.createElement('img');
+                v_img.src = rd.result;
+                v_img.width = 100;
+                v_disp.append(v_img);
+            }
+            rd.readAsDataURL(v_file);
+
+
+
+
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            border: 3px ridge black;
+            width: 50%;
+            height: 30vh;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" id="attachFile">
+    <button>파일정보 확인</button>
+
+    <h4>결과출력(FileReader객체)</h4>
+    <div id="d1"></div>
+
+    <h4>파일정보(File객체)</h4>
+    <div id="d2"></div>
+
+    <script>
+        let v_btn = document.querySelector('button');
+        let v_attachFile = document.querySelector('#attachFile');
+        let v_d1 = document.querySelector('#d1');
+        let v_d2 = document.querySelector('#d2');
+
+        v_btn.addEventListener('click', function () {
+
+            v_d1.textContent=""; //영역초기화
+
+
+
+            //file의 type구하기
+            console.log(v_attachFile.files[0].type);
+
+            //슬래시 기준으로 앞쪽 데이터 가져오기
+            // 방식1 - indexOf와 substring(or slice or substr이용)
+            //      let slashIdx = v_attachFile.files[0].type.indexOf("/");
+            //      let result = v_attachFile.files[0].type.substring(0,slashIdx);
+            //      console.log(">>>", result);
+
+            
+            // 방식2 - split을 이용해서 앞쪽 인덱스 정보만 가져오기
+            //      console.log(">>>" , v_attachFile.files[0].type.split("/")[0]);
+            let file = v_attachFile.files[0];
+            let type = file.type.split("/")[0];
+
+            if (type == 'text') {
+                //readAsText() >> 정보 가공
+                let rd = new FileReader();
+                rd.onload = function () {
+                    d1.innerText = rd.result; //text
+                }
+                rd.readAsText(file);
+
+                //File객체로 관련 속성 얻기
+                let str = "파일명: " + file.name + "<br>";
+                str += `파일크기: ${file.size}byte<br>`;
+                str += `파일타입: ${file.type} <br>`;
+                str += `변경날짜: ${file.lastModifiedDate.toLocaleDateString()}`;
+                d2.insertAdjacentHTML('afterbegin', str);
+
+            } else if (type == 'image') {
+                //readAsdataURL() >> 정보 가공
+                let rd = new FileReader();
+                rd.onload = function () {
+                    let v_img = document.createElement('img');
+                    v_img.src = rd.result;
+                    v_img.style.width = '100%';
+                    d1.append(v_img);
+                }
+                rd.readAsDataURL(file);
+
+                //File객체로 관련 속성 얻기
+                let str = "파일명: " + file.name + "<br>";
+                str += `파일크기: ${file.size}byte<br>`;
+                str += `파일타입: ${file.type} <br>`;
+                str += `변경날짜: ${file.lastModifiedDate.toLocaleDateString()}`;
+                d2.insertAdjacentHTML('afterbegin', str);
+            } else {
+                d2.textContent = "다른 형식의 파일";
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

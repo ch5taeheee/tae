@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        button {
+            display: none;
+        }
+
+        #js {
+            border: 2px inset orange;
+            margin: 20px;
+        }
+    </style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let v_h4s = document.querySelectorAll('#js h4');
+        //console.log(v_h4s.length);
+        let v_btn = document.querySelector('button');
+        let v_count = 0;
+
+        //요소 감추기
+        for (let i = 0; i < v_h4s.length; i++) {
+            v_h4s[i].addEventListener('click', function () {
+                this.style.display = "none";
+                v_count++;
+                console.log(v_count);
+
+                //요소가 모두 사라지면 버튼 보이기
+                if (v_h4s.length == v_count) {
+                    v_btn.style.display = "inline";
+                }
+                //버튼 이벤트로 기존요소 다시 보이기 -숙제
+
+
+            });
+        }
+
+
+
+
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+    // 함수는 일단 요소가 만들어지고 나서 호출되면 나오는 내용이라 함수가 선언될 때는 이 코드 바깥쪽에 선언되어야 한다.
+    //     $(function(){
+
+    //     });
+
+    function f_clickHide(p_this) {
+        //넘어오는 매개변수 P_this는 일반적인 dom객체(=javascript객체)이기 때문에
+        //jquery 메소드를 사용할 수 없다.
+
+        // p_this.style.displqy = "none"
+
+        //쓰고 싶으면 제이쿼리 객체화 시키면 된다. 제이쿼리 함수로 맵핑시켜라 
+        //dom객체를 $()로 감싸 jquery 객체화 시킨 후 jquery 메소드를 사용한다.
+        $(p_this).hide();
+
+    }
+
+
+</script>
+
+<body>
+    <h4 onclick="f_clickHide(this)">클릭하면 사라짐1</h4>
+    <h4 onclick="f_clickHide(this)">클릭하면 사라짐2</h4>
+    <h4 onclick="f_clickHide(this)">클릭하면 사라짐3</h4>
+    <h4 onclick="f_clickHide(this)">클릭하면 사라짐4</h4>
+
+
+
+    <hr>
+
+    <div id="js">
+        <h4>click-hide-js1</h4>
+        <h4>click-hide-js2</h4>
+        <h4>click-hide-js3</h4>
+        <h4>click-hide-js4</h4>
+        <button>SHOW</button>
+    </div>
+</body>
+
+</html>

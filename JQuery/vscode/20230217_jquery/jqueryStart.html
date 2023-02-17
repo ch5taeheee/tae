@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- 외부에서 가져오는 파일은 위쪽에 작성 실행은 위에서 아래로  -->
+    <!-- <script src="../js/jquery-3.6.3.min.js"></script> -->
+
+
+
+    <script>
+    /* 자바스크립트 - 문서 준비 코드  */
+
+    //   /* window. 나  */
+    //     //방식 1. 윈도우는 모든 요소들을 실행 그래서 dom보다 속도가 느림. b, 그리 차이 나지 않음.
+    //     window.onload = function () {
+    //         console.log(document.querySelector('h4').innerText); // innerText와 매칭시킬 요소를 못 찾고 있다. 요소가 아래에 있어서 위에서 아래로 실행!
+    //         // 그래서 window.onload로 감싸줘라!
+    //     }
+
+    //     //방식 2. 
+    //     window.addEventListener('load', function () {
+    //         console.log(document.querySelector('h4').innerText);
+    //     });
+
+    //     //방식 3. 방식 1,2보다 더 빠르게 실행. 동적인 이미지, 영상 배제 시키고 정적인 요소들만 먼저 띄우고 나서 스크립트 실행
+    //     document.addEventListener('DOMContentLoaded', function () {
+    //         console.log(document.querySelector('h4').innerText);
+    //     });
+
+    /* 문서 준비 코드 */
+    /* 스크립트 영역이 위쪽에 있으면 이거를 써야하지만 스크립트가 아래에 있으면 안 써도 된다. */
+    
+    /* 제이쿼리 - 문서 준비 코드 */
+    $(document).ready(function(){ 
+
+       // $('h4') //jquery 객체화 시킨거임. -> jquery 함수 사용 가능
+       alert($('h4').text());
+
+
+    }); 
+        
+
+
+    </script>
+</head>
+
+<body>
+    <h4>안녕하슈</h4>
+
+</body>
+
+</html>

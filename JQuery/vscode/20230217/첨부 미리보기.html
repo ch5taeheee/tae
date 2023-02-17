@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #disp {
+        border: 3px solid yellow;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" multiple id="id_file" accept=".jpg, .png, .jfif">
+    <div id="disp">첨부파일 미리보기..</div>
+
+    <script>
+        let v_fBtn = document.querySelector('#id_file');
+        let v_disp = document.querySelector('#disp');
+
+        v_fBtn.addEventListener('change', function () {
+            let v_files = this.files; //여러개의 파일정보 가져옴
+
+            v_disp.textContent = ""; //출력영역 초기화
+            v_fBtn.value = ""; //출력영역 초기화
+
+            //갯수조절 조건문 추가
+            if (v_files.length > 3) {
+                alert("3개까지만")
+                return;
+            }
+
+            for (let i = 0; i < v_files.length; i++) {
+
+                let rd = new FileReader();
+
+                rd.onload = function () {
+
+                    let v_img = document.createElement('img');
+                    v_img.src = rd.result;
+                    v_img.width = 100;
+                    v_disp.append(v_img);
+                }
+                rd.readAsDataURL(v_files[i]);
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>

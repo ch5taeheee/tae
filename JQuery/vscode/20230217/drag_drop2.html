@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #dropArea {
+            height: 300px;
+            border: 3px solid aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        브라우저는 읽을 수 있는 파일이 접근하면 새 탭(새 창)을 열어 보여주는 기능이 있음. 
+        해당 기능을 막고 드래그 드롭을 완성시키기 위해 dragover, drop 두 이벤트를 막아야 함. 
+    -->
+
+    <div id="dropArea">여기로...</div>
+
+    <script>
+        /* 이미지 드로그 앤 드롭 시 창 막혀 있는 상태 window는 영역 밖 상태를 나타냄. */
+        let v_drop = document.querySelector('#dropArea');
+        v_drop.addEventListener('dragover', function () {
+            event.preventDefault();
+        });
+        v_drop.addEventListener('drop', function () {
+            event.preventDefault();
+
+            //console.log(event.dataTransfer.files);
+            let v_file = event.dataTransfer.files[0]; //1개의 파일만 가져오도록..
+
+            //파일에 접근할 수 있는 메소드를 제공하는 파일 객체 생성
+            let fileReader = new FileReader();
+
+            fileReader.onload = function () {
+
+                let result = fileReader.result;
+                let v_img = document.createElement('img');
+                v_img.src = result;
+                v_img.alt = "한소희";
+                // v_img.width = 100;
+                v_img.style.width = "100%";
+                v_drop.appendChild(v_img);
+            }
+            fileReader.readAsDataURL(v_file);
+
+
+        });
+        window.addEventListener('dragover', function () {
+            event.preventDefault();
+        });
+        window.ondrop = function () {
+            event.preventDefault();
+        };
+
+
+
+    </script>
+
+</body>
+
+</html>

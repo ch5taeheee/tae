@@ -18,6 +18,7 @@ public class T03ResourceBundleTest {
 		 	=> 파일을 지정할 떄는 '파일명'만 지정하고 확장자는 지정하지 않는다. 
 		 	(확장자는 항상 properties이기 때문에)
 		 	// getString(key값)
+		 	 * 컴파일된 클래스 패스루트
 		 	
 		 */
 		

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #dropArea {
+            height: 300px;
+            border: 3px solid aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <ol id="id_fList"></ol>
+    <div id="dropArea">여기로..</div>
+
+    <script>
+        let v_drop = document.querySelector('#dropArea');
+        let v_fList = document.querySelector('#id_fList');
+
+        v_drop.addEventListener('dragover', function () {
+            event.preventDefault();
+        });
+        v_drop.addEventListener('drop', function () {
+            event.preventDefault();
+
+            let v_files = event.dataTransfer.files;
+
+            v_drop.innerText = ""; //영역 초기화
+            v_fList.textContent = ""; //영역 초기화
+
+            //갯수제한
+            if (v_files.length > 5) {
+                alert("5개까지만");
+                return;
+            }
+
+            for (let i = 0; i < v_files.length; i++) {
+
+                let fileReader = new FileReader();
+
+                fileReader.onload = function () {
+
+                    //이미지요소 생성
+                    let result = fileReader.result;
+                    let v_img = document.createElement('img');
+                    v_img.src = result;
+                    v_img.style.width = "100px";
+                    v_drop.appendChild(v_img);
+
+                    //리스트요소 생성
+                    let v_li = document.createElement('li');
+                    //console.log(v_files[i].name);
+                    v_li.innerText = v_files[i].name;
+                    v_fList.append(v_li);
+                }
+                fileReader.readAsDataURL(v_files[i]);
+            }
+        });
+
+        window.addEventListener('dragover', function () {
+            event.preventDefault();
+        });
+        window.ondrop = function () {
+            event.preventDefault();
+        };
+
+
+    </script>
+</body>
+
+</html>
