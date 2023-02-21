@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+    $(function () {
+
+        // $('li:first, li:last').css('backgroundColor', 'yellow'); 권고 x
+        //  대체 메소드로 다시 적용하기..
+
+        $('li').first().css('backgroundColor', 'yellow');
+        // $('li').last().css('backgroundColor', 'yellow'); 적용 o
+
+
+        // $('li:eq(4)').css('fontStyle', 'italic');
+        $('li').eq(4).css('fontStyle', 'italic');
+
+
+        // $('li:lt(4)').css('backgroundColor', 'green');
+        // $('li:gt(4)').css('backgroundColor', 'red');
+
+        //:lt, :gt => slice()로 대체
+        // $('li').slice(4).css('backgroundColor', 'green'); // 4부터 끝까지..
+
+        
+         // :lt, :gt => slice(start, end 미포함) 로 대체
+        $('li').slice(4,6).css('backgroundColor','green');
+
+        // $('li:odd').css('backgroundColor', 'green');
+        // $('li:even').css('backgroundColor', 'red');
+        // $('li:not(.not)').css('textDecoration', 'line-through');
+
+    });
+
+
+
+
+</script>
+
+<body>
+    <h4>기본필터</h4>
+    <ul>
+        <li>:first</li>
+        <li>:last</li>
+        <li>:eq(index)</li>
+        <li>:gt(index)</li>
+        <li>:lt(index)</li>
+        <li class="not">:even</li>
+        <li class="not">:odd</li>
+        <li class="not">:not(select)</li>
+    </ul>
+</body>
+
+</html>

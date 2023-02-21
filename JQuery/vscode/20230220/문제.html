@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+    $(function () {
+        let v_btn = $('<button>이미지추가</button>');
+        $('body').append(v_btn);
+
+        v_btn.click(function () {
+            let v_img = $('<img>', {
+                'src': '../image/한소희7.jpg',
+                'width': 50,
+                'alt': '알라',
+                'click': function () {
+                    $(this).css('border', '2px solid red');
+                }
+            });
+            $(v_img).appendTo('body');
+        });
+    });
+</script>

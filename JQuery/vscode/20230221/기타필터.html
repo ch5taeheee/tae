@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            border-style: solid;
+            box-sizing: border-box;
+            width: calc(50% - 20px);
+            height: 150px;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>기타필터</h4>
+    <input type="button" value="visible">
+    <input type="button" value="hidden">
+    <fieldset>
+        <legend>visible/hidden 예시문단</legend>
+        <p>보이는 문단</p>
+        <p style="visibility: hidden">숨겨진 문단</p>
+        <p style="display: none;">자리를 차지하지 못한 문단</p>
+        <p style="opacity: 0">투명한 문단</p>
+    </fieldset>
+    <div id="disp1"></div>
+    <div id="disp2"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $('[value="visible"]').click(function () {
+            let str = "<h4>visible요소</h4>";
+            $('p:visible').each(function () {
+                str += $(this).text() + "<br>";
+            });
+            $('#disp1').html(str);
+        });
+        $('[value="hidden"]').click(function () {
+            let str = "<h4>hidden요소</h4>";
+            $('p:hidden').each(function () {
+                str += $(this).text() + "<br>";
+            });
+            $('#disp2').html(str);
+        });
+    </script>
+</body>
+
+</html>

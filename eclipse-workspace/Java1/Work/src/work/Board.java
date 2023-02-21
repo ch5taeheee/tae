@@ -11,6 +11,8 @@ import java.util.Scanner;
 
 import org.omg.CORBA.Current;
 
+import util.JDBCUtil;
+
 /**
  * 게시판 관리하는 프로그램
  */

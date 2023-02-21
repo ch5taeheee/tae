@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+    $(function () {
+        $('input','#frm2').css('border', 'solid yellow');
+
+        $('form').on('click',function(){
+            $('input').css('background-color','white')
+            $('input',this).css('background-color','skyblue');
+        });
+    });
+</script>
+
+<body>
+    <div>
+        $('selector',context) <br>
+        선택자를 검색할 범위를 설정한다. 생략시 문서 전체에서 선택자 검색
+    </div>
+
+    <form id="frm1">
+        <input>
+    </form>
+
+    <form id="frm2">
+        <input>
+    </form>
+
+    <form id="frm3">
+        <input>
+    </form>
+</body>
+
+</html>

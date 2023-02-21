@@ -2,3 +2,42 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+  <configuration>
+  	
+  	<properties resource="db.properties"/>
+  	
+  	<typeAliases> 
+  	
+  	<typeAlias type="kr.or.ddit.member.vo.MemberVO" alias="memVO"/>
+  	
+  	</typeAliases>
+  	
+  	<environments default="dev">
+  		<environment id="dev">
+  			<transactionManager type="JDBC" />
+  			<dataSource type="POOLED">
+  				<property name="driver" value="${driver}"/>
+  				<property name="url" value="${url}"/>
+  				<property name="username" value="${user}"/>
+  				<property name="password" value="${password}"/>
+				<!-- 활성화된 최대 커텍션 수 -->  				
+  				<property name="poolMaximumActiveConnections" value="2"/>
+				<!-- 유휴상태에서 최대 커텍션 수 -->  				
+  				<property name="poolMaximumIdleConnections" value="2"/>
+  			</dataSource>
+  		</environment>
+  		
+  	</environments>
+  	
+  	
+  	<mappers>
+  	
+  		<mapper resource="mappers/member.xml"/>
+  	
+  	</mappers>
+  
+  
+  </configuration>
+
+  

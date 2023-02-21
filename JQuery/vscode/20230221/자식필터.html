@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        td {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>자식필터</h4>
+    <ul>
+        <li>first-child1</li>
+        <li>last-child1</li>
+        <li>nth-child1</li>
+        <li>only-child1</li>
+    </ul>
+    <ul>
+        <li>first-child2</li>
+        <li>last-child2</li>
+        <li>nth-child2</li>
+        <li>only-child2</li>
+    </ul>
+
+    <hr>
+
+    <div>
+    <table border="1" id = "tbl">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+
+        // 부모에 속한 요소 중 첫번째/마지막 항목들 선택
+        $('li:first-child').css('color', 'red');
+        // 전체 요소를 대상으로 첫번째 항목 선택
+        $('li').first().css('border', 'solid red');
+
+        //nth-child(index, odd/even, equation)
+        $('td:first-child').css('backgroundColor', 'olive');
+        $('td:last-child').css('backgroundColor', 'red');
+        $('td:nth-child(5)').css('backgroundColor', 'gray');
+        $('td:nth-child(odd)').css('backgroundColor', 'gold');
+        // 배수 칸 + 시작위치 index
+        $('td:nth-child(3n+2)').css('backgroundColor', 'green');
+        //레이어 구조상 td가 tr위에 배치되므로 선택자를 td범위까지 지정해주기.
+        //$('tr:first-child').css('backgroundColor','blue'); // 겹쳐져서 안 보이니 td를 작성해줘야 한다.
+        $('tr:first-child td').css('backgroundColor', 'blue');
+        //행기준 홀수
+        $('tr:nth-child(odd) td').css('backgroundColor', 'orange');
+
+        //only-child : 유일한 자식요소일 때
+        $('#tbl:only-child').css('border','inset 10px brown'); // 적용 x 테이블은 온리 차일드에 부합되지 않기 때문에.
+
+
+    </script>
+
+</body>
+
+</html>

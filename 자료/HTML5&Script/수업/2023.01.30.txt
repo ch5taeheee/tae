@@ -1,4 +1,0 @@
-<!DOCTYPE html> 문서에 대한 형태
-
-vscode
-xampp

@@ -31,11 +31,29 @@
                 v_count++;
                 console.log(v_count);
 
-                //요소가 모두 사라지면 버튼 보이기
+                // 요소가 모두 사라지면 버튼 보이기
+                // 다른방식(visible요소 )
+                //offsetWidth > 0일때 존재하는 요소
+                //console.log(">>" , v_h4s[i].offsetWidth);
+                //window.getComputedStyle()를 이용해서 display속성정보 확인
+                // console.log(window.getComputedStyle(v_h4s[i]).display);
+
+
+
                 if (v_h4s.length == v_count) {
                     v_btn.style.display = "inline";
                 }
+
+
                 //버튼 이벤트로 기존요소 다시 보이기 -숙제
+
+                v_btn.addEventListener('click', function () {
+                    for (let i = 0; i < v_h4s.length; i++) {
+                        v_h4s.style.display = "block";
+
+                    }
+                    v_btn.style.display = "none";
+                });
 
 
             });
@@ -94,6 +112,31 @@
         <h4>click-hide-js4</h4>
         <button>SHOW</button>
     </div>
+
+    <div id="jq">
+        <h4>click-hide-jq1</h4>
+        <h4>click-hide-jq2</h4>
+        <h4>click-hide-jq3</h4>
+        <h4>click-hide-jq4</h4>
+        <button>SHOW</button>
+    </div>
+
+
+    <script>
+        $('#jq h4').on('click', function () {
+            $(this).hide();
+
+            //조건 
+            if ($('#jq h4:visible').length == 0) {
+                //버튼 보이기
+                $('#jq button').show();
+            }
+        });
+        $('#jq button').click(function () {
+            $('#jq h4').show();
+            $(this).hide(); //버튼 숨기기
+        });
+    </script>
 </body>
 
 </html>

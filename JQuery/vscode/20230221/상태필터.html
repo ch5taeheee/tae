@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input id="txt" disabled> <br>
+        <input type="password" id="pw" disabled> <br>
+        <select id="sel" disabled>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select> <br>
+        <textarea id="mtline" disabled>멀티라인</textarea> <br>
+        <input type="button" value="확인" disabled onclick="alert()">
+    </form>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        //javascript방식
+        document.querySelector('#txt').removeAttribute('disabled');
+
+        let v_inputs = document.querySelectorAll('input');
+        v_inputs[1].removeAttribute('disabled');
+
+        let v_all = document.querySelectorAll('form *');
+        for (let i = 0; i < v_all.length; i++) {
+            // v_all[i].removeAttribute('disabled');
+        }
+
+        //jQuery방식
+        // $('form *').attr('disabled',false);
+
+        $('form *:enabled').css('border', '2px solid blue');
+        $('form *:disabled').css('border', '2px solid red');
+
+    </script>
+
+
+</body>
+
+</html>

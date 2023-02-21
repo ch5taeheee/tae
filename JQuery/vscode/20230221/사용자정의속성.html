@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h4>사용자 정의 속성 (User Defined Attributes)</h4>
+    <div id="d1" data-alias="별명" data-hobby="취미" data-message-code="jmt"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+
+        //javascript방식으로 속성정보 얻기 -> dataset활용
+        let v_div = document.querySelector('div');
+        // alert( v_div.id );
+        // alert( v_div.dataset.alias ); //속성명 중 data는 제외
+        // alert( v_div.dataset.hobby );
+        //dataset을 이용해서 속성값을 가져올때 '-'를 마이너스로 인식하므로 카멜케이스로 변경해야 함
+        // alert( v_div.dataset.messageCode );
+        // alert( v_div.dataset["messageCode"] );
+
+        //jQuery방식으로 속성정보 얻기 -> data()활용
+        let $div = $('div');
+        alert($div.attr('data-alias'));
+        alert($div.data('messageCode')); //속성명 중 data는 제외
+
+
+
+
+
+    </script>
+</body>
+
+</html>

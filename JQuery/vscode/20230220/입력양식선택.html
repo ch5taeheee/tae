@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $(function () {
+
+            //input요소
+            $(':input').css('border', 'solid navy');
+
+            //input type=button인 요소
+            $('input:button').css('backgroundColor', 'yellow');
+
+            //type속성이 text, password인 요소
+
+            //type속성이 radio, checkbox인 요소
+
+            //type속성이 submit인 요소
+
+            //type속성이 reset인 요소
+
+
+
+
+
+        });  
+    </script>
+</head>
+
+<body>
+    <form action="nofile.jsp" method="get">
+        Text : <input type="text" name="id" /> <br>
+        Password : <input type="password" name="pw" /> <br>
+        Radio :
+        <input type="radio" name="rdo" id="radioA" value="A" checked>A
+        <input type="radio" name="rdo" id="radioB" value="B">B <br>
+        Checkbox :
+        <input type="checkbox" name="chkbox" id="checkbox1" value="1"> 1
+        <input type="checkbox" name="chkbox" id="checkbox2" value="2" checked /> 2 <br>
+        TextArea <br>
+        <textarea rows="10" cols="30" id="myTextArea"></textarea> <br>
+        Image :
+        <input type="image" src="../res/image/한소희7.jpg" width="50" height="50"> <br>
+        File :
+        <input type="file"> <br>
+        Buttons :
+        <button>전송</button>
+        <button type="button" id="normalBtn">Normal</button>
+        <button type="submit" id="submitBtn">Submit</button>
+        <button type="reset" id="resetBtn">Reset</button> <br>
+
+        <input type="button" value="일반버튼">
+        <input type="submit" value="전송버튼">
+        <input type="reset" value="초기화버튼">
+    </form>
+</body>
+
+</html>

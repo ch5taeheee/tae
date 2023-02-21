@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+    $(function () {
+
+        $('[value="text"]').on('click', function () {
+            // console.log( $('p').text() );
+        });
+
+        $('[value=html]').click(function () {
+            // console.log( $('p').html() );
+
+
+
+            //each()의 도움을 받아서 모든p요소의 내용을 html()로 가져오기
+            $('p').each(function (i, v) {
+                // console.log( $('p').html() ); //전체요소의 첫번째 값만 반환 (원하는 값x)
+                // console.log( $(this).html() ); //this키워드로 요소의 순차적인 값을 반환받을 수 있음
+                // console.log( $('p').eq(i).html() ); //전체 요소의 index로 접근하여 값을 받음
+                console.log($(v).html()); //두번째 매개변수(v)로 요소의 순차적인 값을 반환받을 수 있음
+            });
+        });
+
+
+
+        $('[value=each]').click(function () {
+
+            let obj = {
+                'j': 'ava',
+                's': 'cript',
+                'o': 'bejct'
+            };
+
+            //선택자 대상
+            // $('selector').each(fn)
+            $(obj).each(function (i, v) {
+                console.log(this);
+                console.log(this.j);
+                console.log(obj.s);
+                console.log(i);
+                console.log(v);
+            });
+
+            console.log("--------------------")
+
+            //객체 대상 - 객체가 가진 갯수만큼 callback호출
+            // $.each(object,fn)
+            $.each(obj, function (i, v) {
+                // console.log(this);
+                // console.log(i);
+                // console.log(v);
+            });
+
+
+
+            //Cannot use 'in' operator to search for 'length' in p
+            //p요소는 length속성을 가진 대상이 아니므로 해당 반복문을 실행할 수 없음
+            $.each('p', function () {
+                console.log(this);
+            });
+
+            // ! ! 대상에 맞는 each문법을 사용하는게 중요 ! !
+
+
+        });
+
+    }); 
+</script>
+
+<body>
+
+    <p>1<span>백두산</span></p>
+    <p>2<span>한라산</span></p>
+    <p>3<span>금강산</span></p>
+
+    <input type="button" value="text">
+    <input type="button" value="html">
+    <input type="button" value="each">
+
+</body>
+
+</html>

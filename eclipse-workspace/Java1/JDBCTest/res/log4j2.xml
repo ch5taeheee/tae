@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configruration>
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PattenrLayout pattern="%d %5p [%C] %m%n" />
+
+		</Console>
+
+	</Appenders>
+	
+	<Loggers>
+	
+	<Logger name = "log4jexam.sql.Query" level = "error" additivity = "false">
+		<AppenderRef ref = "console"/>
+	</Logger>
+	<Logger name = "log4jexam.sql.Parameter" level ="trace" additivity = "false">
+		<AppenderRef ref = "console"/>
+	</Logger>
+	<Logger name = "kr.or.ddit.basic.T01MemberInfoTest" level = "debug" additivity = "false">
+		<AppenderRef ref = "console"/>
+	</Logger>
+	
+		<Root level = "debug">
+		<AppenderRef ref = "console"/>
+			
+		</Root>
+	</Loggers>
+</Configruration>
+

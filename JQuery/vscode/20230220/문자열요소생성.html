@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #disp {
+            border-style: solid;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $(function () {
+
+            $('[type=button]').eq(0).on('click', function () {
+
+                //append() - 요소 내부 뒤쪽에 붙임
+                let v_tagP = $('<p title="★" onclick="f_click(this)">Hi★ jQuery~~</p>');
+                // $('#disp').append(v_tagP);   //부모.append(자식)
+                $(v_tagP).appendTo('#disp');    // 자식.appendTo(부모)
+            });
+
+            $('input:button').eq(1).click(function () {
+                let v_tagP = $('<p></p>', {
+                    'title': '♥',
+                    'text': 'Hello~ jQuery♥',
+                    'click': function () {
+                        $(this).css('color', 'orange').css('backgroundColor', 'green');
+                    }
+                });
+                // $('#disp').append(v_tagP);
+                v_tagP.appendTo('#disp');
+            });
+
+
+        });
+        function f_click(p_this) {
+            $(p_this).css('color', 'gold').css('text-shadow', '2px 2px 2px brown');
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="일괄 생성">
+    <input type="button" value="요소 생성 후 property설정">
+    <div id="disp"></div>
+
+</body>
+
+</html>
