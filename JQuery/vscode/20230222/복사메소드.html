@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #disp {
+            border-style: solid;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="p1">인자로 boolean(true)지정시 이벤트처리기도 함께 복사하는 clone()</p>
+    <input type="button" value="clone(true)">
+    <div id="disp"></div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+    $('p').on('click', function () {
+        $(this).css('font-size', '+=2px');
+    });
+
+    $('[value="clone(true)"]').on('click', function () {
+        let cl1 = $('#p1').clone(true); //복사
+        $('#disp').append(cl1);
+    });
+
+
+</script>
+
+</html>

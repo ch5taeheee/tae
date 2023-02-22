@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: yellow;
+            height: 30px;
+        }
+
+        p {
+            border: 3px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 선택요소의 자식요소만 삭제 -->
+    <input type="button" value="empty">
+
+    <!-- 선택요소와 그 자식요소까지 삭제 -->
+    <input type="button" value="remove">
+
+    <!-- selector로 지정한 요소만 삭제 -->
+    <input type="button" value="remove_sel">
+    <div>
+        <p>Hello jQuery</p>
+    </div>
+    <div>
+        <p>Hi jQuery</p>
+    </div>
+    <p id="pp">안녕하세요</p>
+    <p>jQeury입니다</p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $('input:button').eq(0).on('click', function () {
+            $('div').eq(0).empty();
+        });
+        $('[value=remove]').click(function () {
+            $('div').eq(1).remove();
+        });
+        $('input:nth-child(3)').on('click', function () {
+            $('p').remove('#pp');
+        });
+
+    </script>
+</body>
+
+</html>

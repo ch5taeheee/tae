@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="checkbox" id="chk" checked>
+        <input type="radio" id="rdo">
+        <select id="sel">
+            <option value="-">-</option>
+            <option value="1">일</option>
+            <option value="2">이</option>
+            <option value="3">삼</option>
+            <option value="4">사</option>
+        </select>
+        <input value="가나다" id="txt" readonly> <br>
+
+        <input type="button" value="현재 상태 값 출력" id="runBtn">
+        <input type="button" value="반대 상태로 변경" id="chgBtn">
+    </form>
+    <div id="disp"></div>
+
+    <hr>
+
+    <div>
+        <input type="checkbox" id="chkAll"> 전체선택
+        <input type="checkbox" class="chk"> 1
+        <input type="checkbox" class="chk"> 2
+        <input type="checkbox" class="chk"> 3
+        <input type="checkbox" class="chk"> 4
+        <input type="checkbox" class="chk"> 5
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+
+        //'전체선택'으로 제어
+        $('#chkAll').on('click', function () {
+
+            let allChk = $(this).prop('checked');
+
+            //전체선택 상태를 하위 요소에 적용
+            // $('.chk').prop('checked',allChk);
+            // $(this).nextAll().prop('checked',allChk);
+            $(this).parent().find('.chk').prop('checked', allChk);
+        });
+
+        //공통의 class를 가진 체크박스들로 제어
+        $('.chk').on('click', function () {
+            let cls_chks = $('.chk').length;
+            let real_chk = $('.chk:checked').length;
+            console.log(cls_chks, ' | ', real_chk);
+
+            if (cls_chks > real_chk) {
+                $('#chkAll').prop('checked', false);
+            } else {
+                $('#chkAll').prop('checked', true);
+            }
+
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $('#runBtn').on('click', function () {
+            let result = "체크상태: " + $('#chk').prop('checked') + "<br>";
+            result += `라디오버튼 체크 상태: ${$('#rdo').prop('checked')} <br>`;
+            result += `콤보박스 상태: ${$('#sel option').eq(2).prop('selected')} <br>`;
+            result += `텍스트필드 readonly상태: ${$('#txt').prop('readonly')}`;
+
+            $('#disp').html(result);
+        });
+
+        $('#chgBtn').click(function () {
+            let chk = $('#chk').prop('checked');
+            let rdo = $('#rdo').prop('checked');
+            let sel = $('#sel').eq(2).prop('selected');
+            let txt = $('#txt').prop('readonly');
+
+            //현 상태값의 반대로 설정
+            $('#chk').prop('checked', !chk);
+            $('#rdo').prop('checked', !rdo);
+            $('#sel option').eq(2).prop('selected', !sel);
+            $('#txt').prop('readonly', !txt);
+        });
+    </script>
+</body>
+
+</html>

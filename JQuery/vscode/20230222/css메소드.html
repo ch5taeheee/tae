@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+        }
+
+        div {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .pColor {
+            color: lime;
+        }
+
+        .pBgYellow {
+            background-color: yellow;
+        }
+
+        .pBgPurple {
+            background-color: purple;
+        }
+
+        .pBgTeal {
+            background-color: teal;
+        }
+
+        .borderGray {
+            border: 4px groove gray;
+        }
+
+        .borderGold {
+            border: 7px outset gold;
+            border-radius: 15%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="button" value="확인" id="btn">
+        <p>click!!</p>
+        <p>click!!</p>
+        <p>click!!</p>
+        <p>click!!</p>
+        <p>click!!</p>
+
+        <div></div>
+
+        <img src="../images/한소희1.jpg" alt="">
+        <img src="../images/한소희16.jpg" alt="">
+        <img src="../images/한소희8.jpg" alt="">
+        <img src="../images/한소희3.jpg" alt="">
+        <img src="../images/한소희6.jpg" alt="">
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+
+        $('#btn').on('click', function () {
+            $('p').addClass('pColor');
+        });
+
+        $('p').on('click', function () {
+            // $(this).addClass('pBgYellow');
+
+            /* if($(this).hasClass('pBgPurple')){
+                $(this).removeClass('pBgPurple');
+            }else{
+                $(this).addClass('pBgPurple');
+            } */
+
+            $(this).toggleClass('pBgTeal'); //적용된 이벤트를 기준으로 토글
+        });
+
+        $('div:empty').on('mouseover', function () {
+            $(this).addClass('pBgPurple');
+        });
+        $('div:empty').on('mouseout', function () {
+            $(this).removeClass('pBgPurple');
+        });
+
+        /* $('img').on('mouseover',function(){
+            $(this).addClass('borderGray');
+        });
+        $('img').on('mouseout',function(){
+            $(this).removeClass('borderGray');
+        }); */
+
+        /* $('img').hover(function(){
+            $(this).addClass('borderGold');
+        },function(){
+            $(this).removeClass('borderGold');
+        }); */
+
+        $('img').on('click', function () {
+            $(this).toggleClass('borderGold'); //적용되는 이벤트를 대상으로 토글
+        });
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        img {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+        }
+
+        div {
+            font-size: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="append">
+    <input type="button" value="prepend">
+    <div>
+        <img src="../images/한소희1.jpg" alt="b1">
+        <img src="../images/한소희16.jpg" alt="b2">
+        <img src="../images/한소희9.jpg" alt="b4">
+        <img src="../images/한소희11.jpg" alt="b6">
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $('input:button').eq(0).on('click', function () {
+            //console.log($('img').first().attr('alt'));
+            //  $('div').append($('img').first());
+            $('img').first().appendTo($('div'));
+        });
+
+
+
+        $('[value=prepend]').on('click', function () {
+            $('img').last().prependTo($('div'));
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configruration>
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PattenrLayout pattern="%d %5p [%C] %m%n" />
+
+		</Console>
+
+	</Appenders>
+
+	<Loggers>
+
+
+		<Root level="trace">
+			<AppenderRef ref="console" />
+		</Root>
+		
+	</Loggers>
+</Configruration>
+

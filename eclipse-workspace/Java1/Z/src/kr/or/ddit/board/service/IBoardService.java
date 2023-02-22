@@ -12,7 +12,7 @@ public interface IBoardService {
 
 	public int modifyBoard(BoardVO bvo);
 
-	public int checkBoard(String boardwriter);
+	public boolean checkBoard(String boardwriter);
 	
 	public List<BoardVO> selectAllMember();
 	

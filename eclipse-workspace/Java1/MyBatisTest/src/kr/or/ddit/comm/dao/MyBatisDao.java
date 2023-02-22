@@ -81,7 +81,7 @@ public class MyBatisDao {
 		int cnt = 0;
 
 		try {
-			cnt = sqlSession.insert(statement, sqlSession);
+			cnt = sqlSession.insert(statement, parameter);
 			
 			sqlSession.commit();
 
@@ -102,7 +102,7 @@ public class MyBatisDao {
 		int cnt = 0;
 
 		try {
-			cnt = sqlSession.update(statement, sqlSession);
+			cnt = sqlSession.update(statement, parameter);
 			
 			sqlSession.commit();
 
@@ -123,7 +123,7 @@ public class MyBatisDao {
 		int cnt = 0;
 
 		try {
-			cnt = sqlSession.delete(statement, sqlSession);
+			cnt = sqlSession.delete(statement, parameter);
 			
 			sqlSession.commit();
 

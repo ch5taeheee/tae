@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 70%;
+            height: 70vh;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        span {
+            background-color: red;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div><span>a</span></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        //이벤트객체 - 해당 이벤트 정보를 저장한 속성과 이벤트 흐름을 제어하는 메소드를 갖음
+        $('div').on('click', function (e) {
+            console.log(e.type);        //표준방식을 권장
+            console.log(event.type);    //비표준방식, 접근하지 못하는 속성 메소드 존재
+
+            // let result = "type: " + event.type + "<br>";
+            let result = `target: ${event.target} <br>`;
+            result += `target-name: ${event.target.nodeName} <br>`;
+            result += `target-value: ${e.target.firstChild.textContent} <br>`;
+            result += `pageX: ${event.pageX} <br>`;
+            result += `pageY: ${event.pageY} <br>`;
+            result += `screenX: ${event.screenX} <br>`;
+            result += `screenY: ${event.screenY}`;
+
+            $(this).html(result);
+        });
+ 
+
+        //하나의 요소를 대상으로 여러 이벤트 부여하기
+        $('div').on({
+            mouseenter: function () {
+                $(this).css('background-color', 'salmon');
+            }, mouseleave: function () {
+                $(this).css('backgroundColor', 'purple');
+            }, dblclick: function () {
+                $(this).css('background-color', 'lime');
+            }
+        });
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

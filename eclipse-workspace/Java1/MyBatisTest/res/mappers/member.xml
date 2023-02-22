@@ -18,9 +18,8 @@
 	<insert id="insertMember"
 		parameterType="kr.or.ddit.member.vo.MemberVO">
 
-		insert into mymember (mem_id, mem_name, mem_tel,
-		mem_addr) values (#{memId}
-		, #{memName} , #{memTel} , #{memAddr})
+		insert into mymember (mem_id, mem_name, mem_tel,mem_addr) 
+		values (#{memId}, #{memName, jdbcType=VARCHAR} , #{memTel} , #{memAddr})
 
 	</insert>
 
@@ -43,9 +42,11 @@
 	<select id="selectAllMember"
 		resultType="kr.or.ddit.member.vo.MemberVO">
 
-		select mem_id as memId, mem_name as memName, mem_tel as
-		memTel, mem_addr as
-		memAddr from mymember
+		select mem_id ,
+		 	   mem_name ,
+		  	   mem_tel , 
+		  	   mem_addr
+		  	   from mymember
 
 	</select>
 
