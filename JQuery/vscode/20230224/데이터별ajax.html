@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            border-style: solid;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="ajax호출">
+    <input type="button" value="CSV">
+    <input type="button" value="JSON">
+    <input type="button" value="XML">
+    <div></div>
+
+    <script>
+        let v_inputs = document.querySelectorAll('input');
+        let v_disp = document.querySelector('div');
+
+
+        v_inputs[3].addEventListener('click', function () {
+            let v_req = new XMLHttpRequest();
+            v_req.open('get', 'test.xml'); //2 arguments required
+            v_req.onreadystatechange = function () {
+                if (v_req.readyState == 4 && v_req.status == 200) {
+                    //console.log(v_req.responseText);
+                    let v_xml = v_req.responseXML;
+                    console.log(v_xml);
+                    f_xml(v_xml);
+                }
+            }
+            v_req.send();
+        });
+        function f_xml(p_xml) {
+            let friends = document.querySelectorAll('friend');
+            console.log(friends[0]);
+        }
+
+
+        v_inputs[2].addEventListener('click', function () {
+            let v_req = new XMLHttpRequest();
+            v_req.open('get', 'test.json'); //2 arguments required
+            v_req.onreadystatechange = function () {
+                if (v_req.readyState == 4 && v_req.status == 200) {
+                    //console.log(v_req.responseText);
+                    let v_arr = JSON.parse(v_req.responseText); //JSON TO OBJECT 
+                    console.log(v_arr);
+                    f_json(v_arr);
+                }
+            }
+            v_req.send();
+        });
+        function f_json(p_arr) {
+            let v_tbl = "<table border=1>";
+            let v_values = Object.values(p_arr); //객체배열의 value정보(객체)만 얻어옴
+            console.log(">>>>>>>>>>", v_values[2]);
+            let v_keys = Object.keys(v_values[3]); //객체의 key정보만 배열로 반환
+
+            // v_tbl += "<tr><td>이름</td><td>종류</td><td>별명</td></tr>";
+            v_tbl += `<tr><td>${v_keys[0]}</td><td>${v_keys[1]}</td><td>${v_keys[2]}</td></tr>`;
+            for (let i = 0; i < p_arr.length; i++) {
+                v_tbl += "<tr><td>" + p_arr[i].name + "</td>";
+                v_tbl += `<td>${p_arr[i].type}</td>`;
+                v_tbl += `<td>${p_arr[i].alias}</td></tr>`;
+            }
+            v_tbl += "</table>";
+            v_disp.insertAdjacentHTML('beforeend', v_tbl);
+        }
+
+
+        //CSV(Comma Separator Value 가져오기)
+        v_inputs[1].addEventListener('click', function () {
+
+            let v_req = new XMLHttpRequest();
+            v_req.open('get', 'test.csv'); //async생략시(default true)
+            v_req.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // console.log(this.responseText);
+                    f_csv(this.responseText);
+                }
+            }
+            v_req.send();
+        });
+        function f_csv(p_arg) {
+            console.log("결과 잘 받았나", '\n', p_arg);
+
+            let v_lines = p_arg.split("\n");
+            //console.log(v_lines[1]);
+
+            let v_tbl = "<table border=1>";
+            for (let i = 0; i < v_lines.length; i++) {
+                v_tbl += "<tr>"
+
+                let v_cell = v_lines[i].split(",");
+                for (let j = 0; j < v_cell.length; j++) {
+                    //td생성하기
+                    v_tbl += `<td>${v_cell[j]}</td>`;
+                }
+                v_tbl += "</tr>";
+            }
+            v_tbl += "</table>";
+
+            v_disp.insertAdjacentHTML('beforeend', v_tbl);
+        }
+
+
+
+        //버튼 누르고 ajax로 받아온 정보를 div에 출력
+        document.querySelector('input').addEventListener('click', function () {
+            let v_req = new XMLHttpRequest();
+            v_req.open('get', 'dummy.txt');
+            v_req.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    v_disp.insertAdjacentHTML('afterbegin', this.responseText);
+                }
+            }
+            v_req.send();
+        });
+
+    </script>
+</body>
+
+</html>

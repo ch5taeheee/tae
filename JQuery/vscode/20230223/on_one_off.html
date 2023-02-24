@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .bgRed {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>on(event,fn) / one(event,fn) / off(event)</h4>
+    <button>이벤트 제거</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $('h4').on('mouseover', function () {
+            $(this).toggleClass('bgRed');
+        });
+
+        //이벤트를 한번만 실행
+        $('h4').one('click', { once: "1회", play: "실행~~" }, function (e) {
+           
+           
+           // event 키워드로는 파라미터로 넘겨주는 data 정보를 얻지 못함.
+            alert(e.data.once + "만 " + e.data.play);
+        });
+
+        $('button').on('click', function () {
+            $('h4').off('mouseover');
+        });
+
+
+    </script>
+</body>
+
+</html>

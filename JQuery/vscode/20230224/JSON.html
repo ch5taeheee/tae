@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+    JSON(JavaScript Object Notation, 자바스크립트 객체 표기법)
+
+    네트워크를 사용하는 데이터 통신은 데이터를 byte형식으로 전달
+    서버로 데이터를 전달할때 사용한 자료형식 중 대표적인 것이 xml과 JSON
+
+    xml보다 더 쉽게 데이터를 교환하고 저장할 수 있는 json이 대세가 되었음
+
+    기본적인 json의 형태는 {"key" : "value"} >> 반드시 큰따옴표로 key와 value 표현해야 함
+
+</pre>
+    <button>JSON 변환 테스트</button>
+    <div></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <body>
+        <script>
+            $('button').on('click', function () {
+
+                let obj = {
+                    json: "제이슨",
+                    "특징": "경량의 텍스트기반 데이터교환 표준으로 xml의 대안",
+                    형태: "JS리터럴 표현식을 활용한 간단한 문자열 포맷",
+                    메소드: ["stringify()", "parse()"],
+                    기능: { stringify: "JS객체를 JSON화", parse: "JSON을 JS객체화" }
+                };
+
+                let v_jsonStr = JSON.stringify(obj); // 자바스크립트 객체 -> json문자열로 변환
+                console.log(v_jsonStr);
+
+                let v_jsonObj = JSON.parse(v_jsonStr); // JSON문자열 -> JS객체로 변환
+                console.log(v_jsonObj);
+
+                let result = "";
+                result += "json >> " + v_jsonObj.json + "<br>";
+                result += "특징 >> " + v_jsonObj.특징 + "<br>";
+                result += "형태 >> " + v_jsonObj["형태"] + "<br>";
+                result += "메소드 >> " + v_jsonObj.메소드 + "<br>";
+                result += "stringify 기능 >> " + v_jsonObj.기능.stringify + "<br>";
+                result += "parse 기능 >> " + v_jsonObj.기능.parse;
+                $('div').html(result);
+            });
+
+            //json 포맷 문법의 기본은 쌍따옴표 이지만 에러를 확인하기 위해 홑따옴표로 변경했음
+            // let errTest = "{'json':'제이슨','특징':'경량의 텍스트기반 데이터교환 표준으로 xml의 대안'}";
+            let test = '{"json":"제이슨","특징":"경량의 텍스트기반 데이터교환 표준으로 xml의 대안"}';
+            console.log("과연..", JSON.parse(test));
+
+            // json 문자열 데이터를 생성할 때 객체 표현 문법에 맞게 작성해야 파싱에 에러를 발생하지 않음.
+
+
+
+        </script>
+    </body>
+
+</html>

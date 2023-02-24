@@ -1,6 +1,9 @@
 package kr.or.ddit.basic;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Iterator;
@@ -36,6 +39,32 @@ public class URLConnectionTest {
 			System.out.println(key + " : " + headerMap.get(key));
 		}
 		System.out.println("-----------------------------------------------");
+		
+		//InputStream is = (InputStream)urlConn.getContent();
+		InputStream is = urlConn.getInputStream();
+		InputStreamReader isr = new InputStreamReader(is);
+		
+//		int data =0;
+//		
+//		while((data = isr.read())!= -1) {
+//			System.out.print((char)data);
+//		}
+		
+//		isr.close();
+	
+		
+		BufferedReader br = new BufferedReader(isr);
+		
+		String str = "";
+		
+		while((str = br.readLine()) != null) {
+			System.out.println(str);
+		}
+		
+		br.close();
+		
+		
+		
 		
 		
 		

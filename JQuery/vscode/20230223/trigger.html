@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <select id="sido">
+        <option value="1">대전광역시</option>
+        <option value="1">서울특별시</option>
+        <option value="1">세종시</option>
+
+    </select>
+
+
+    <select id="gugun"></select>
+
+    <p>클릭</p>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script>
+
+        $('#sido').on('change', function () {
+
+            let v_opt = " <option>대덕구</option>";
+            v_opt += " <option>동구</option>";
+            v_opt += " <option>서구</option>";
+            v_opt += " <option>유성구</option>";
+            v_opt += " <option>중구</option>";
+            $('#gugun').append(v_opt);
+        });
+
+
+        $('#sido').trigger('change'); //요소대상으로 이벤트를 강제함
+
+        //매개변수 전달
+        $('p').on('customEvt', function (e, parm1, param2, param3) {
+            alert(`${e.type}, ${parm1}, ${param2}, ${param3}`);
+        });
+
+        $('p').on('click', function () {
+            //trigger를 통해 매개변수 전달시 반드시 대괄호로 묶음
+            $(this).trigger('customEvt', ['대', '덕', '인', '재']);
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

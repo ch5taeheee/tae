@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        img {
+            width: 150px;
+            position: relative;
+        }
+
+        #d1 {
+            border-style: solid;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1">
+        <img src="../images/한소희7.jpg" alt="한소희7">
+    </div>
+    <input type="button" id="toLeft" value="<<<">
+    <input type="button" id="toRight" value=">>>">
+
+    <hr>
+
+    <input type="button" value="확인" id="btn3">
+    <p id="p1">무궁화 꽃 - CSS</p>
+    <p id="p2">무궁화 꽃 - animate()</p>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+
+
+        $('#btn3').click(function () {
+
+            $('#p1').css('font-size', '+=5px');
+            $('#p2').animate({ fontSize: '+=5px' }, 4000);
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // $('#d1').on('click', function () {
+        //     $('img').slideToggle(1000, function () {
+
+        //         alert("한소희 너무 예뻐");
+        //     });
+        // });
+
+        $('#toRight').on('click', function () {
+            $('img').animate({ left: '+=30px' }, 100);
+        });
+
+        $('#toLeft').on('click', function () {
+            $('img').animate({ left: '-=10px' }, 100);
+        });
+    </script>
+</body>
+
+</html>

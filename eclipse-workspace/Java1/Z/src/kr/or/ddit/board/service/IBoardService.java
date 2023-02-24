@@ -14,8 +14,8 @@ public interface IBoardService {
 
 	public boolean checkBoard(String boardwriter);
 	
-	public List<BoardVO> selectAllMember();
+	public List<BoardVO> selectAllBoard();
 	
-	public List<BoardVO> searchMember(BoardVO bvo);
+	public List<BoardVO> searchBoard(BoardVO bvo);
 
 }

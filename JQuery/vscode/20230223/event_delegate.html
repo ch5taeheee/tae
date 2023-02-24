@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        delegate(위임,대리)
+        부모의 이벤트를 물려받아 지정된 선택자에 이벤트를 연결하는 방식
+        부모는 반드시 정적인 요소이어야 한다
+        부모가 자식에게 이벤트를 위임하는 방식이므로
+        같은 부모 아래 정적/동적 요소가 모두 같은 이벤트 처리기를 사용한다
+    -->
+    <div class="wrapper">
+        <input type="button" class="btn" value="버튼">
+        <input type="button" id="clear" value="해제">
+        <!-- 새요소가 들어갈 위치 -->
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        //$(부모선택자).on(이벤트,자식선택자,콜백)
+        $('.wrapper').on('click', '.btn', function () {
+            $('<input>', {
+                'type': 'button',
+                'class': 'btn',
+                'value': '새버튼'
+            }).appendTo('.wrapper'); //this는 .btn
+        });
+
+        $('#clear').on('click', function () {
+            //이벤트 해제 >> 이벤트 부여 대상에 이벤트를 제거해야함
+            $('.wrapper').off('click', '.btn');
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        bind
+        페이지 로딩 전 document에 생성되어 있는 요소에만 이벤트 핸들러가 동작한다
+        *동적 요소에는 이벤트 핸들러(처리기)가 동작하지 않는다.
+    -->
+    <div class="wrapper">
+        <input type="button" class="btn" value="버튼">
+        <input type="button" id="clear" value="해제">
+        <!-- 새요소가 들어갈 위치 -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        //bind방식(일반적인) 이벤트부여 - 동적요소는 이벤트를 받지 못함
+        $('.btn').on('click', function () {
+            $('<input>', {
+                'type': 'button',
+                'class': 'btn',
+                'value': '새버튼'
+            }).appendTo('.wrapper');
+        });
+
+        $('#clear').on('click', function () {
+            $('.btn').off('click'); //이벤트를 부여받은 요소에 이벤트 제거 
+        });
+
+    </script>
+</body>
+
+</html>

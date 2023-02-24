@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    // 자바스크립트로 작성하는 ajax
+    // 1 ~ 4 까지의 흐름을 작성해보기
+    // 처음 1회는 보고 따라쓰고 두번째는 기억을 더듬어서 작성해보기
+    // 객체생성 -> 설정정보 -> 이벤트 리스너로 통신상태 확인하기(4) -> 
+
+    // 1. 
+    let v_ajax = new XMLHttpRequest();
+    v_ajax.open('get','./dummy.txt',true);
+    v_ajax.onreadystatechange = function () {
+        if(v_ajax.readyState == 4 && v_ajax.status ==200) {
+            console.log(v_ajax.responseText);
+        }
+    };
+    v_ajax.send();
+
+    //2. 
+     
+     let v_ajax = new XMLHttpRequest();
+     v_ajax.open('get','./dummy.txt','ture');
+     v_ajax.onreadystatechange = function() {
+        if(v_ajax.readyState == 4 && v_ajax.status ==200) {
+            console.log(v_ajax.responseText);
+        }
+     };
+     v_ajax.send();
+</script>

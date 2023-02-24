@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .backColor {
+            background-color: gold;
+            color: red;
+        }
+    </style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<body>
+    <script>
+        $(function () {
+            $('.btn').click(function () {
+                //선택자로 필터
+                // $('li').filter(':even').addClass('backColor');
+
+                //변수로 필터
+                let v_li = $('li').eq(3);
+                // $('li').filter(v_li).addClass('backColor');
+
+                //함수로 필터
+                $('li').not(function (i) {
+                    return i == 3 || i == 4
+                }).addClass('backColor');
+            });
+        });
+    </script>
+
+    <h4>filter() - 선택자, 변수, 함수를 이용해 필터링하는 메소드</h4>
+    <div id="d1">
+        <ul>
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <input type="button" value="filter()" class="btn">
+    </div>
+
+    <h4>is() - 일치여부를 boolean으로 반환받는 메소드</h4>
+    <div id="d2">
+        <div>
+            <p>부모(div)있는 p</p>
+        </div>
+        <p>부모 없는 p</p>
+        <div>
+            <p>부모(div)있는 p</p>
+        </div>
+        <form id="frm1">
+            <p>부모(form)있는 p</p>
+        </form>
+    </div>
+    <script>
+        $('#d2 p').on('click', function () {
+
+            if ($(this).parent().is('#d2 div')) {
+                $(this).parent().addClass('backColor');
+            } else {
+                alert("부모는 id=" + $(this).parent().attr('id') + "인 "
+                    + $(this).parent().prop('tagName'));
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        :focus {
+            background-color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <button>trigger</button>
+    <button>triggerHandler</button> <br>
+
+    <p class="p1">단락1</p>
+    <p class="p2">단락2</p>
+    <p class="p3">단락3</p>
+    <p class="p4">단락4</p>
+    <div class="p1">단락1</div>
+    <div class="p2">단락2</div>
+    <div class="p3">단락3</div>
+    <div class="p4">단락4</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+
+        $('p, div').select(function () {
+            $(this).css('backgroundColor', 'lime');
+        });
+
+
+        $('button').eq(0).on('click', function () {
+            //'1'을 포함하는 class속성값을 가진 요소 대상
+            $('[class*=1]').trigger('select');
+        });
+        $('button').eq(1).on('click', function () {
+            $('[class*=1]').triggerHandler('select');
+        });
+
+        $('input').focus(function () {
+            $(this).val('10분쉬어야지');
+        });
+
+
+
+    </script>
+</body>
+
+</html>

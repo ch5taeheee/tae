@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        :focus {
+            background-color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <button>trigger</button>
+    <button>triggerHandler</button> <br>
+    <input>
+    <input>
+    <input>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        // trigger        : 이벤트 기본동작 수행O / DOM구조에 따라 이벤트확산(버블링O)
+        // triggerHandler : 이벤트 기본동작 수행X(함수만 실행) / 이벤트 확산되지 않음(버블링X)
+
+        $('button').eq(0).on('click', function () {
+            $('input').eq(1).trigger('focus');
+        });
+
+        $('button').eq(1).on('click', function () {
+            $('input').eq(1).triggerHandler('focus');
+        });
+
+        $('input').focus(function () {
+            $(this).val('10분쉬어야지');
+        });
+
+
+
+    </script>
+</body>
+
+</html>

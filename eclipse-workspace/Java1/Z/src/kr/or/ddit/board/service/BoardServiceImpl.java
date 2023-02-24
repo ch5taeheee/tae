@@ -5,6 +5,10 @@ import java.util.List;
 import kr.or.ddit.boardVO.BoardVO;
 
 public class BoardServiceImpl implements IBoardService {
+	
+	//멤버변수로 dao가 필요하다.
+	
+	private 
 
 	@Override
 	public int registBoard(BoardVO bvo) {
@@ -31,13 +35,13 @@ public class BoardServiceImpl implements IBoardService {
 	}
 
 	@Override
-	public List<BoardVO> selectAllMember() {
+	public List<BoardVO> selectAllBoard() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<BoardVO> searchMember(BoardVO bvo) {
+	public List<BoardVO> searchBoard(BoardVO bvo) {
 		// TODO Auto-generated method stub
 		return null;
 	}

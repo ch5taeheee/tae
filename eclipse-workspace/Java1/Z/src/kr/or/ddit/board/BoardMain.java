@@ -1,5 +1,6 @@
 package kr.or.ddit.board;
 
+import java.util.List;
 import java.util.Scanner;
 
 import kr.or.ddit.board.service.IBoardService;
@@ -60,8 +61,22 @@ public class BoardMain {
 	}
 
 	private void selectAll() {
-		// TODO Auto-generated method stub
-
+		System.out.println();
+		
+		
+		List<BoardVO> boardList = boardService.selectAllBoard();
+		
+		if(boardList.size()==0) {
+			System.out.println("조회된 데이터가 없습니다.");
+		} else {
+			for(BoardVO bvo : boardList) {
+				System.out.println(bvo.getBoardNo() + "\t" + bvo.getBoardTitle() + "\t" + bvo.getBoardWriter() +"\t" +  bvo.getBoardDate() + "\t" + bvo.getBoardContent());
+				System.out.println("--------------------------------------------------");
+				
+				
+			}
+		}
+		System.out.println("출력작업 끝");
 	}
 
 	/**
@@ -162,12 +177,45 @@ public class BoardMain {
 	}
 
 	private void boardSearch() {
-		// TODO Auto-generated method stub
+		
+		scan.nextLine();
+		System.out.println("검색할 글 정보를 입력하세요.");
+		
+		System.out.println("글 제목");
+		String boardTitle = scan.next().trim();
+		System.out.println("작성자");
+		String boardWriter = scan.next().trim();
+		System.out.println("글 내용");
+		String boardContent = scan.next().trim();
+		
+		BoardVO bvo = new BoardVO();
+		bvo.setBoardTitle(boardTitle);
+		bvo.setBoardWriter(boardWriter);
+		bvo.setBoardContent(boardContent);
+		
+		System.out.println();
+		System.out.println("-----------------------------");
+		System.out.println("글 번호\t글제목\t작성자\t시간\t글내용");
+		System.out.println("-----------------------------");
 
+		
+		List<BoardVO> boardList = boardService.searchBoard(bvo);
+		if(boardList.size()==0) {
+			System.out.println("조회된 데이터가 없습니다.");
+		} else {
+			for(BoardVO bvo2 : boardList) {
+				System.out.println();
+				System.out.println(bvo2.getBoardNo() + "\t" + bvo2.getBoardTitle() + "\t" + bvo2.getBoardWriter() +"\t" +  bvo2.getBoardDate() + "\t" + bvo2.getBoardContent());
+				System.out.println("========================================");
+			}
+		}
+		System.out.println("검색 작업 끝");
 	}
-
+	
+	
 	private void boardEnd() {
-		// TODO Auto-generated method stub
+		System.out.println("작업을 마칩니다.");
+		
 
 	}
 }

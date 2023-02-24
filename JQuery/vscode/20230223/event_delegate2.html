@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="file">
+        <button id="add">파일선택 영역 추가</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $('#add').on('click', function () {
+            let result = "<p>";
+            result += "<input type = 'file'>";
+            result += "<button class = 'del'>삭제</button>";
+            result += "</P>";
+            $('div').append(result);
+        });
+
+
+        //delegate 방식으로 삭제버튼 이벤트 부여하기
+        //$('부모선택자').on('click','자식선택자',function()
+        $('div').on('click','.del',function(){
+            $(this).parent().remove();
+        });
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

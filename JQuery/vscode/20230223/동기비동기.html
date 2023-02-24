@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<body>
+    <script>
+        function f_after(p_arg1, p_arg2) {
+            $('body').append('<img src="../images/한소희3.jpg">').fadeOut(1000, function () {
+                alert(p_arg1 + "초 만에" + p_arg2);
+            });
+        }
+
+        //setTimeout(함수포인터, ms, param1, param2, ...)
+        setTimeout(f_after, 2000, "2", "도착");
+
+        alert("누가 먼저 실행되나요");
+
+        /*
+                동기(Synchronous)
+                요청과 응답이 처리될 때까지 대기하고 응답이 오면 다음 업무를 처리하는 방식
+                장점 : 직관적이고 설계가 쉬움
+                단점 : 결과가 나올 때까지 대기시간이 길어짐(비효율적)
+
+                
+                비동기(Asynchronous)
+                요청 이후 응답이 처리되지 않은 상태에서 다음 업무를 처리하는 방식
+                장점 : 1번 처리 직후 다음 항목 처리가 가능하여 자원을 효율적으로 사용하고 
+                       불필요한 로딩을 줄임
+                단점 : 설계가 어렵고, 어떤 작업이 먼저 끝날지는 알 수 없음.
+                
+
+
+        */
+
+    </script>

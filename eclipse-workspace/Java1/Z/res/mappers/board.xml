@@ -2,12 +2,52 @@
 <!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board"></mapper>
 
-<insert id = "insertBoard">
+<!--  
+ 	sql문에 맞는 태그 사용하여 sql문 작성!
+ 	사용할 수 있는 기본 태그 insert, update, delete, select ---
+ 	1) id = namespae와 연결하여 사용하는 이름
+ 	2) parameterType : sql문에 사용될 데이터가 들어있는 객체타입 지정
+ 		(보통, vo클래스, 자바와 자료형 이름 )
+ 		
+ 	3) resultType : select문을 실행한 결과를 담을 객체타입 지정
+ 	
+ 	4) resultType : 결과 레코드 컬럼명, vo 객체의 property명이 다를 경우 적절한 매핑을 위해 사용
 
 
+-->
+
+
+
+
+
+<insert id = "insertBoard"
+	parameterType = "kr.or.ddit.boardVO.BoardVO">
+	
+	insert into jdbc_board(board_no,board_title,board_writer,board_date,board_content)
+		values(#{boardNo),#{boardTitle),#{boardWriter),#{boardDate),#{boardContent))
+	
 </insert>
 
-<update>
-
-
+<update id = "updateBoard"
+	parameterType = "kr.or.ddit.boardVO.BoardVO">
+	
+	update jdbc_board set board_no, board_title = #{boardTitle},board_date =#{boardDate},board_content=#{boardContent} where board_writer = #{boardWriter}
+	
 </update>
+
+
+<delete id = "deleteBoard" 
+parameterType = "kr.or.ddit.boardVO.BoardVO">
+delete from jdbc_board where board_writer = #{boardWriter}
+
+</delete>
+
+<select id = "selectAllBoard"
+	parameterType = "kr.or.ddit.boardVO.BoardVO">
+	
+	select board_no,board_title,board_writer,board_date,board_content from jdbc_board
+
+</select>
+
+
+  
