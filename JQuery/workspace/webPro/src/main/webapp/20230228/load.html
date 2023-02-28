@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+   border-style: solid;
+   width: 50%;
+   height: 20vh;
+   
+}
+</style>
+</head>
+<body>
+   ID<input id="userId" value="b001">
+   PW<input type="password" id="userPw" value="1004">
+   <button>버튼</button>
+   
+   <div id="d1"></div>
+   <div id="d2"></div>
+   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+   
+   $('button').on('click',function(){
+      let uId = $('#userId').val();
+      let uPw = $('#userPw').val();
+      
+      //$(selector).load('url','data',fn)
+      $('#d1').load('load.jsp',{userId : uId, userPw : uPw},f_cb);
+    	  
+    	  
+    	  
+      });
+      
+      
+   function f_cb(resp,stts,xhr) {
+	   $('#d2').html("<p style='color:red;'>" + JSON.parse(resp).rst+"</p>");
+	   alert(status);
+	   alert(xhr.status + xhr.statusText);
+   }
+   
+   
+   
+
+
+</script>
+</body>
+</html>

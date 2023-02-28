@@ -36,7 +36,7 @@ public class UdpFileSender {
 		
 		long startTime = System.currentTimeMillis();
 		
-		try {
+		try { // 프로토콜 정의
 			// 전송시작을 알려준다.
 			sendData("start".getBytes());
 			

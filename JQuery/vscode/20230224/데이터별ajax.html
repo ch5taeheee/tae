@@ -23,7 +23,6 @@
         let v_inputs = document.querySelectorAll('input');
         let v_disp = document.querySelector('div');
 
-
         v_inputs[3].addEventListener('click', function () {
             let v_req = new XMLHttpRequest();
             v_req.open('get', 'test.xml'); //2 arguments required
@@ -38,10 +37,26 @@
             v_req.send();
         });
         function f_xml(p_xml) {
-            let friends = document.querySelectorAll('friend');
-            console.log(friends[0]);
-        }
+            //대상이 잘못되었음 document가 아니라 p_xml을 대상으로 
+            let friends = p_xml.querySelectorAll('friend');
+            console.log(friends);
+            let v_tbl = "<table border=1>";
+            v_tbl += "<tr><td>이름</td><td>타입</td><td>별명</td></tr>";
+            for (let i = 0; i < friends.length; i++) {
+                v_tbl += "<tr>"
 
+                let child = friends[i].children;
+                //console.log(child[2].innerHTML);
+
+                for (let j = 0; j < child.length; j++) {
+                    v_tbl += `<td>${child[j].innerHTML}</td>`;
+                }
+
+                v_tbl += "</tr>";
+            }
+            v_tbl += "</table>";
+            v_disp.insertAdjacentHTML('beforeend', v_tbl);
+        }
 
         v_inputs[2].addEventListener('click', function () {
             let v_req = new XMLHttpRequest();

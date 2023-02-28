@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="뉴스 가져오기">
+    <!-- https://news.google.com/rss/search?hl=ko&gl=KR&ceid=KR%3Ako&oc=11&q=%EC%B5%9C%EC%A4%80 -->
+
+    <script>
+        document.querySelector('input').addEventListener('click', function () {
+
+            let req = new XMLHttpRequest();
+            req.open('get', 'https://news.google.com/rss/search?hl=ko&gl=KR&ceid=KR%3Ako&oc=11&q=%EC%B5%9C%EC%A4%80');
+            req.onreadystatechange = function () {
+                if (req.readyState == 4 && req.status == 200) {
+                    console.log(req.responseText);
+                }
+            }
+            req.send();
+        });
+
+
+// Access to XMLHttpRequest at 'url' has been blocked by CORS policy: 
+//  No 'Access-Control-Allow-Origin' header is present on the requested resource.
+// 'url'에서 XMLHttpRequest에 대한 액세스가 CORS 정책에 의해 차단되었습니다. 
+//  요청된 리소스에 'Access-Control-Allow-Origin' 헤더가 없습니다.
+
+
+
+// Origin(출처) : protocol, port, host 가 모두 동일한 상태일 때 동일 출처
+//               한가지 항목이라도 다를 경우 다른 출처(cross-origin)
+
+// CORS(Cross Origin Resource Sharing, 교차출처리소스공유) 정책
+// : http 헤더로 교차 출처 자원에 접근가능한 권한을 부여받았는지 여부를 브라우저에 알리는 체제
+// 접근하려는 사이트의 서버로부터 'Access-Control-Allow-Origin' 헤더정보로 권한설정을 받아야만 리소스 접근 가능!
+
+// SOP(Same Origin Policy) 동일출처원칙 정책 >> 브라우저의 규칙
+// 자바스크립트(ajax)를 통해 외부 리소스를 가져오려고 하면 sop정책에 의해 차단됨.
+// 보안적인 부분에서는 훌륭한 정책이었지만, 
+// 대규모 프로젝트의 경우 외부 리소스를 사용해야 하는 경우가 많아졌기 때문에... 약간의 편볍들이 발생(대표적으로 jsonp)
+// 대응하기 위해 W3C에서 CORS 정책을 발표함.
+// CORS의 문제점은 해당 사이트의 서버에서 허용할 때만 리소스를 사용할 수 있는 점
+// 서버로부터 허용 불가할 경우 SOP에 회피하는 여러 방식이 존재
+// 1. 브라우저 실행 시 외부요청에 허용 옵션 사용하기
+// 2. 외부요청을 가능하게 하는 플러그인 설치하기
+// 3. JSONP방식 사용
+//      >> <img><script><link>로 외부 리소스를 받아오는 방식은 sop 정책에 영향을 받지 않는 점을 이용 
+//      >> 단점존재 - 해당 사이트에서 jsonp방식의 데이터를 제공해야만 사용가능
+// 4. 브라우저의 규칙에 제한을 받지 않는 서버 대 서버로 요청데이터 보내고 응답받기
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

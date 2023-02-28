@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="disp"></div>
+
+    <script>
+        // JSONP(JSON with Padding)
+        // sop영향을 받지 않는 꼼수(img,script,link를 이용한 외부파일 연결)를 활용하여 외부 리소스를 가져다 사용하는 방식
+
+        function jsonFlickrFeed(p_arg) {
+            let data = p_arg.items;
+            for (let i = 0; i < data.length; i++) {
+                let v_img = document.createElement('img');
+                v_img.src = data[i].media.m;
+                v_img.width = 100;
+                document.body.appendChild(v_img);
+            }
+        }
+
+
+    </script>
+    <script src="https://www.flickr.com/services/feeds/photos_public.gne?format=json&tags=food"></script>
+</body>
+
+</html>

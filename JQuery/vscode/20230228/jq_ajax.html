@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+
+    let kor = {}; //비어있는 객체
+    kor.seoul = {};
+    kor.daejeon = {};
+    kor.seoul.yujin = "서울 유진이";
+    kor.daejeon.yujin = "대전 유진이";
+
+
+    //jQuery library가 갖는 ajax메소드의 기본 형태 일부분..
+    let $ = {};
+    $.ajax = function (p_set) {
+        //ajax구문작성
+        let req = new XMLHttpRequest();
+        req.open(p_set.method, p_set.url, true);
+        req.onreadystatechange = function () {
+            if (req.readyState == 4 && req.status == 200) {
+                if(p_set.dataType =='json') {
+                    p_set.success(JSON.parse(req.responseText));
+
+                } else{
+                    p_set.success(req.responseText);
+                }
+            }
+        }
+        req.send();
+    }
+
+    //호출
+    $.ajax({
+        'method': 'get',
+        'url': '../20230224/test.json',
+        'success': function (rst) {
+            alert(Object.values(rst[0]));
+        },
+        'dataType' : 'json' 
+    })
+
+
+
+
+
+
+
+
+
+
+</script>

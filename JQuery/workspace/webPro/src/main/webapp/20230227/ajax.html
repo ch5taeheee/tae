@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#disp {
+	border-style: solid;
+	height: 100px;
+	margin-top: 10px;
+}
+</style>
+</head>
+<body>
+	<input name="myName" value="조태희">
+	<input type="button" value="GET">
+	<input type="button" value="POST">
+	<div id="disp"></div>
+
+	<script>
+		let inputs = document.querySelectorAll('input');
+		let v_val = document.querySelector('input');
+		let v_disp = document.querySelector('#disp');
+
+		inputs[1]
+				.addEventListener(
+						'click',
+						function() {
+
+							let req = new XMLHttpRequest();
+							//1. Java Server Page로 요청정보 보내고 결과 받기
+							//req.open('get', `./ajax.jsp?myName=${v_val.value}`, true);
+
+							//2. Servlet으로 요청정보 보내고 결과 받기
+							req.open('get', '/webPro/Ajax?userNm='
+									+ v_val.value);
+
+							req.onreadystatechange = function() {
+								if (req.readyState == 4 && req.status == 200) {
+									//console.log(req.responseText);
+									let jsonObj = JSON.parse(req.responseText);
+									v_disp
+											.insertAdjacentHTML('beforeend',
+													`<h1 style='border: dotted blue;'>${jsonObj.name}</h1>`);
+								}
+							}
+							req.send();
+
+						});
+
+		inputs[2].onclick = function() {
+			let req = new XMLHttpRequest();
+		//	let data = "name" + v_val.value; // urlencoded 형식(key = value)
+			let data = {name : v_val.value}; // 객체형태로 데이터를 준비하고 json으로 변환 필요	
+		req.open('post', '/webPro/Ajax');
+			req.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					v_disp.insertAdjacentHTML('afterbegin',this.responseText);
+				}
+			}
+			//post로 데이터를 보낼 때 셋팅정보 반드시 지정
+			// content-type : application/x-www-form-rulencoded >> form 으로 전송할 때 기본 값으로 셋팅되는 정보..
+			// >> content-type 미지정시 text/plain형태로 key와 value를 구분하지 못하게 됨.
+			req.setRequestHeader('content-type','application/json;charset=utf-8')
+			req.send(JSON.stringify(data)); // json형태로 변환하고 넘겨줌
+			
+		}
+	</script>
+
+</body>
+</html>
