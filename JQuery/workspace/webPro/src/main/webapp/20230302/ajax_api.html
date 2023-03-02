@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 서버가 클라이언트 역할을 하는 api활용하여 cross-origin 대응 -->
+	<input id="search">
+	<input type="button" value="서버를 통한 우회">
+	<div id="disp"></div>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/x2js/1.2.0/xml2json.min.js"
+		integrity="sha512-HX+/SvM7094YZEKOCtG9EyjRYvK8dKlFhdYAnVCGNxMkA59BZNSZTZrqdDlLXp0O6/NjDb1uKnmutUeuzHb3iQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+		//XML문자열을 JSON으로 변환하는 라이브러리 사용 - x2js(cdnjs.com)
+		let x2js = new X2JS();
+
+		let v_disp = document.querySelector('#disp');
+		let v_btn = document.querySelectorAll('input')[1];
+
+		v_btn
+				.addEventListener(
+						'click',
+						function() {
+							v_disp.innerText = "";
+
+							let v_search = document.querySelector('#search').value;
+
+							let req = new XMLHttpRequest();
+							req.open('get', '/webPro/CrossOrigin?keyword='
+									+ v_search, true);
+							req.onreadystatechange = function() {
+								if (req.readyState == 4 && req.status == 200) {
+									let jsonObj = x2js
+											.xml_str2json(req.responseText)
+									let data = jsonObj.rss.channel.item;
+									console.log(data);
+
+									// 테이블 형태로 기사정보를 출력
+									let tbl = "<table border=1>";
+									tbl += "<tr><td>제목</td><td>발행일</td></tr>";
+									//for
+									for (let i = 0; i < data.length; i++) {
+										tbl += "<tr>";
+										tbl += `<td><a href='${data[i].link}'>${data[i].title}</a></td>`;
+										tbl += `<td>${new Date(data[i].pubDate).toLocaleString()}</td>`;
+										tbl += "</tr>";
+									}
+									tbl += "</table>";
+									v_disp.insertAdjacentHTML('beforeend', tbl);
+
+								}
+							}
+							req.send();
+						});
+	</script>
+</body>
+</html>

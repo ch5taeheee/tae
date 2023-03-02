@@ -1,0 +1,173 @@
+myCb(
+    {
+    "body": [
+        {
+            "BSSH_NM": "즐거운나의집돌솥밥",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "상당구 영운천로 153번길 36",
+            "TELNO": 2985285,
+            "RM": "돌솥정식",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "사또가든",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "청원구 오창읍 꽃화산길51-1 ",
+            "TELNO": 2127072,
+            "RM": "청국장",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "마중가는길",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "상당구 문의면 대청호반로 845-5",
+            "TELNO": 2881259,
+            "RM": "가마솥밥한정식",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "오소담",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "상당구 낭성면 지산나박실길 4",
+            "TELNO": 2217330,
+            "RM": "두부정식",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "김가네더덕밥",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "서원구 대림로421번길 24",
+            "TELNO": 2360789,
+            "RM": "더덕한정식",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "신항도복집",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "청원구 우암로 59",
+            "TELNO": 2877192,
+            "RM": "복지리",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "활력추어탕",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "상당구 월평로184번길 106",
+            "TELNO": 2941020,
+            "RM": "추어탕",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "황소고집",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "청원구 오창읍 용두길 72",
+            "TELNO": 2115550,
+            "RM": "청국장돌솥밥정식",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "돌뫼마을",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "청원구 내수읍 청암로371",
+            "TELNO": 2134204,
+            "RM": "우리콩손두부전골",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "이티성영토",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "상당구 미원면 미원초정로978",
+            "TELNO": 2960801,
+            "RM": "곤드레밥정식",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "산골추어탕",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "서원구 남이면 가마3길 48",
+            "TELNO": 2932929,
+            "RM": "마추어탕",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "상록회관식당",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "상당구 사직대로 361번길 80",
+            "TELNO": 2547810,
+            "RM": "한정식",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "호정한정식",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "상당구 낭성면 산성로 1569",
+            "TELNO": 2974567,
+            "RM": "한정식",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "소연재",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "상당구 중고개로 184(2층)",
+            "TELNO": 2846888,
+            "RM": "한정식",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "두레",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "서원구 남이면 남이외천길 21",
+            "TELNO": 2603456,
+            "RM": "시골밥상",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "사리원",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "흥덕구 오송읍 오송가락로 368",
+            "TELNO": 2398878,
+            "RM": "불고기",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "장호식당",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "청원구 내수읍 내수학평길 30",
+            "TELNO": 2140255,
+            "RM": "짜글이찌개",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "25시가든",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "청원구 내수읍 신기초정로 675-14",
+            "TELNO": 2120300,
+            "RM": "된장찌개",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "이석가마솥추어탕",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "청원구 내수읍 청암로 375",
+            "TELNO": 2125292,
+            "RM": "추어탕",
+            "APPN_YEAR": "-"
+        },
+        {
+            "BSSH_NM": "장안수제숯불갈비",
+            "SIGUN_NM": "청주시",
+            "DETAIL_ADRES": "청원구 주성로118번길 29-10",
+            "TELNO": 2143607,
+            "RM": "집된장찌개",
+            "APPN_YEAR": "-"
+        }
+    ],
+    "header": {
+        "perPage": 20,
+        "resultCode": "00",
+        "totalRows": 852,
+        "currentPage": 1,
+        "resultMsg": "NORMAL_SERVICE"
+    }
+}
+);

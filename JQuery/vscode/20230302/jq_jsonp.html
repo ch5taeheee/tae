@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<body>
+    <div id="d1"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $.ajax({
+            url: 'https://www.flickr.com/services/feeds/photos_public.gne?format=json&tags=yunakim',
+            dataType: 'jsonp',
+            jsonpCallback: 'jsonFlickrFeed',
+            success: function (data) {
+                console.log(data);
+                let v_tbl = "<table border=1>";
+                $.each(data.items, function (i, v) {
+                    v_tbl += "<tr>";
+                    // v_tbl += "<td><a href='" + this.link + "'>" + this.title + "</a></td>";
+                    v_tbl += `<td><a href='${this.link}'>${v.title}</a></td>`;
+                    v_tbl += `<td><img src='${data.items[i].media.m}'></td>`;
+                    v_tbl += "</tr>";
+                });
+                v_tbl += "</table>";
+                $('#d1').html(v_tbl);
+            }
+        });
+
+        $.ajax({
+            url: '../20230228/sample.json',
+            dataType: 'jsonp',
+            jsonpCallback: 'myCb',
+            success: function (b) {
+                console.log(b);
+            }
+        });
+
+
+    </script>
+</body>
