@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button>공공데이터포탈 정보 가져오기</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script><body>
+<script>
+
+    $('button').on('click',function(){
+
+        $.ajax({
+    
+            url: 'https://infuser.odcloud.kr/oas/docs?namespace=3075825/v1/3075825/v1/uddi:2db4de9c-0110-4458-be9c-82b9c2c55e2c',
+            data: {
+                //decoding key
+                'serviceKey': 'QJkX7f2E2CiasJRloFlQajB95dUuUJo19v0oHaNjNUyQbpP8Zi8SBUNKqnS29ZfPge8i5dWEg0X2bUcVfLp5Yg%3D%3D',
+                'page': 1,
+                'perpage': 10,
+            },
+            success: function(rst){
+                console.log(rst);
+            },
+            error: function(xhr){
+                alert("에러발생: "+xhr.status);
+            },
+            dataType: 'json'
+        });
+    });
+</script>
+</body>
+</html>

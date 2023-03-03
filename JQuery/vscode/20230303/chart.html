@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+<style>
+div {
+  width: 400px;
+  height: 400px;
+}
+</style>
+</head>
+<body>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('myChart');
+
+let chart = new Chart(ctx, {
+    type: 'line', //bar, line, pie, radar, doughtnut 등
+    data: {
+    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+    },
+    {
+        type: 'bar', //내부에서 type지정시 bar, line만 표현가능
+        label: '# of add',
+        data: [1, 19, 3, 5, 2, 13],
+        backgroundColor: ['red','orange','yellow','green','blue','purple'],
+        borderWidth: 4
+    }]
+    },
+    options: {
+    scales: {
+        y: {
+        beginAtZero: true
+        }
+    }
+    }
+});
+
+console.log(chart.type); //red
+console.log(chart.data.datasets[1].type); //line
+console.log(chart.data.datasets[0].data[2]); //3
+
+
+
+</script>      
+</body>

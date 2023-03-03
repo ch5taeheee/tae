@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>공공데이터포탈 정보 가져오기</button>
+    <div id="disp"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <body>
+        <script>
+
+            $('button').on('click', function () {
+
+                $.ajax({
+                    //method: 'get',
+                    /* url: 'http://apis.data.go.kr/5050000/hwangridangilFoodHotPlaceService/getHwangridangilFoodHotPlace?'
+                    + 'serviceKey=QJkX7f2E2CiasJRloFlQajB95dUuUJo19v0oHaNjNUyQbpP8Zi8SBUNKqnS29ZfPge8i5dWEg0X2bUcVfLp5Yg%3D%3D'
+                    + '&numOfRows=10&pageNo=1', */
+                    url: 'http://apis.data.go.kr/5050000/hwangridangilFoodHotPlaceService/getHwangridangilFoodHotPlace?',
+                    data: {
+                        //decoding key
+                        'serviceKey': 'QJkX7f2E2CiasJRloFlQajB95dUuUJo19v0oHaNjNUyQbpP8Zi8SBUNKqnS29ZfPge8i5dWEg0X2bUcVfLp5Yg%3D%3D',
+                        'numOfRows': 10,
+                        'pageNo': 1,
+                    },
+                    success: function (rst) {
+                        // console.log(JSON.parse(rst));
+                        // let jsonObj = JSON.parse(rst);
+                        let itemArr = rst.response.body.items.item;
+                        console.log(itemArr);
+                        let str = `<h4>경상북도 경주시_황리단길 먹거리 핫플레이스</h4>`;
+                        $.each(itemArr, function () {
+                            str += `[${this.BSSH_NM}] ${this.ADRES} <br>`;
+                            $('#disp').html(str);
+                        });
+                    },
+                    error: function (xhr) {
+                        alert("에러발생: " + xhr.status);
+                    },
+                    dataType: 'json'
+                });
+            });
+        </script>
+    </body>
+
+</html>

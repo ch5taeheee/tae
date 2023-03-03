@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <button>data 및 type 업데이트</button>
+    <button>랜덤컬러 지정</button>
+    <button>ajax로 데이터 가져오기</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        let chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['캠벨얼리', '거봉', '샤인머스캣', '기타'],
+                datasets: [{
+                    type: "pie",
+                    label: '#2016',
+                    data: [61.4, 23.8, 1.9, 12.9],
+                    borderWidth: 2,
+                    backgroundColor: ['rgb(255,0,0)', 'rgb(255,255,0)', 'rgb(0,0,255)', 'rgb(255,255,255)'],
+                    borderColor: 'purple'
+                },
+                {
+                    type: "bar",
+                    label: '#2021',
+                    data: [36.6, 21.0, 31.6, 10.8],
+                    borderWidth: 1,
+                    backgroundColor: 'green',
+                    borderColor: 'green'
+                }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        let buttons = document.querySelectorAll('button');
+        let types = ['bar', 'line', 'pie', 'radar', 'doughnut']
+
+        buttons[0].addEventListener('click', function () {
+
+            //4가지 항목의 랜덤 데이터를 저장할 배열공간 생성
+            let data1 = [];
+            let data2 = [];
+            for (let i = 0; i < 4; i++) {
+                let ranVal = Math.ceil(Math.random() * 10); //1 ~ 10
+                data1.push(ranVal);
+                ranVal = Math.ceil(Math.random() * 10); //1 ~ 10
+                data2.push(ranVal);
+            }
+
+            //data 
+            // console.log(data1, "|", data2);
+            chart.data.datasets[0].data = data1;
+            chart.data.datasets[1].data = data2;
+
+            //type
+            let ranSu = Math.floor(Math.random() * types.length);
+            chart.data.datasets[0].type = types[ranSu];
+            ranSu = Math.floor(Math.random() * types.length);
+            chart.data.datasets[1].type = types[ranSu];
+
+            chart.update();  // ★update해줘야 결과 반영됨
+        });
+
+        function f_ran() {
+            return Math.floor(Math.random() * 256); //0~255
+        }
+
+        function f_bgColor() {
+            let v_colors = [];
+            let v_colorStr = "";
+            for (let i = 0; i < 4; i++) {
+                v_colorStr = `rgb(${f_ran()},${f_ran()},${f_ran()})`;
+                v_colors.push(v_colorStr);
+            }
+            return v_colors;
+        }
+
+        buttons[1].addEventListener('click', function () {
+            chart.data.datasets[0].backgroundColor = f_bgColor();
+            chart.data.datasets[1].backgroundColor = f_bgColor();
+            chart.update();
+        });
+
+        buttons[2].addEventListener('click', function () {
+            let req = new XMLHttpRequest();
+            req.open('get', './testData.json', true);
+            req.onreadystatechange = function () {
+                if (req.readyState == 4 && req.status == 200) {
+                    console.log(JSON.parse(req.responseText));
+                    f_ajax(JSON.parse(req.responseText));
+                }
+            }
+            req.send();
+
+        });
+
+        function f_ajax(p_arg) {
+            let v_label = p_arg.label;
+            let v_name = p_arg.name;
+            let v_score = p_arg.score;
+            let v_type = p_arg.type;
+
+            chart.data.labels = v_label;
+            chart.data.datasets.splice(1, 1); //차후 적용뒬 위취index를 지우지 말것
+            chart.data.datasets[0].label = v_name;
+            chart.data.datasets[0].data = v_score;
+            chart.data.datasets[0].type = v_type;
+
+            chart.update();
+
+        }
+    </script>
+</body>
+
+</html>
