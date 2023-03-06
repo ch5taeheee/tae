@@ -32,9 +32,9 @@ public class MemberServiceImpl implements IMemberService {
 	public int registMember(MemberVO mv) {
 		int cnt = memDao.insertMember(mv);
 		
-		if(cnt > 0) {
-			//메일 발송 서비스 호출
-		}
+//		if(cnt > 0) {
+//			//메일 발송 서비스 호출
+//		}
 		return cnt;
 	}
 

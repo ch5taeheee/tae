@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style>
+.ocntainer-fluid {
+	width: 40%;
+	margin-top:50px
+}
+.join{
+text-align:center;
+}
+</style>
+</head>
+<body>
+	<!-- 로그인 페이지 -->
+
+	<form method="post" action="서블릿생성 후 연결">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<input id="userId" class="form-control" name="userId">
+				</div>
+				<div class="col-xs-12">
+					<input type="password" id = "userPw" class="form-control" name="userPw">
+				</div>
+				<div class="col-xs-12">
+					<input type="submit" class="btn btn-primary col-xs-12" value="로그인(form)">
+					<!-- <input type="submit" class="btn btn-success col-xs-12" value="로그인(ajax)"> -->
+				</div>
+				<div class = "col-xs-12 join">
+				<!-- <a href="./join.jsp"> 회원가입 </a>  인위적인 페이지를 만들어 하이퍼링크로 연결하는 방식 (추천no)-->
+				<a href="/site/Login"> 회원가입 </a>
+				</div>
+			</div>
+		</div>
+	</form>
+
+
+</body>
+</html>
