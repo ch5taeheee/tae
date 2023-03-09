@@ -8,6 +8,9 @@
 // - 자바 스크립트 >> 동적으로 갯수간 늘어남(데이터 동적추가 가능), 여러 타입을 한 배열안에 사용가능
 
 let v_arr = [];
+
+//let v_arr = new Array();
+
 v_arr[0] =1;
 v_arr[1] =2;
 v_arr[2] =3;
@@ -35,8 +38,8 @@ for(let i = 10; i>0; i--) {
 console.log(v_arr3);
 
 // 기억해둬야 할 메소드 splice()
-// splice 배열을 수정하거나 삭제할 때 사용, 인덱스가 여러개 들어감.
-// splice(index, 삭제될 갯수, 추가될 요소 a, 추가b, 추가 c,...)
+ // splice 배열을 수정하거나 삭제할 때 사용, 인덱스가 여러개 들어감.
+ splice(index, 삭제될 갯수, 추가될 요소 a, 추가b, 추가 c,...)
 
 console.log("삭제 전>> " ,v_arr3); // 삭제 전
 v_arr3.splice(2,2,"true","둘리","null"); 

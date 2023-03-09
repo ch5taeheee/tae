@@ -75,13 +75,13 @@ footer {
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Projects</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a href="#">회원</a></li>
+					<li><a href="#">전용</a></li>
+					<li><a href="#">메뉴</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="./login.html"><span
-							class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<li><a href="로그아웃기능을 가진 서블릿"><span
+							class="glyphicon glyphicon-log-in"></span> Logout</a></li>
 				</ul>
 			</div>
 		</div>

@@ -1,0 +1,19 @@
+2023.03.07
+
+-이벤트 중심의 프로그램
+
+AWT 
+
+Frame f = new Frame();
+f.setVisible(true);
+f.setSize(400,500);
+
+SWING
+
+JFrame f = new JFrame();
+f.setSize(600,600);
+f.setVisible(true);
+
+help - marketplace - window builder
+
+위지위그WYSIWYG

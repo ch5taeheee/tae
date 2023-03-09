@@ -14,7 +14,7 @@ String joinCd = (String) request.getAttribute("joinCode");
 
 if (joinCd == "yes") {
 %>
-<%@ include file="./join_novalid.jsp"%>
+<%@ include file="../join_novalid.jsp"%>
 <%
 //회원가ㅣ입코드 없을 때 기존 메인페이지 보이기
 } else {
@@ -24,7 +24,7 @@ if (joinCd == "yes") {
 <div class="col-sm-8 text-left">
 	<h1>Welcome</h1>
 	<hr>
-	<p>public main page</p>
+	<p>private main page</p>
 </div>
 <%
 }
@@ -34,7 +34,6 @@ if (joinCd == "yes") {
 
 
 조인코드[<%=joinCd%>]
-조인코드[<%=session.getAttribute("loginCode")%>]
 
 <!-- nav1 -->
 <!-- nav2 -->

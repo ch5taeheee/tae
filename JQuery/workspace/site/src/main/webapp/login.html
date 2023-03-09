@@ -13,10 +13,11 @@
 <style>
 .ocntainer-fluid {
 	width: 40%;
-	margin-top:50px
+	margin-top: 50px
 }
-.join{
-text-align:center;
+
+.join {
+	text-align: center;
 }
 </style>
 </head>
@@ -30,20 +31,56 @@ text-align:center;
 					<input id="userId" class="form-control" name="userId">
 				</div>
 				<div class="col-xs-12">
-					<input type="password" id = "userPw" class="form-control" name="userPw">
+					<input type="password" id="userPw" class="form-control"
+						name="userPw">
 				</div>
 				<div class="col-xs-12">
-					<input type="submit" class="btn btn-primary col-xs-12" value="로그인(form)">
-					<!-- <input type="submit" class="btn btn-success col-xs-12" value="로그인(ajax)"> -->
+					<input type="submit" class="btn btn-primary col-xs-12"
+						value="로그인(form)"> 
+						<<!-- input type="button"
+						class="btn btn-success col-xs-12" value="로그인(ajax)" id="loginAjax"> -->
 				</div>
-				<div class = "col-xs-12 join">
-				<!-- <a href="./join.jsp"> 회원가입 </a>  인위적인 페이지를 만들어 하이퍼링크로 연결하는 방식 (추천no)-->
-				<a href="/site/Login"> 회원가입 </a>
+				<div class="col-xs-12 join">
+					<!-- <a href="./join.jsp"> 회원가입 </a>  인위적인 페이지를 만들어 하이퍼링크로 연결하는 방식 (추천no)-->
+					<a href="/site/Login"> 회원가입 </a>
 				</div>
 			</div>
 		</div>
 	</form>
 
+	<script>
+		let v_btn = document.querySelector("#loginAjax");
+		v_btn.addEventListener('click', function() {
+
+			let uId = document.querySelector("#userId").value;
+			let uPw = document.querySelector("#userPw").value;
+
+			let data = "uId = " + uId + "&userPw=" + uPw;
+
+			//js방식 ajax호출구문
+			let req = new XMLHttpRequest();
+			req.open('post', './load/jsp', 'true');
+			req.onreadystatechange = function() {
+				if (req.readyState == 4 && req.status == 200) {
+					let date = JSON.parse(req.responseText);
+
+					if (data.rst == 'ok') {
+						//location.href = "/site";
+						// WEB-INF(보안폴더) 내부 페이지로 접근 시 
+						location.href = "/site/Main"
+					}
+
+				}
+			};
+
+			//javascript로 post방식 사용시 data = content-type 반드시 저장할 것
+
+			req.setRequestHeader('content-type',
+					'application/x-www-form-urlencoded;charset=utf-8');
+			req.send(data);
+
+		});
+	</script>
 
 </body>
 </html>

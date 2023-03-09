@@ -1,0 +1,21 @@
+자바스크립트로 하는 일
+  자바처럼 따로 실행시킬 수 있으나 웹 브라우저가 있어야 실행 가능.
+ 다루기는 편하지만 일종의 디버깅하기에 어려울 수 있다. 
+
+- Form에서 만들어진 데이터 확인 및 설정하기(검증작업)
+
+- Bom 객체에 대한 이해 (window, history, location, screen, document, navigator)
+ 	location.href = "이동할 문서 URL"
+	location.reload();
+
+- Dom객체를 이용한 화면 변경하기
+  1. 요소와 컨텐츠의 추가, 수정, 삭제 등
+  2. CSS를 이용한 style 변경
+
+- 각종 이벤트에 대한 설정 및 실행
+
+- JSON 데이터 처리하기
+
+- Ajax를 이용한 비동기 통신 처리하기
+
+   
