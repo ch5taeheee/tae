@@ -34,7 +34,7 @@ if (joinCd == "yes") {
 
 
 조인코드[<%=joinCd%>]
-조인코드[<%=session.getAttribute("loginCode")%>]
+로그인코드[<%=session.getAttribute("loginCode")%>]
 
 <!-- nav1 -->
 <!-- nav2 -->
