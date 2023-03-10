@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <properties resource="db.properties"/>
+
+    <settings>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+
+    </settings>
+
+    <typeAliases>
+   	<typeAlias type="kr.or.ddit.teampro.notice.vo.noticeVO" alias = "noticeVO" />
+   	<typeAlias type="kr.or.ddit.teampro.event.vo.eventVO" alias = "eventVO"/>
+    <typeAlias type="kr.or.ddit.teampro.event_proposal.vo.EventProposalVO" alias = "eventProposalVO"/>  
+   	
+   	
+    </typeAliases>
+
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${usr}"/>
+                <property name="password" value="${pwd}"/>
+                <!-- 활성화된 최대 커넥션 수-->
+                <property name="poolMaximumActiveConnections" value="2"/>
+                <!-- 유효상태에서 최대 커넥션 수-->
+                <property name="poolMaximumIdleConnections" value="2"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+			<mapper resource="mappers/notice.xml"/>
+			<mapper resource="mappers/event.xml"/>
+			  <mapper resource ="mappers/event_Proposal.xml"/>  
+			
+			
+    </mappers>
+
+</configuration>
