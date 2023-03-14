@@ -9,25 +9,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Join.do")
+@WebServlet("/Join")
 public class Join extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    public Join() {
+        super();
+    }
 
-	public Join() {
-		super();
-	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		System.out.println(">>>>>>>>>>..");
-		
 		request.setAttribute("joinCode", "yes");
-		RequestDispatcher disp =  request.getRequestDispatcher("index.jsp");
+		RequestDispatcher disp = request.getRequestDispatcher("index.jsp");
 		disp.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 	}
 
 }

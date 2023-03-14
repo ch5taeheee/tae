@@ -1,8 +1,7 @@
 package vo;
 
 public class MemberVO {
-	
-	
+
 	private String mem_id;
 	private String mem_pass;
 	private String mem_name;
@@ -12,7 +11,6 @@ public class MemberVO {
 	private String mem_add2;
 	private String mem_hp;
 	private String mem_mail;
-	
 	
 	public String getMem_id() {
 		return mem_id;
@@ -69,13 +67,4 @@ public class MemberVO {
 		this.mem_mail = mem_mail;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

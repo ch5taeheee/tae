@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="brd">
+  
+  	<select id="countList" resultType="int">
+  		select count(*) from board
+  	</select>
+  	
+  	<select id="boardList" parameterType="map" resultType="brdVO">
+		select A.* from(
+			select ROWNUM as RNUM, B.* from(
+				select * from board
+				order by NUM DESC
+			)B
+		<![CDATA[
+			where ROWNUM <= #{end}
+		)A
+		where A.rnum >= #{start}
+		]]>
+  	</select>
+  
+  	<insert id="insertBoard" parameterType="brdVO">
+  		<selectKey keyProperty="num" resultType="int" order="BEFORE">
+  			select board_num_seq.nextval from dual
+  		</selectKey>
+  		insert into board
+  		values(
+  			#{num}
+  			,#{subject}
+  			,#{writer}
+  			,#{mail}
+  			,#{password}
+  			,#{content}
+  			,0
+  			,#{wip}
+  			,sysdate
+  		)
+  	</insert>
+  	
+  	<select id="detailInfo" parameterType="int" resultType="brdVO">
+  		select * from board
+  		where num = #{uniqueId}
+  	</select>
+  	
+  	<update id="updateHit" parameterType="int">
+  		update board
+  		set 
+  			hit = (select nvl(max(hit), 0)+1 from board where num = #{num})
+  		where num = #{num}
+  	</update>
+  	
+  	<delete id="deleteBoard" parameterType="int">
+  		delete from board where num = #{num}
+  	</delete>
+  	
+  	<update id="updateBoard" parameterType="brdVO">
+  		update board
+  		set 
+  			subject = #{subject},
+  			content = #{content},
+  			wip = #{wip},
+  			wdate = sysdate
+  		where num = #{num}
+  	</update>
+  	
+  
+  </mapper>
+  

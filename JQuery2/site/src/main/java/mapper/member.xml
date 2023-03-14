@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="mem">
+  
+  	<select id="loginChk" parameterType="map" resultType="string">
+  		select mem_id from member
+  		where mem_id = #{uId} and mem_pass = #{uPw}
+  	</select>
+  
+  
+  </mapper>
+  

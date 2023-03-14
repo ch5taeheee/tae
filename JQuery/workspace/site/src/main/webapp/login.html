@@ -3,84 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
-.ocntainer-fluid {
-	width: 40%;
-	margin-top: 50px
+.container-fluid {
+  width: 40%;
+  margin-top: 50px;
 }
-
 .join {
-	text-align: center;
+  text-align: center;
 }
 </style>
 </head>
 <body>
-	<!-- 로그인 페이지 -->
+<!-- 로그인 페이지 -->
 
-	<form method="post" action="서블릿생성 후 연결">
+	<form method="post" action="/site/Login">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-xs-12">
-					<input id="userId" class="form-control" name="userId">
-				</div>
-				<div class="col-xs-12">
-					<input type="password" id="userPw" class="form-control"
-						name="userPw">
-				</div>
-				<div class="col-xs-12">
-					<input type="submit" class="btn btn-primary col-xs-12"
-						value="로그인(form)"> 
-						<<!-- input type="button"
-						class="btn btn-success col-xs-12" value="로그인(ajax)" id="loginAjax"> -->
-				</div>
-				<div class="col-xs-12 join">
-					<!-- <a href="./join.jsp"> 회원가입 </a>  인위적인 페이지를 만들어 하이퍼링크로 연결하는 방식 (추천no)-->
-					<a href="/site/Login"> 회원가입 </a>
-				</div>
+			  <div class="col-xs-12">
+			    <input id="userId" class="form-control" name="userId">
+			  </div>
+			  <div class="col-xs-12">
+			    <input type="password" id="userPw" class="form-control" name="userPw">
+			  </div>
+			  <div class="col-xs-12">
+			    <input type="submit" class="btn btn-primary col-xs-12" value="로그인(form)">
+			    <!-- <input type="button" class="btn btn-success col-xs-12" value="로그인(ajax)"
+			    	id="loginAjax"> -->
+			  </div>
+			  <div class="col-xs-12 join">
+			  	<!-- <a href="./join.jsp">회원가입</a> --> <!-- 인위적인 페이지를 만들어 하이퍼링크로 연결하는 방식 -->
+			  	<a href="/site/Join">회원가입</a> 
+			  </div>
 			</div>
 		</div>
 	</form>
 
-	<script>
+<script>
 		let v_btn = document.querySelector("#loginAjax");
-		v_btn.addEventListener('click', function() {
-
+		v_btn.addEventListener('click',function(){
+			
 			let uId = document.querySelector("#userId").value;
 			let uPw = document.querySelector("#userPw").value;
-
-			let data = "uId = " + uId + "&userPw=" + uPw;
-
+			let data = "userId=" + uId + "&userPw=" + uPw;
+			
 			//js방식 ajax호출구문
 			let req = new XMLHttpRequest();
-			req.open('post', './load/jsp', 'true');
-			req.onreadystatechange = function() {
-				if (req.readyState == 4 && req.status == 200) {
-					let date = JSON.parse(req.responseText);
-
-					if (data.rst == 'ok') {
-						//location.href = "/site";
-						// WEB-INF(보안폴더) 내부 페이지로 접근 시 
-						location.href = "/site/Main"
+			req.open('post','./load.jsp',true);
+			req.onreadystatechange = function(){
+				if(req.readyState == 4 && req.status == 200){
+					let data = JSON.parse(req.responseText);
+					if(data.rst == 'ok'){
+// 						location.href = "/site";			
+						//WEB-INF(보안폴더) 내부 페이지로 접근시 Servlet경유
+						location.href = "/site/Main";						
 					}
-
 				}
 			};
-
-			//javascript로 post방식 사용시 data = content-type 반드시 저장할 것
-
-			req.setRequestHeader('content-type',
-					'application/x-www-form-urlencoded;charset=utf-8');
+			//javascript로 post방식 사용시 data - content-type 반드시 지정할 것
+			req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=utf-8');
 			req.send(data);
-
 		});
-	</script>
+
+
+
+</script>
 
 </body>
 </html>

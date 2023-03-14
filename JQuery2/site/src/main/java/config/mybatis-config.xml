@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  <configuration>
+  
+  <properties resource="config/db.properties" />
+  
+ <settings>
+ 	<setting name="jdbcTypeForNull" value="NULL"/>
+ 	<!-- DB 컬럼명을 낙타표기법으로 속성명과 자동 매핑 설정하기 -->
+ 	<setting name="mapUnderscoreToCamelCase" value="true"/>
+ </settings>
+  
+  <typeAliases>
+  	<typeAlias type="vo.BoardVO" alias="brdVO" />
+  </typeAliases>
+  
+  	<environments default="dev">
+  		<environment id="dev">
+  			<transactionManager type="JDBC" />
+  			<dataSource type="POOLED">
+  				<property name="driver" value="${driver}"/>
+  				<property name="url" value="${url}"/>
+  				<property name="username" value="${user}"/>
+  				<property name="password" value="${password}"/>
+  				<!-- 활성화된 최대 커넥션 수 -->
+  				<property name="poolMaximumActiveConnections" value="2"/>
+  				<!-- 유휴상태에서 최대 커넥션 수 -->
+  				<property name="poolMaximumIdleConnections" value="2"/>
+  			</dataSource>
+  		</environment>
+  		
+  	</environments>
+  
+  
+  	<mappers>
+  		<mapper resource="mapper/member.xml" />
+  		<mapper resource="mapper/board.xml" />
+  	</mappers>
+  
+  </configuration>
+  

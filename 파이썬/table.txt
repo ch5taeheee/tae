@@ -1,0 +1,28 @@
+create user python identified by python;
+grant connect,resource to python;
+
+grant dba to python;
+alter user python default role all;
+grant create table to python;
+grant unlimited tablespace to python;
+grant create session to python;
+grant create view to python;
+
+
+
+
+
+
+
+
+
+1.
+create table emp(
+    e_id varchar(10),
+    e_name varchar(20),
+    sex varchar(1),
+    addr varchar(200));
+
+2.
+
+

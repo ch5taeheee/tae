@@ -5,10 +5,6 @@ import java.util.Map;
 
 public interface IMemberDao {
 
-	
-	// 접근제한자 반호나타입 메소드명(매개변수)
-		// 로그인 검증
-		public String loginChk(Map<String,Object> map) throws SQLException;
-	
-	
+	//로그인검증
+	public String loginChk(Map<String, Object> map) throws SQLException; //요청한 위치로 예외던짐
 }
