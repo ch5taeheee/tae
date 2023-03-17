@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+	fieldset{ 	width:450px; margin: 5px auto; }
+	fieldset div { text-align : center; }
+	fieldset h2 { text-align : center; }
+	
+	table {width: 480px; margin : 5px auto;}
+	table, th, td { border:1px solid black; }
+	thead { background-color:#53C148; }
+	tbody { text-align : center; }
+	tbody tr { cursor: hand;}
+	
+	tbody tr:hover { background-color:yellow; }
+	</style>
+	
+	<script type="text/javascript">
+	function save(){
+		
+		
+		
+		
+	}
+	
+	// 오늘 날짜를 '년도4자리-월2자리-일2자리'형식으로 반환하는 함수
+	function getCurrentDay(){
+		
+	}
+	
+	
+	function view(selectedTr){
+		
+	}
+	
+	
+	</script>	
+</head>
+<body>
+<!--
+1. '작성자', '제목', '내용'을 입력한 후 '저장'버튼을
+   누르면 아래쪽 테이블에 입력한 내용과 현재 날짜가
+   각 컬럼에 맞게 추가되도록 한다.
+
+2. 날짜는 '년도4자리-월2자리-일2자리'형식으로 출력한다.
+
+3. 입력한 '내용'의 길이가 10자를 초과하면
+   앞의 10까지의 문자 뒤에 '...'을 붙여서 출력한다.
+
+4. 입력한 데이터를 테이블에 추가한 후에는 입력요소값은
+   모두 초기화한다.
+
+5. 테이블에 추가된 데이터를 클릭하면 클릭한 줄의
+   내용들이 위쪽의 입력요소에 채워지도록 한다.
+-->
+<form name="boardForm">
+<fieldset>
+	<h2>자 유 게 시 판</h2><br>
+	작성자 : <input type="text" name="writer"><br><br>
+	제 목 : <input type="text" name="title"><br><br>
+	내 용 : <br>
+	<textarea rows="15" cols="60" name="content"></textarea><br><br>
+	<div>
+		<input type="button" value="저장" onclick="save()">
+		<input type="reset" value="취소">
+	</div>
+	
+</fieldset>
+
+</form>
+
+<br><hr color="blue"><br>
+
+<table>
+<thead>
+	<tr>
+		<th>작성자</th><th>제목</th><th>내용</th><th>날짜</th>
+	</tr>
+</thead>	
+
+<tbody id="contentRows">
+
+</tbody>
+</table>
+
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
+
+
+
+
+
+
