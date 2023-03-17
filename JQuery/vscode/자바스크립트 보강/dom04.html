@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        
+        /* 
+        '버튼 추가하기' 버튼을 클릭하면
+        <input type="button" value="삭제_번호" onclick="del(this)">
+        와 같은 버튼을 아래쪽의 <div> 태그 영역 끝에 추가하고
+        추가된 버튼을 클릭하면 해당 버튼이 삭제되도록 한다.
+        */
+
+    
+        let cnt = 0; // 번호를 나타낼 변수
+        function add(){
+            cnt ++;
+            let addDiv = document.getElementById("buttonList"); // 추가할 위치의 부모 노드 구하기
+
+           // addDiv.innerHTML += "<input type ='button' value='삭제_"+cnt+"' onclick='del(this)'>";
+            
+            addDiv.innerHTML += "<input type ='button' value='삭제_"+cnt+"'>";
+            let inputArr =  addDiv.getElementsByTagName("input");
+            for(let i =0; i<inputArr.length; i++){
+                //inputArr[i].onclick
+                inputArr[i].addEventListener("click",function(){
+                    // 이벤트를 처리하는 이벤트 헨들러에서 this는 이벤트가 발생한 객체를 의미한다.
+                    this.parentNode.removeChild(this);
+                });
+            }
+
+        }
+
+        function del(btn){
+            btn.parentNode.removeChild(btn);
+
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <form>
+        <input type="button" value="버튼 추가하기" onclick="add()">
+    </form>
+    <hr color = "blue">
+    <div id = "buttonList"></div>
+</body>
+</html>

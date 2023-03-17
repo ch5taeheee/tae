@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+<body>
+    
+    <!--  DOM(Document Object Model)  
+    
+    엘리먼트(요소)
+    <시작태그 속성명 = "속성명">내용</종료태그>
+
+
+    document.getElemnetById("찾는ID속성값")
+
+    // 조건을 찾으면 배열같은 곳에 저장된다.
+    document.getElementsByTagName("찾는 태그명")
+    var 변수 = document.getElementsByClassName("찾는 class 속성 값")
+
+
+
+
+    //document.querySelector 요소 1개 // document.querySelectorAll 모든 것 
+    document.querySelector("p"); // p태그를 찾아라.
+    document.querySelectorAll(".test"); // 태그하고 관계없이 class 속성이 .test를 갖는 모든 값을 다 찾아줌.
+    document.querySelector("p,div"); //p와 div 태그를 찾아라. 합집합
+    document.querySelector("p,div#myelement,a");     
+    document.querySelectorALL("[class]"); // 모든 class를 찾아라.
+    document.querySelectorALL("[class = 'test']"); // class의 값이 test인 것을 찾아라
+    document.querySelectorALL("[class \= 'test']"); 
+    document.querySelectorALL("[class ~= 'test1']"); 
+    document.querySelectorALL("[class *= 'test1']"); 
+
+    ** 찾아내는 명령어 3가지 ** (외우기)
+    document.getElementById("찾는 ID 속성값") : 제일 많이 사용,  id속성값은 하나라 element
+
+    document.getElementsByTagName("찾는 태그명") : 태그가 여러개 와서 elements, 검색된 데이터가 배열로 저장됨 
+
+    var 변수 = document.getElementsByClassName("찾는 class 속성값") : 앞에 있는 변수가 배열 변수가 됨, 배열 개수만큼 반복처리 해줘야함 
+
+    -->
+    <P id = "myelement" class = "test1test"></P>
+    <p id = "myelement" class = "test"></p>
+    <p class = "test-tt test1"></p>
+    <div id = "myelement"></div> <!-- id라는 속성은 문서에서 하나밖에 없다고 생각을 하기 때문에 위에서부터 찾은 후 하나만 찾고 끝. -->
+
+    <p class = "test"></p>
+</body>
+</html>

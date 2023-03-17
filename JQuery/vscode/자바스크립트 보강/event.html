@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<script type = "text/javascript">
+    function insa(){
+        alert("이것은 함수로 만든 이벤트 핸들러 입니다.");
+    };
+
+    // HTML 문서의 내용이 모두 읽혀지고 DOM객체가 구성된 후 화면에 모든 내용이 나타난 후에 발생하는 이벤트이다.
+    window.onload = function(){
+        var btn2 = document.getElementById("testBtn2");
+        btn2.onclick = function(){
+            alert("스크립트를 이용한 이벤트 설정입니다... window.onload에서 설정")
+        };
+
+        var btn3 = document.getElementById("testBtn3");
+        btn3.addEventListener("click",function(){
+            alert("이것은 addEventListener() 메서드를 이용한 이벤트 설정입니다.")
+            //addEventListener() 쓸 떄는 click 앞에 on 쓰지 않으며, 괄호 안에 따옴표를 이용하여 작성한다.
+        });
+
+    };
+
+</script>
+<body>
+    <!-- 
+        이벤트 
+
+        이벤트 헨들러 => 이벤트가 발생하면 이에 상응하는 작용을 하기위해 작성된 프로그램을 말한다.
+                        (주로 함수로 구현한다.)
+
+        이벤트 설정 => 이벤트와 이벤트 핸들러를 연결하는 작업
+            방법 1 ) 태그에 직접 지정하는 방법(인라인 설정)
+                    <태그명 on 이벤트명 = "이벤트 핸들러"> 내용 </태그명>
+
+            방법 2 ) 자바스크립트 영역에서 지정하는 방법
+                    1. 객체.on 이벤트명 = function(){
+                        처리할 내용들;
+                        ...
+                        };
+                    2. 객체.addEventListener("이벤트명", 이벤트핸들러);
+
+
+
+
+     -->
+
+<form>
+    <input type="button" value="이벤트연습1" onclick="alert('안녕하세요');" >
+    <input type="button" value="이벤트연습2" onclick="insa();" >
+    <input type="button" value="이벤트연습3" id = "testBtn1">
+    <input type="button" value="이벤트연습4" id = "testBtn2">
+    <input type="button" value="이벤트연습5" id = "testBtn3">
+</form>
+
+<script type = "text/javascript">
+    function insa(){
+        alert("이것은 함수로 만든 이벤트 핸들러 입니다.");
+    };
+
+    var btn1 = document.getElementById("testBtn1");
+    btn1.onclick = function(){
+        alert("이것은 세번쨰 버튼 클릭 입니다.");
+    };
+
+</script>
+
+</body>
+</html>

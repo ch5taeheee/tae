@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+// DOM API를 이용해서 총점을 구해서 출력하시오...
+function calc(){
+
+	var trArr = document.getElementsByTagName("tr");
+
+	for(let i =1; i<trArr.length;i++){
+		var tdArr = trArr[i].getElementsByTagName("td");
+		var sum = 0; // 총점이 저장될 변수
+		for(let j = 2; j<tdArr.length-1;j++){
+			// sum += parseInt(tdArr[j].textContent); 
+			 sum += Number(tdArr[j].textContent); 
+		}
+		// tdArr[tdArr.length-1].innerHTML= sum;
+		// tdArr[tdArr.length-1].textContent = sum; 
+		   trArr[i].lastElementChild.textContent = sum;
+	}
+	
+}
+</script>
+<body>
+
+<form>
+	<input type="button" value="총점 계산하기" onclick="calc()">
+</form>
+<br><hr color="blue"><br>
+
+<table border="1">
+<tr>
+	<th>번호</th><th>이름</th><th>국어</th><th>영어</th><th>수학</th><th>총점</th>
+</tr>
+<tr>
+	<td>1</td><td>홍길동</td><td>100</td><td>95</td><td>50</td><td> </td>
+</tr>
+<tr>
+	<td>2</td><td>홍길서</td><td>80</td><td>75</td><td>70</td><td> </td>
+</tr>
+<tr>
+	<td>3</td><td>홍길남</td><td>90</td><td>85</td><td>90</td><td> </td>
+</tr>
+<tr>
+	<td>4</td><td>홍길북</td><td>80</td><td>85</td><td>80</td><td> </td>
+</tr>
+
+</table>
+</body>
+</html>

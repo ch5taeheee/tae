@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type = "text/javascript">
+
+        /* 
+            - DOM API 속성 및 메서드
+
+            - NODE의 속성
+            1. nodeType(노드의 종류) // 숫자로 나온다. 
+             (1 ==> Element, 2 ==> Attribute, 3 ==> Text
+              8 ==> Comment, 9 ==> Document)
+            
+            2. nodeName(노드의 이름)
+             (#document ==> Document, 태그이름 ==> Element, #Text ==> Text)
+
+            3. nodeValue(노드의 값)
+             (null ==> Documnet, null ==> Element, 해당문자열 ==> Text)
+
+            4. parentNode (현재 노드의 부모 노드를 나타낸다.)
+            5. childNodes (현재 노드의 자식 노드 목록을 나타낸다.)
+            6. firstChild (현재 노드의 첫번째 자식 노드)                ==> firstElementChild
+            7. lastChild (현재 노드의 마지막번째 자식 노드)             ==> lastElementChild
+            8. previousSibling (현재 노드의 바로 앞의 현재 형제 노드)   ==> previousElementChild
+            9. nextSibling (현재 노드의 바로 뒤의 형제 노드 )           ==> nextElementChild
+
+            - document 객체의 속성 및 메서드
+            1. document.documentElement ==> 문서의 루트 엘리먼트를 구한다. (HTML 문서에는 <html>태그를 말한다.)
+            2. document.body ==> HTML문서의 <body> 태그를 말한다.
+            3. document.getElementById("id값") ==> id로 엘리먼트 찾기(결과는 1개)
+            4. document.getElementsByTagName("태그명") ==> 결과가 nodeList에 담긴다.
+                                                           (nodeList는 자바스크립트에서는 배열처럼 사용한다.)
+            5. document.getElementsByClassName("class값") ==> 결과가 nodeList에 담긴다.
+            6. document.querySelector("선택자"); ==> (결과는 1개)
+            7. document.querySelectorAll("선택자") ==> 결과가 nodeList에 담긴다.
+
+            8. document.createElement("태그명") ==> '태그명'에 해당하는 엘리먼트 객체를 생성한다. 
+            9. document.createTextNode("메시지") ==> '메시지'를 문자열값으로 갖는 Text 노드를 생성한다.
+
+        
+            - Element 객체의 속성 및 메서드
+            1. E.tagName        ==> 해당 엘리먼트의 이름 즉, '태그명'을 나타낸다.
+            2. E.innerHTML      ==> 해당 엘리먼트의 내용(contents)을 HTML태그까지 읽어오거나 설정한다.
+            3. E.innerText      ==> 해당 엘리먼트의 내용 중에서 text만 읽어오거나 설정한다. (보이는 것만)
+            4. E.textContent    ==> 해당 엘리먼트의 내용 중에서 text만 읽어오거나 설정한다. (숨겨진 것도)
+                                    (HTML코드가 포함된 문자열을 설정하면 태그도 문자열로 처리하여 그대로 나타난다.)
+            
+            5. E.setAttribute("속성명", "속성값")
+                ==> 해당 엘리먼트에 '속성명'에 해당하는 속성에 '속성값'을 설정한다.
+            6. E.getAttribute("속성명")
+                ==> 해당 엘리먼트의 '속성명'에 설정된 속성값을 읽어온다. 
+            7. E.removeAttribute("속성명")
+                ==> 해당 엘리먼트의 속성들 중에서 '속성명'에 해당하는 속성을 삭제한다. 
+
+            8. E.appendChild(새로운 노드)
+                ==> 현재 노드의 마지막 위치의 자식노드 자리에 '새로운 노드'를 추가한다. 
+            9. E.insertBefore(새로운 노드, 기준노드)
+                ==> 현재 노드의 자식 노드인 '기준 노드'의 앞 쪽에 새로운 노드를 추가한다. 
+            10. E.replaceChild(새로운 노드, 이전 노드)
+                ==> 현재 노드의 자식 노드인 '이전 노드'를 '새로운 노드'로 교체한다.
+            11. E.removeChihld(삭제할 노드)
+                ==> 현재 노드의 자식 노드 중 '삭제할 노드'를 삭제한다. 
+
+
+        */
+
+
+        function view(){
+
+            var body = document.body;   //body 엘리먼트 찾기
+            //alert(body.nodeType);//1
+            // alert(body.nodeName); //body
+            //alert(body.nodeValue); //null
+            // alert(body.firstChild.nodeType) //3 ; body와 div 사이에 공백이 있기 때문에 3이 나온다.
+            // alert(body.firstElementChild.tagName) // div
+
+            var myDiv = document.getElementById("testId");
+            // alert(myDiv.innerHTML); //두번째 <span>div</span>
+            // alert(myDiv.innerText); // 두번째
+            // alert(myDiv.textContent); // 두번째 div
+
+            var oddList = document.getElementsByClassName("odd");
+                let str = "";
+                for(let i = 0; i<oddList.length; i++){
+                    //str += oddList[i].innerHTML + "\n"; 
+                    str += oddList[i].textContent + "\n"; 
+                }
+                alert(str);
+
+
+        }
+
+        function add1() {
+            // <img src = "../image/한소희1.jpg">
+            var myImg = document.createElement("img"); // <img> 태그 생성
+
+            //<img> 태그에 'src' 속성을 만들고 그 속성값을 설정한다.
+            myImg.setAttribute("src", "../images/한소희1.jpg")
+            
+            // <Img> 태그가 나타날 부모 노드 찾기.
+            //var conDiv = document.getElementById("ontainer");
+            var conDiv = document.querySelector("#container");
+            
+            // 찾은 부모 노드의 자식 중에 맨 마지막 위치에 추가하기.
+            conDiv.appendChild(myImg);
+
+
+
+        }
+
+        function add2(){
+            // 추가할 태그 ==> <a href = "https://www.daum.net">Daum사이트 가기</a>
+
+            // 1. <a>태그
+            var aTag = document.createElement("a");
+
+            // 2. <a>태그의 내용에 들어갈 Text 노트 생성 
+            var aCont = document.createTextNode("Daum사이트 바로가기");
+
+            // 3. <a> 태그에 만들어진 내용 추가하기
+            aTag.appendChild(aCont);
+
+            // 4. <a> 태그에 속성 설정
+            aTag.setAttribute("href","https://www.daum.net")
+
+            // 5. 부모 노드 찾기
+            var contDiv = document.getElementById("container");
+
+            // 6. 기준 노드 찾기
+            var testDiv = document.querySelector("#test");
+
+            // 7. 추가 작업
+            // contDiv.insertBefore(aTag, testDiv);
+            contDiv.replaceChild(aTag, testDiv);
+
+        }
+        // 가장 간단한 방법
+        function add3() {
+            // 추가할 내용 ==> <h2>안녕하세요</h2>
+
+            // 1. 추가할 대상의 부모 노드 찾기
+            var conDiv = document.getElementById("container");
+
+            // 2. innerHTML을 이용한 추가 작업
+            // conDiv.innerHTML = "<h2> 안녕하세요 </h2>"; // =을 대입하면 내용이 덮어씌워짐. 
+            //conDiv.innerHTML += "<h2> 안녕하세요 </h2>"; // 끝에 추가.
+            //conDiv.innerHTML = "<h2> 안녕하세요 </h2>" +  conDiv.innerHTML; // 앞쪽에 추가.
+
+            // + 더 쉬운 방법?
+            conDiv.insertAdjacentHTML("beforebegin","<h2> beforebegin </h2>");
+           // conDiv.insertAdjacentHTML("afterbegin","<h2> afterbegin </h2>");
+           // conDiv.insertAdjacentHTML("beforeend","<h2> beforeend </h2>");
+           // conDiv.insertAdjacentHTML("aftereend","<h2> aftereend </h2>");
+
+           // innerHTML 과 insertAdjacentHTML 차이점 : 
+            /* innnerHTML은 파싱을 할 때 포함된 모든 것을 파싱함. 
+               insertAdjacentHTML은 새로 추가된 것만 파싱해서 그 자리에 놓음. 효율적. 속도 빠름. */
+        }
+
+
+
+
+
+
+        function del() {
+            // 삭제할 내용 ==> <div id = "test"> 연습용 </div>
+
+            //삭제할 엘리먼트 찾기
+            var delDiv = document.querySelector("#test"); // 찾았을 떄 없으면 NULL이 들어감. F12창에
+
+            if(delDiv!= null) {
+                delDiv.parentNode.removeChild(delDiv);
+            } else {
+                alert("삭제할 대상이 없습니다.")
+            }
+
+            //부모.removeChild(자식) // 자식이 삭제되는 것.
+            //delDiv.parentNode.removeChild(delDiv);
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+    </script>
+
+    <style type="text/css">
+        #container{
+            border : 1px solid blue; padding: 10px 
+        }
+        
+        
+        #container div { border : 1px solid black; margin: 10px }
+
+    </style>
+</head>
+
+
+<body>
+    <div class = "odd">첫번째 div</div>
+    <div id = "testId">두번째 <span style = "display: none">div</span></div>
+    <div class = "odd">세번째 div</div>
+    <div>네번째 div</div>
+    <div class = "odd">다섯번째 div</div>
+
+    <br><hr color="red"><br>
+    <form>
+        <input type="button" value="확인" onclick="view()">
+        <input type="button" value="추가" onclick="add1()">
+        <input type="button" value="추가2" onclick="add2()">
+        <input type="button" value="추가3" onclick="add3()">
+        <input type="button" value="삭제" onclick="del()">
+    </form>
+
+    <br><hr color="red"><br>
+
+    <div id = "container">
+        <div> 연습용 111111111111111111111 </div>
+        <div id = "test"> 연습용 </div>
+        <div> 연습용 222222222222222222222 </div>
+
+
+    </div>
+</body>
+</html>

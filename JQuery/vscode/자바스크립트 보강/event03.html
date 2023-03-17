@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: yellow;
+            padding: 20px;
+        }
+
+        span {
+            padding: 50px;
+            background-color: blue;
+        }
+    </style>
+    <script>
+        // 이벤트가 발생하면 발생한 이벤트는 현재 엘리먼트에서 상위 엘리먼트로 자동으로 전달된다. 
+        //      ==> 이런 현상을 '버블링'이라고 한다.
+
+        window.onload = function () {
+            document.getElementById("myDiv").onclick = function (e) {
+                e.stopPropagation();
+                // e.target => 이벤트가 처음 발생한 객체
+                // e.currentTarget => 현재 처리되는 이벤트 헨들러가 설정된 객체
+
+                alert("div영역 클릭~~" + e.target.tagName);
+                alert("div영역 클릭~~" + e.currentTarget.tagName);
+            }
+
+            document.getElementById("mySpan").onclick = function (e) {
+                e.stopPropagation();
+                alert("span영역 클릭~~" + e.target.tagName);
+                alert("span영역 클릭~~" + e.currentTarget.tagName);
+            }
+            document.getElementById("btn").onclick = function (e) {
+                e.stopPropagation(); // => 버블링을 멈춘다. 
+                alert("button 영역 클릭~~" + e.target.tagName);
+                alert("button 영역 클릭~~" + e.currentTarget.tagName);
+            }
+
+            document.getElementById("myAnchor").onclick =function(e){
+                 e.preventDefault(); // 어떤 이벤트에 대한 기본 동작을 멈추게 한다.
+                alert("이동할 사이트의 URL 주소 : " + this.getAttribute("href"));
+
+            }
+
+        }
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <div id="myDiv">
+        <span id="mySpan">
+            <input type="button" value="조태희면 클릭하세요." id="btn">
+        </span>
+    </div>
+    <hr color="red">
+
+    <a href="https://www.daum.net" id="myAnchor">Daum 사이트 가기</a>
+
+
+</body>
+
+</html>
