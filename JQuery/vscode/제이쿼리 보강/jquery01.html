@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script type="text/Javascript" src="../js/jquery-3.6.3.min.js"></script>
+    <script type="text/Javascript">
+    /*
+     window.onload = function(){
+        let h3TagArr = document.getElementsByTagName("h3");
+        alert(h3TagArr[0].innerHTML);
+    }
+
+    */
+    /* document.addEventListener("DOMContentLoaded", function(){
+    let h3TagArr = document.getElementsByTagName("h3");
+    alert(h3TagArr[0].innerHTML);
+
+    }); */
+
+    //jQuery(document).ready(function(){
+    $(function(){
+    //     let h3TagArr = document.getElementsByTagName("h3");
+    // alert(h3TagArr[0].innerHTML);
+    // alert(h3TagArr[0].innerText);
+    // alert(h3TagArr[0].textContent);
+
+    //alert($("h3").html()); // 셀렉터에 의해 찾은 첫번째 것을 가져옴
+   //alert($("h3").text()); // 1~3개의 문자를 다 뽑아냄.
+
+ /*   let h3TagArr = document.getElementsByTagName("h3");
+   for(let i = 0; i<h3TagArr.length; i++){
+    h3TagArr[i].style.backgroundColor = "blue"; // 자바스크립트에서 지정하고 싶으면 -를 다 지우고 그 다음 문자를 대문자로 바꾸면 사용가능하다.
+    // h3TagArr[i].style.["background-Color"]=pink // - 쓰고 싶으면 ㅇㅇ
+    h3TagArr[i].style.color = "blue";
+}
+ */
+    // $("h3").css("backgroundColor","yellow");
+    // $("h3").css("color","red");
+    //메서드 체이닝
+   // $("h3").css("backgroundColor","yellow").css("color","red");  
+
+//    let h3TagArr = document.getElementsByTagName("h3");
+//    $(h3TagArr).css("backgroundColor","yellow").css("color","red"); 
+
+// $("#test2 h3").css("backgroundColor","yellow").css("color","red");  
+//$("#test1 + * > h3").css("backgroundColor","yellow").css("color","red");  
+    $("h3","#test2").css("backgroundColor","yellow").css("color","red");  
+    // test2 자손 중에 h3을 찾아라. 엘리멘트 객체가 test2자리에 들어갈 수 있따. 
+    let h3TagArr = $("h3").get(); // get에서 꺼내온 것들은 제이쿼리가 아닌 엘리먼트이다.
+    //jquery객체가 가지고 있는 모든 엘리먼트 객체를 배열 형태로 반환
+    //document.getElementsByTagName("h3");와 결과가 같다.
+
+    // for(let i = 0; i<h3TagArr.length; i++){
+    //         // h3TagArr[i].style.backgroundColor = "blue"; // 자바스크립트에서 지정하고 싶으면 -를 다 지우고 그 다음 문자를 대문자로 바꾸면 사용가능하다.
+    //         // h3TagArr[i].style.["background-Color"]="pink"; 
+    //         // h3TagArr[i].style.color = "blue";
+    //         $(h3TagArr[i]).css("backgroundColor","yellow");
+
+    //     };
+
+    // index 번째 자료 1개 반환
+    //$("h3").get(3); // == $("h3")[index] 인덱스가 3번인가 (4번째 거 하나)
+    // $("h3").get(3).style["background-color"]="pink";
+    // $($("h3")[5]).css("color","white") //제이쿼리 인덱스 5번째 뽑은 것이 엘리먼트이니까 이걸 다시 제이쿼리 객체로 만드는. 
+    
+        //$("html코드")
+    $("<div class = 'test' onclick = 'myfunc()'>클릭하세요</div>").appendTo("body");
+
+      // $("html코드", properties)
+      $("<div />",{
+      class : "test2",
+      click : function(){
+         alert("두번째 방법 클릭 완료!!");
+         },
+      text : "클릭하세요2"
+   }).appendTo("body");
+   
+});
+
+
+    function myfunc() {
+        alert("클릭하셨네요...");
+    }
+
+</script>
+</head>
+
+<body>
+
+    <div id="test1">
+
+        <h3>안녕하세요 jquery<br>시작입니다1. </h3>
+        <h3>안녕하세요 jquery<br> 시작입니다2. </h3>
+        <h3>안녕하세요 jquery<br> 시작입니다3. </h3>
+    </div>
+
+    <div id="test2">
+
+        <h3>안녕하세요 test2-1<br>시작입니다1. </h3>
+        <h3>안녕하세요 test2-2<br> 시작입니다2. </h3>
+        <h3>안녕하세요 test2-3<br> 시작입니다3. </h3>
+    </div>
+
+</body>
+
+</html>
